@@ -27,13 +27,7 @@
 	}
 
 LoadHandler::LoadHandler()
- : attachedPdfMissing(false),
-   removePdfBackgroundFlag(false),
-   pdfReplacementAttach(false),
-   pdfFilenameParsed(false),
-   pos(PARSER_POS_NOT_STARTED),
-   fileVersion(0),
-   minimalFileVersion(0),
+ : 
    zipFp(NULL),
    zipContentFile(NULL),
    gzFp(NULL),
@@ -45,7 +39,7 @@ LoadHandler::LoadHandler()
    attributeNames(NULL),
    attributeValues(NULL),
    elementName(NULL),
-   loadedTimeStamp(0),
+   
    doc(&dHanlder)
 {
 	XOJ_INIT_TYPE(LoadHandler);

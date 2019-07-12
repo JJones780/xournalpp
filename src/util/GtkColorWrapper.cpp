@@ -1,6 +1,6 @@
 #include "GtkColorWrapper.h"
 
-GtkColorWrapper::GtkColorWrapper() : red(0), green(0), blue(0)
+GtkColorWrapper::GtkColorWrapper()  
 {
 	XOJ_INIT_TYPE(GtkColorWrapper);
 }

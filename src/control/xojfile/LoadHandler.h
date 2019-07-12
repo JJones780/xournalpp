@@ -105,21 +105,21 @@ private:
 
 	string lastError;
 	string pdfMissing;
-	bool attachedPdfMissing;
+	bool attachedPdfMissing{false};
 
-	bool removePdfBackgroundFlag;
+	bool removePdfBackgroundFlag{false};
 	string pdfReplacementFilename;
-	bool pdfReplacementAttach;
+	bool pdfReplacementAttach{false};
 
 	string filename;
 
-	bool pdfFilenameParsed;
+	bool pdfFilenameParsed{false};
 
-	ParserPosition pos;
+	ParserPosition pos{PARSER_POS_NOT_STARTED};
 
 	string creator;
-	int fileVersion;
-	int minimalFileVersion;
+	int fileVersion{0};
+	int minimalFileVersion{0};
 
 	zip_t* zipFp;
 	zip_file_t* zipContentFile;
@@ -145,7 +145,7 @@ private:
 	const gchar** attributeValues;
 	const gchar* elementName;
 
-	int loadedTimeStamp;
+	int loadedTimeStamp{0};
 	string loadedFilename;
 
 	DocumentHandler dHanlder;

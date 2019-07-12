@@ -39,9 +39,9 @@ public:
 	/**
 	 * Color values, 0-65535
 	 */
-	guint16 red;
-	guint16 green;
-	guint16 blue;
+	guint16 red{0};
+	guint16 green{0};
+	guint16 blue{0};
 
 private:
 	XOJ_TYPE_ATTRIB;

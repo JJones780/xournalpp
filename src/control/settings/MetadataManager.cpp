@@ -15,10 +15,8 @@
 using namespace std;
 
 MetadataEntry::MetadataEntry()
- : valid(false),
-   zoom(1),
-   page(0),
-   time(0)
+ 
+   
 {
 }
 

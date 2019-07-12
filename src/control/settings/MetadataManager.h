@@ -20,11 +20,11 @@ public:
 
 public:
 	string metadataFile;
-	bool valid;
+	bool valid{false};
 	string path;
-	double zoom;
-	int page;
-	gint64 time;
+	double zoom{1};
+	int page{0};
+	gint64 time{0};
 };
 
 class MetadataManager

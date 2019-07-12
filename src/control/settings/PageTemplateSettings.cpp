@@ -7,11 +7,8 @@
 using std::stringstream;
 
 PageTemplateSettings::PageTemplateSettings()
- : copyLastPageSettings(true),
-   copyLastPageSize(false),
-   pageWidth(595.275591),
-   pageHeight(841.889764),
-   backgroundColor(0xffffff)
+ 
+   
 {
 	XOJ_INIT_TYPE(PageTemplateSettings);
 

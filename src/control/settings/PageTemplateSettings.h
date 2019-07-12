@@ -60,20 +60,20 @@ private:
 	/**
 	 * Copy the settings from the last page
 	 */
-	bool copyLastPageSettings;
+	bool copyLastPageSettings{true};
 
 	/**
 	 * Copy the last page size
 	 */
-	bool copyLastPageSize;
+	bool copyLastPageSize{false};
 
-	double pageWidth;
-	double pageHeight;
+	double pageWidth{595.275591};
+	double pageHeight{841.889764};
 
 	/**
 	 * Background color in RGB
 	 */
-	int backgroundColor;
+	int backgroundColor{0xffffff};
 
 	/**
 	 * Background type
