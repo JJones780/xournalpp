@@ -35,7 +35,7 @@ struct _GtkXojIntTxtClass
 	GtkWidgetClass parent_class;
 };
 
-GType gtk_xoj_int_txt_get_type(void);
+GType gtk_xoj_int_txt_get_type();
 GtkWidget* gtk_xoj_int_txt_new(TextEditor* te);
 
 G_DEFINE_TYPE(GtkXojIntTxt, gtk_xoj_int_txt, GTK_TYPE_WIDGET)
