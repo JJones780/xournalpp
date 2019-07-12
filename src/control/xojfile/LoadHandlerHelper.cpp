@@ -87,11 +87,11 @@ bool LoadHandlerHelper::parseColor(const char* text, int& color, LoadHandler* lo
 	}
 	else
 	{
-		for (int i = 0; i < COLOR_COUNT; i++)
+		for (auto & i : PREDEFINED_COLORS)
 		{
-			if (!strcmp(text, PREDEFINED_COLORS[i].name))
+			if (!strcmp(text, i.name))
 			{
-				color = PREDEFINED_COLORS[i].rgb;
+				color = i.rgb;
 				return true;
 			}
 		}

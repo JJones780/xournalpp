@@ -551,10 +551,9 @@ void Document::operator=(Document& doc)
 	this->pdfFilename = doc.pdfFilename;
 	this->filename = doc.filename;
 
-	for (unsigned int i = 0; i < doc.pages.size(); i++)
+	for (auto p : doc.pages)
 	{
-		PageRef p = doc.pages[i];
-		addPage(p);
+			addPage(p);
 	}
 
 	buildContentsModel();

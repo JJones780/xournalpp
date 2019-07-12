@@ -97,9 +97,9 @@ void SelectBackgroundColorDialog::storeLastUsedValuesInSettings()
 	GdkRGBA newColor;
 	Util::apply_rgb_togdkrgba(newColor, this->selected);
 
-	for (int i = 0; i < LAST_BACKGROUND_COLOR_COUNT; i++)
+	for (auto & lastBackgroundColor : lastBackgroundColors)
 	{
-		if (gdk_rgba_equal(&lastBackgroundColors[i], &newColor))
+		if (gdk_rgba_equal(&lastBackgroundColor, &newColor))
 		{
 			// The new color is already in the list, do not save
 			return;

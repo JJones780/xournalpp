@@ -67,9 +67,9 @@ bool GroupUndoAction::redo(Control* control)
 	XOJ_CHECK_TYPE(GroupUndoAction);
 
 	bool result = true;
-	for (size_t i = 0; i < actions.size(); i++)
+	for (auto & action : actions)
 	{
-		result = result && actions[i]->redo(control);
+		result = result && action->redo(control);
 	}
 
 	return result;

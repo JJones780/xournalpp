@@ -138,11 +138,9 @@ void PlaceholderString::process()
 	string formatString;
 
 	// Should work, also for UTF-8
-	for (int i = 0; i < (int)text.length(); i++)
+	for (char c : text)
 	{
-		char c = text.at(i);
-
-		if (c == '{') {
+			if (c == '{') {
 			closeBacket = false;
 			if (openBracket)
 			{

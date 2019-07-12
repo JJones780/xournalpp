@@ -30,10 +30,10 @@ Settings::~Settings()
 {
 	XOJ_CHECK_TYPE(Settings);
 
-	for (int i = 0; i < BUTTON_COUNT; i++)
+	for (auto & i : this->buttonConfig)
 	{
-		delete this->buttonConfig[i];
-		this->buttonConfig[i] = NULL;
+		delete i;
+		i = NULL;
 	}
 
 	XOJ_RELEASE_TYPE(Settings);

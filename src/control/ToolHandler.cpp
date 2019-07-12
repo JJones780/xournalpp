@@ -27,9 +27,9 @@ void ToolHandler::initTools()
 
 	Tool* t = NULL;
 
-	for (int i = 0; i < TOOL_COUNT; i++)
+	for (auto & tool : tools)
 	{
-		tools[i] = NULL;
+		tool = NULL;
 	}
 
 	double* thickness = new double[5];
@@ -115,10 +115,10 @@ ToolHandler::~ToolHandler()
 {
 	XOJ_CHECK_TYPE(ToolHandler);
 
-	for (int i = 0; i < TOOL_COUNT; i++)
+	for (auto & tool : tools)
 	{
-		delete tools[i];
-		tools[i] = NULL;
+		delete tool;
+		tool = NULL;
 	}
 
 	// Do not delete settings!

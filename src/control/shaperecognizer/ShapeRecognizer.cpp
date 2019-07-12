@@ -34,9 +34,9 @@ void ShapeRecognizer::resetRecognizer()
 
 	RDEBUG("reset");
 
-	for (int i = 0; i < MAX_POLYGON_SIDES + 1; i++)
+	for (auto & i : this->queue)
 	{
-		this->queue[i].stroke = NULL;
+		i.stroke = NULL;
 	}
 
 	this->queueLength = 0;
