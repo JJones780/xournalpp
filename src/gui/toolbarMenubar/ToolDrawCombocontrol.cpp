@@ -6,10 +6,12 @@
 #include <config.h>
 #include <i18n.h>
 
+#include <utility>
+
 class ToolDrawType {
 public:
 	ToolDrawType(string name, string icon, ActionType type)
-	 : name(name), icon(icon), type(type)
+	 : name(std::move(name)), icon(std::move(icon)), type(type)
 	{
 	}
 

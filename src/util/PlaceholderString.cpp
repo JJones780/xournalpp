@@ -2,6 +2,8 @@
 
 #include <glib.h>
 
+#include <utility>
+
 /**
  * Base class for Formatting
  */
@@ -21,7 +23,7 @@ public:
 class PlaceholderElementString : public PlaceholderElement{
 public:
 	PlaceholderElementString(string text)
-	 : text(text)
+	 : text(std::move(text))
 	{
 	}
 
@@ -61,7 +63,7 @@ private:
 ///////////////////////////////////////////////////////////////////////////////
 
 PlaceholderString::PlaceholderString(string text)
- : text(text)
+ : text(std::move(text))
 {
 }
 

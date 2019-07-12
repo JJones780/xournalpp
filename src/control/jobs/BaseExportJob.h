@@ -16,6 +16,8 @@
 #include <PathUtil.h>
 #include <XournalType.h>
 
+#include <utility>
+
 class Control;
 
 class BaseExportJob : public BlockingJob
@@ -60,7 +62,7 @@ protected:
 		bool withoutBackground;
 
 		ExportType(string ext, bool hideBg)
-		 : extension(ext),
+		 : extension(std::move(ext)),
 		   withoutBackground(hideBg)
 		{
 		}

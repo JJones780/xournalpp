@@ -1,8 +1,10 @@
 #include "XojColor.h"
 
+#include <utility>
+
 XojColor::XojColor(int color, string name)
  : color(color),
-   name(name)
+   name(std::move(name))
 {
 	XOJ_INIT_TYPE(XojColor);
 }

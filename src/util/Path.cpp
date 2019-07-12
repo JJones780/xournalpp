@@ -3,6 +3,7 @@
 
 #include <glib/gstdio.h>
 #include <cstring>
+#include <utility>
 
 Path::Path()
 {
@@ -14,7 +15,7 @@ Path::Path(const Path& other)
 }
 
 Path::Path(string path)
- : path(path)
+ : path(std::move(path))
 {
 }
 

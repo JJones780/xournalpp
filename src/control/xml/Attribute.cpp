@@ -1,7 +1,9 @@
 #include "Attribute.h"
 
+#include <utility>
+
 XMLAttribute::XMLAttribute(string name)
- : name(name)
+ : name(std::move(name))
 {
 	XOJ_INIT_TYPE(XMLAttribute);
 }

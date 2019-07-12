@@ -1,8 +1,10 @@
 #include "TouchDisableCustom.h"
 
+#include <utility>
+
 TouchDisableCustom::TouchDisableCustom(string enableCommand, string disableCommand)
- : enableCommand(enableCommand),
-   disableCommand(disableCommand)
+ : enableCommand(std::move(enableCommand)),
+   disableCommand(std::move(disableCommand))
 {
 	XOJ_INIT_TYPE(TouchDisableCustom);
 }

@@ -9,11 +9,13 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include <utility>
+
 
 class CallbackUiData {
 public:
 	CallbackUiData(std::function<void()> callback)
-	 : callback(callback)
+	 : callback(std::move(callback))
 	{
 	}
 	std::function<void()> callback;

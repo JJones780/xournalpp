@@ -1,5 +1,7 @@
 #include "PdfElementView.h"
 
+#include <utility>
+
 #include "PdfPagesDialog.h"
 
 #include "pdf/base/XojPdfPage.h"
@@ -7,7 +9,7 @@
 
 PdfElementView::PdfElementView(int id, XojPdfPageSPtr page, PdfPagesDialog* dlg)
  : BaseElementView(id, dlg),
-   page(page)
+   page(std::move(page))
 {
 	XOJ_INIT_TYPE(PdfElementView);
 }

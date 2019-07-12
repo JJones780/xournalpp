@@ -1,12 +1,14 @@
 #include "PageType.h"
 
+#include <utility>
+
 PageType::PageType()
 {
 	XOJ_INIT_TYPE(PageType);
 }
 
 PageType::PageType(string format)
- : format(format)
+ : format(std::move(format))
 {
 	XOJ_INIT_TYPE(PageType);
 }

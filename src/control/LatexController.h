@@ -24,6 +24,7 @@
 #include <poppler.h>
 
 #include <memory>
+#include <utility>
 
 class Control;
 class TexImage;
@@ -56,7 +57,7 @@ private:
 	 */
 	class FindDependencyStatus {
 	public:
-		FindDependencyStatus(bool success, string errorMsg) : success(success), errorMsg(errorMsg) {};
+		FindDependencyStatus(bool success, string errorMsg) : success(success), errorMsg(std::move(errorMsg)) {};
 		bool success;
 		string errorMsg;
 	};

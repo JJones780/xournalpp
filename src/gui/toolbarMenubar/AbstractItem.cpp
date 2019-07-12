@@ -1,8 +1,10 @@
 #include "AbstractItem.h"
 
+#include <utility>
+
 AbstractItem::AbstractItem(string id, ActionHandler* handler, ActionType action, GtkWidget* menuitem)
  : action(action),
-   id(id),
+   id(std::move(id)),
    handler(handler)
 {
 	XOJ_INIT_TYPE(AbstractItem);

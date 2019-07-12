@@ -1,9 +1,11 @@
 #include "TextAttribute.h"
 #include <StringUtils.h>
 
+#include <utility>
+
 TextAttribute::TextAttribute(string name, string value)
  : XMLAttribute(name),
-   value(value)
+   value(std::move(value))
 {
 	XOJ_INIT_TYPE(TextAttribute);
 }
