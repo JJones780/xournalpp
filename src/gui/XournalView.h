@@ -39,7 +39,7 @@ class XournalView : public DocumentListener, public ZoomListener
 {
 public:
 	XournalView(GtkWidget* parent, Control* control, ScrollHandling* scrollHandling, ZoomGesture* zoomGesture);
-	virtual ~XournalView();
+	~XournalView() override;
 
 public:
 	void zoomIn();
@@ -132,16 +132,16 @@ public:
 
 public:
 	// ZoomListener interface
-	void zoomChanged();
+	void zoomChanged() override;
 
 public:
 	// DocumentListener interface
-	void pageSelected(size_t page);
-	void pageSizeChanged(size_t page);
-	void pageChanged(size_t page);
-	void pageInserted(size_t page);
-	void pageDeleted(size_t page);
-	void documentChanged(DocumentChangeType type);
+	void pageSelected(size_t page) override;
+	void pageSizeChanged(size_t page) override;
+	void pageChanged(size_t page) override;
+	void pageInserted(size_t page) override;
+	void pageDeleted(size_t page) override;
+	void documentChanged(DocumentChangeType type) override;
 
 public:
 	bool onKeyPressEvent(GdkEventKey* event);

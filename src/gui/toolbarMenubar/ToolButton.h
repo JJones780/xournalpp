@@ -22,7 +22,7 @@ public:
 	ToolButton(ActionHandler* handler, string id, ActionType type, ActionGroup group,
 			   bool toolToggleOnlyEnable, string iconName, string description, GtkWidget* menuitem = nullptr);
 
-	virtual ~ToolButton();
+	~ToolButton() override;
 
 public:
 	/**
@@ -35,13 +35,13 @@ public:
 	GtkWidget* registerPopupMenuEntry(string name, string iconName = "");
 
 	void updateDescription(string description);
-	virtual string getToolDisplayName();
+	string getToolDisplayName() override;
 	void setActive(bool active);
 
 protected:
-	virtual GtkToolItem* newItem();
+	GtkToolItem* newItem() override;
 
-	virtual GtkWidget* getNewToolIcon();
+	GtkWidget* getNewToolIcon() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

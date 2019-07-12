@@ -24,13 +24,13 @@ class NewGtkInputDevice : public AbstractInputDevice
 {
 public:
 	NewGtkInputDevice(GtkWidget* widget, XournalView* view, ScrollHandling* scrollHandling);
-	virtual ~NewGtkInputDevice();
+	~NewGtkInputDevice() override;
 
 public:
 	/**
 	 * Initialize the input handling, set input events
 	 */
-	void initWidget();
+	void initWidget() override;
 
 	/**
 	 * Focus the widget

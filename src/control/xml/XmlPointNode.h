@@ -18,7 +18,7 @@ class XmlPointNode : public XmlAudioNode
 {
 public:
 	XmlPointNode(const char* tag);
-	virtual ~XmlPointNode();
+	~XmlPointNode() override;
 
 private:
 	XmlPointNode(const XmlPointNode& node) = delete;
@@ -26,7 +26,7 @@ private:
 
 public:
 	void addPoint(const Point* point);
-	virtual void writeOut(OutputStream* out);
+	void writeOut(OutputStream* out) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

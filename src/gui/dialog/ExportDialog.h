@@ -20,10 +20,10 @@ class ExportDialog : public GladeGui
 {
 public:
 	ExportDialog(GladeSearchpath* gladeSearchPath);
-	virtual ~ExportDialog();
+	~ExportDialog() override;
 
 public:
-	virtual void show(GtkWindow* parent);
+	void show(GtkWindow* parent) override;
 	void removeDpiSelection();
 	void initPages(int current, int count);
 	int getPngDpi();

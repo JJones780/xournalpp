@@ -20,11 +20,11 @@ class TouchDisableCustom : public TouchDisableInterface
 {
 public:
 	TouchDisableCustom(string enableCommand, string disableCommand);
-	virtual ~TouchDisableCustom();
+	~TouchDisableCustom() override;
 
 public:
-	virtual void enableTouch();
-	virtual void disableTouch();
+	void enableTouch() override;
+	void disableTouch() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

@@ -23,28 +23,28 @@ class ColorToolItem : public AbstractToolItem
 public:
 	ColorToolItem(ActionHandler* handler, ToolHandler* toolHandler, GtkWindow* parent, int color,
 			bool selektor = false);
-	virtual ~ColorToolItem();
+	~ColorToolItem() override;
 
 public:
-	virtual void actionSelected(ActionGroup group, ActionType action);
+	void actionSelected(ActionGroup group, ActionType action) override;
 	void enableColor(int color);
 	bool colorEqualsMoreOreLess(int color);
-	virtual void activated(GdkEvent* event, GtkMenuItem* menuitem, GtkToolButton* toolbutton);
+	void activated(GdkEvent* event, GtkMenuItem* menuitem, GtkToolButton* toolbutton) override;
 
-	virtual string getToolDisplayName();
-	virtual GtkWidget* getNewToolIcon();
+	string getToolDisplayName() override;
+	GtkWidget* getNewToolIcon() override;
 
-	virtual string getId();
+	string getId() override;
 
 	int getColor();
 
 	/**
 	 * Enable / Disable the tool item
 	 */
-	virtual void enable(bool enabled);
+	void enable(bool enabled) override;
 
 protected:
-	virtual GtkToolItem* newItem();
+	GtkToolItem* newItem() override;
 	void updateName();
 	bool isSelector();
 

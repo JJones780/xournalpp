@@ -18,7 +18,7 @@ class XmlAudioNode : public XmlNode
 {
 public:
 	XmlAudioNode(const char* tag);
-	virtual ~XmlAudioNode();
+	~XmlAudioNode() override;
 
 private:
 	XmlAudioNode(const XmlAudioNode& node) = delete;

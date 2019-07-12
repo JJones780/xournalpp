@@ -22,13 +22,13 @@ class PageBackgroundChangedUndoAction : public UndoAction
 public:
 	PageBackgroundChangedUndoAction(PageRef page, PageType origType, int origPdfPage,
 									BackgroundImage origBackgroundImage, double origW, double origH);
-	virtual ~PageBackgroundChangedUndoAction();
+	~PageBackgroundChangedUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
 
-	virtual string getText();
+	string getText() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

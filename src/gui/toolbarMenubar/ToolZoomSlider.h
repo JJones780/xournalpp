@@ -24,7 +24,7 @@ class ToolZoomSlider : public AbstractToolItem, public ZoomListener
 {
 public:
 	ToolZoomSlider(ActionHandler* handler, string id, ActionType type, ZoomControl* zoom);
-	virtual ~ToolZoomSlider();
+	~ToolZoomSlider() override;
 
 public:
 	static void sliderChanged(GtkRange* range, ToolZoomSlider* self);
@@ -33,19 +33,19 @@ public:
 	static bool sliderHoverScroll(GtkWidget* range,  GdkEventScroll* event, ToolZoomSlider* self);
 	static gchar* sliderFormatValue(GtkRange *range, gdouble value, ToolZoomSlider* self);
 
-	virtual void zoomChanged();
-	virtual void zoomRangeValuesChanged();
-	virtual string getToolDisplayName();
+	void zoomChanged() override;
+	void zoomRangeValuesChanged() override;
+	string getToolDisplayName() override;
 
 	// Should be called when the window size changes
 	void updateScaleMarks();
-	virtual GtkToolItem* createItem(bool horizontal);
-	virtual GtkToolItem* createTmpItem(bool horizontal);
+	GtkToolItem* createItem(bool horizontal) override;
+	GtkToolItem* createTmpItem(bool horizontal) override;
 
 protected:
-	virtual void enable(bool enabled);
-	virtual GtkToolItem* newItem();
-	virtual GtkWidget* getNewToolIcon();
+	void enable(bool enabled) override;
+	GtkToolItem* newItem() override;
+	GtkWidget* getNewToolIcon() override;
 
 private:
 	static double scaleFunc(double x);

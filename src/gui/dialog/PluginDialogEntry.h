@@ -21,14 +21,14 @@ class PluginDialogEntry : public GladeGui
 {
 public:
 	PluginDialogEntry(Plugin* plugin, GladeSearchpath* gladeSearchPath, GtkWidget* w);
-	virtual ~PluginDialogEntry();
+	~PluginDialogEntry() override;
 
 public:
 	void loadSettings();
 	void saveSettings(string& pluginEnabled, string& pluginDisabled);
 
 	// Not implemented! This is not a dialog!
-	virtual void show(GtkWindow* parent);
+	void show(GtkWindow* parent) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

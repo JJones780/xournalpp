@@ -20,21 +20,21 @@ class PopplerGlibDocument : public XojPdfDocumentInterface
 public:
 	PopplerGlibDocument();
 	PopplerGlibDocument(const PopplerGlibDocument& doc);
-	virtual ~PopplerGlibDocument();
+	~PopplerGlibDocument() override;
 
 public:
-	virtual void assign(XojPdfDocumentInterface* doc);
-	virtual bool equals(XojPdfDocumentInterface* doc);
+	void assign(XojPdfDocumentInterface* doc) override;
+	bool equals(XojPdfDocumentInterface* doc) override;
 
 public:
-	virtual bool save(Path filename, GError** error);
-	virtual bool load(Path filename, string password, GError** error);
-	virtual bool load(gpointer data, gsize length, string password, GError** error);
-	virtual bool isLoaded();
+	bool save(Path filename, GError** error) override;
+	bool load(Path filename, string password, GError** error) override;
+	bool load(gpointer data, gsize length, string password, GError** error) override;
+	bool isLoaded() override;
 
-	virtual XojPdfPageSPtr getPage(size_t page);
-	virtual size_t getPageCount();
-	virtual XojPdfBookmarkIterator* getContentsIter();
+	XojPdfPageSPtr getPage(size_t page) override;
+	size_t getPageCount() override;
+	XojPdfBookmarkIterator* getContentsIter() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

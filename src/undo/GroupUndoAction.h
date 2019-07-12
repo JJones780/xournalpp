@@ -18,7 +18,7 @@ class GroupUndoAction : public UndoAction
 {
 public:
 	GroupUndoAction();
-	virtual ~GroupUndoAction();
+	~GroupUndoAction() override;
 
 public:
 	void addAction(UndoAction* action);
@@ -26,12 +26,12 @@ public:
 	/**
 	 * Get the affected pages
 	 */
-	virtual vector<PageRef> getPages();
+	vector<PageRef> getPages() override;
 
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
 
-	virtual string getText();
+	string getText() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

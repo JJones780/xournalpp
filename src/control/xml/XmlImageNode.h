@@ -17,14 +17,14 @@ class XmlImageNode : public XmlNode
 {
 public:
 	XmlImageNode(const char* tag);
-	virtual ~XmlImageNode();
+	~XmlImageNode() override;
 
 public:
 	void setImage(cairo_surface_t* img);
 
 	static cairo_status_t pngWriteFunction(XmlImageNode* image, unsigned char* data, unsigned int length);
 
-	virtual void writeOut(OutputStream* out);
+	void writeOut(OutputStream* out) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

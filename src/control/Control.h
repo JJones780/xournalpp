@@ -63,7 +63,7 @@ class Control :
 {
 public:
 	Control(GladeSearchpath* gladeSearchPath);
-	virtual ~Control();
+	~Control() override;
 
 	void initWindow(MainWindow* win);
 public:
@@ -120,8 +120,8 @@ public:
 	// Menu Help
 	void showAbout();
 
-	virtual void actionPerformed(ActionType type, ActionGroup group, GdkEvent* event, GtkMenuItem* menuitem,
-								 GtkToolButton* toolbutton, bool enabled);
+	void actionPerformed(ActionType type, ActionGroup group, GdkEvent* event, GtkMenuItem* menuitem,
+								 GtkToolButton* toolbutton, bool enabled) override;
 
 	/**
 	 * Select the color for the tool
@@ -131,19 +131,19 @@ public:
 	 * 			false if the color is selected by a tool change
 	 * 			and therefore should not be applied to a selection
 	 */
-	virtual void toolColorChanged(bool userSelection);
-	virtual void setCustomColorSelected();
-	virtual void toolChanged();
-	virtual void toolSizeChanged();
-	virtual void toolFillChanged();
-	virtual void toolLineStyleChanged();
+	void toolColorChanged(bool userSelection) override;
+	void setCustomColorSelected() override;
+	void toolChanged() override;
+	void toolSizeChanged() override;
+	void toolFillChanged() override;
+	void toolLineStyleChanged() override;
 
 	void selectTool(ToolType type);
 	void selectDefaultTool();
 
 	void updatePageNumbers(size_t page, size_t pdfPage);
 
-	virtual void fileOpened(const char* uri);
+	void fileOpened(const char* uri) override;
 
 	/**
 	 * Save current state (selected tool etc.)
@@ -262,22 +262,22 @@ public:
 
 public:
 	// UndoRedoListener interface
-	void undoRedoChanged();
-	void undoRedoPageChanged(PageRef page);
+	void undoRedoChanged() override;
+	void undoRedoPageChanged(PageRef page) override;
 
 public:
 	// ProgressListener interface
-	void setMaximumState(int max);
-	void setCurrentState(int state);
+	void setMaximumState(int max) override;
+	void setCurrentState(int state) override;
 
 public:
 	// ClipboardListener interface
-	virtual void clipboardCutCopyEnabled(bool enabled);
-	virtual void clipboardPasteEnabled(bool enabled);
-	virtual void clipboardPasteText(string text);
-	virtual void clipboardPasteImage(GdkPixbuf* img);
-	virtual void clipboardPasteXournal(ObjectInputStream& in);
-	virtual void deleteSelection();
+	void clipboardCutCopyEnabled(bool enabled) override;
+	void clipboardPasteEnabled(bool enabled) override;
+	void clipboardPasteText(string text) override;
+	void clipboardPasteImage(GdkPixbuf* img) override;
+	void clipboardPasteXournal(ObjectInputStream& in) override;
+	void deleteSelection() override;
 
 	void clipboardPaste(Element* e);
 

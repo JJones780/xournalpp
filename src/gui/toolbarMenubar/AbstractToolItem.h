@@ -17,10 +17,10 @@ class AbstractToolItem : public AbstractItem
 {
 public:
 	AbstractToolItem(string id, ActionHandler* handler, ActionType type, GtkWidget* menuitem = nullptr);
-	virtual ~AbstractToolItem();
+	~AbstractToolItem() override;
 
 public:
-	virtual void selected(ActionGroup group, ActionType action);
+	void selected(ActionGroup group, ActionType action) override;
 	virtual GtkToolItem* createItem(bool horizontal);
 	virtual GtkToolItem* createTmpItem(bool horizontal);
 	void setPopupMenu(GtkWidget* popupMenu);
@@ -36,7 +36,7 @@ public:
 	/**
 	 * Enable / Disable the tool item
 	 */
-	virtual void enable(bool enabled);
+	void enable(bool enabled) override;
 
 protected:
 	virtual GtkToolItem* newItem() = 0;

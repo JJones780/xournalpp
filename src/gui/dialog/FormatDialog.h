@@ -23,10 +23,10 @@ class FormatDialog : public GladeGui
 {
 public:
 	FormatDialog(GladeSearchpath* gladeSearchPath, Settings* settings, double width, double height);
-	virtual ~FormatDialog();
+	~FormatDialog() override;
 
 public:
-	virtual void show(GtkWindow* parent);
+	void show(GtkWindow* parent) override;
 
 	double getWidth();
 	double getHeight();

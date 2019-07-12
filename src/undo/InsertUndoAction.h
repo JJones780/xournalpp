@@ -21,13 +21,13 @@ class InsertUndoAction : public UndoAction
 {
 public:
 	InsertUndoAction(PageRef page, Layer* layer, Element* element);
-	virtual ~InsertUndoAction();
+	~InsertUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
 
-	virtual string getText();
+	string getText() override;
 
 private:
 	XOJ_TYPE_ATTRIB;
@@ -40,13 +40,13 @@ class InsertsUndoAction : public UndoAction
 {
 public:
 	InsertsUndoAction(PageRef page, Layer* layer, vector<Element*> elements);
-	virtual ~InsertsUndoAction();
+	~InsertsUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
 
-	virtual string getText();
+	string getText() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

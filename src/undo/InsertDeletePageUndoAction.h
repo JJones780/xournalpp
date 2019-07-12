@@ -18,13 +18,13 @@ class InsertDeletePageUndoAction : public UndoAction
 {
 public:
 	InsertDeletePageUndoAction(PageRef page, int pagePos, bool inserted);
-	virtual ~InsertDeletePageUndoAction();
+	~InsertDeletePageUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
 
-	virtual string getText();
+	string getText() override;
 private:
 	bool insertPage(Control* control);
 	bool deletePage(Control* control);

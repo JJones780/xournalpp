@@ -19,15 +19,15 @@ class LineBackgroundPainter : public BaseBackgroundPainter
 {
 public:
 	LineBackgroundPainter(bool ruled);
-	virtual ~LineBackgroundPainter();
+	~LineBackgroundPainter() override;
 
 public:
-	virtual void paint();
+	void paint() override;
 
 	/**
 	 * Reset all used configuration values
 	 */
-	virtual void resetConfig();
+	void resetConfig() override;
 
 
 	void paintBackgroundRuled();

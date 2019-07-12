@@ -30,14 +30,14 @@ class BaseStrokeHandler : public InputHandler
 public:
 	BaseStrokeHandler(XournalView* xournal, XojPageView* redrawable, PageRef page, bool flipShift = false, bool flipControl = false);
 
-	virtual ~BaseStrokeHandler();
+	~BaseStrokeHandler() override;
 
-	void draw(cairo_t* cr);
+	void draw(cairo_t* cr) override;
 
-	bool onMotionNotifyEvent(const PositionInputData& pos);
-	void onButtonReleaseEvent(const PositionInputData& pos);
-	void onButtonPressEvent(const PositionInputData& pos);
-	virtual bool onKeyEvent(GdkEventKey* event);
+	bool onMotionNotifyEvent(const PositionInputData& pos) override;
+	void onButtonReleaseEvent(const PositionInputData& pos) override;
+	void onButtonPressEvent(const PositionInputData& pos) override;
+	bool onKeyEvent(GdkEventKey* event) override;
 
 private:
 	virtual void drawShape(Point& currentPoint, const PositionInputData& pos) = 0;

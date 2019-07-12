@@ -22,24 +22,24 @@ class FontButton : public AbstractToolItem
 public:
 	FontButton(ActionHandler* handler, GladeGui* gui, string id, ActionType type,
 			   string description, GtkWidget* menuitem = nullptr);
-	virtual ~FontButton();
+	~FontButton() override;
 
 public:
-	virtual void activated(GdkEvent* event, GtkMenuItem* menuitem, GtkToolButton* toolbutton);
+	void activated(GdkEvent* event, GtkMenuItem* menuitem, GtkToolButton* toolbutton) override;
 	void setFont(XojFont& font);
 	XojFont getFont();
-	virtual string getToolDisplayName();
+	string getToolDisplayName() override;
 	void showFontDialog();
 
 protected:
-	virtual GtkToolItem* createItem(bool horizontal);
-	virtual GtkToolItem* createTmpItem(bool horizontal);
-	virtual GtkToolItem* newItem();
+	GtkToolItem* createItem(bool horizontal) override;
+	GtkToolItem* createTmpItem(bool horizontal) override;
+	GtkToolItem* newItem() override;
 
 	GtkWidget* newFontButton();
 	static void setFontFontButton(GtkWidget* fontButton, XojFont& font);
 
-	virtual GtkWidget* getNewToolIcon();
+	GtkWidget* getNewToolIcon() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

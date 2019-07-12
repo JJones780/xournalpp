@@ -21,12 +21,12 @@ class ImagesDialog : public BackgroundSelectDialogBase
 {
 public:
 	ImagesDialog(GladeSearchpath* gladeSearchPath, Document* doc, Settings* settings);
-	virtual ~ImagesDialog();
+	~ImagesDialog() override;
 
 public:
 	BackgroundImage getSelectedImage();
 	bool shouldShowFilechooser();
-	virtual void show(GtkWindow* parent);
+	void show(GtkWindow* parent) override;
 
 private:
 	/**

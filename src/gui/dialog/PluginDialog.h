@@ -21,11 +21,11 @@ class PluginDialog : public GladeGui
 {
 public:
 	PluginDialog(GladeSearchpath* gladeSearchPath, Settings* settings);
-	virtual ~PluginDialog();
+	~PluginDialog() override;
 
 public:
 	void loadPluginList(PluginController* pc);
-	virtual void show(GtkWindow* parent);
+	void show(GtkWindow* parent) override;
 
 private:
 	void saveSettings();

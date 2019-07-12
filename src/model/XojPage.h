@@ -29,7 +29,7 @@ public:
 
 private:
 	XojPage(const XojPage& page) = delete;
-	virtual ~XojPage();
+	~XojPage() override;
 	void operator=(const XojPage& p) = delete;
 
 	// Do not modify layers directly, use LayerController

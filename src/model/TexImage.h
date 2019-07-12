@@ -21,7 +21,7 @@ class TexImage: public Element
 {
 public:
 	TexImage();
-	virtual ~TexImage();
+	~TexImage() override;
 
 public:
 	void setWidth(double width);
@@ -56,22 +56,22 @@ public:
 	 */
 	void setPdf(PopplerDocument* pdf);
 
-	virtual void scale(double x0, double y0, double fx, double fy);
-	virtual void rotate(double x0, double y0, double xo, double yo, double th);
+	void scale(double x0, double y0, double fx, double fy) override;
+	void rotate(double x0, double y0, double xo, double yo, double th) override;
 
 	// text tag to alow latex
 	void setText(string text);
 	string getText();
 
-	virtual Element* clone();
+	Element* clone() override;
 
 public:
 	// Serialize interface
-	void serialize(ObjectOutputStream& out);
-	void readSerialized(ObjectInputStream& in);
+	void serialize(ObjectOutputStream& out) override;
+	void readSerialized(ObjectInputStream& in) override;
 
 private:
-	virtual void calcSize();
+	void calcSize() override;
 
 	static cairo_status_t cairoReadFunction(TexImage* image, unsigned char* data, unsigned int length);
 

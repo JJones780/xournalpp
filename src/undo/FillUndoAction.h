@@ -22,12 +22,12 @@ class FillUndoAction : public UndoAction
 {
 public:
 	FillUndoAction(PageRef page, Layer* layer);
-	virtual ~FillUndoAction();
+	~FillUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
-	virtual string getText();
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
+	string getText() override;
 
 	void addStroke(Stroke* s, int originalFill, int newFill);
 

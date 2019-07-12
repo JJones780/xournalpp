@@ -23,18 +23,18 @@ class SidebarPreviewPageEntry : public SidebarPreviewBaseEntry
 {
 public:
 	SidebarPreviewPageEntry(SidebarPreviewPages* sidebar, PageRef page);
-	virtual ~SidebarPreviewPageEntry();
+	~SidebarPreviewPageEntry() override;
 
 public:
 	/**
 	 * @return What should be rendered
 	 * @override
 	 */
-	virtual PreviewRenderType getRenderType();
+	PreviewRenderType getRenderType() override;
 
 protected:
 	SidebarPreviewPages* sidebar;
-	virtual void mouseButtonPressCallback();
+	void mouseButtonPressCallback() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

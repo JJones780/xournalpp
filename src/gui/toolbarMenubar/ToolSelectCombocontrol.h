@@ -22,13 +22,13 @@ class ToolSelectCombocontrol : public ToolButton
 {
 public:
 	ToolSelectCombocontrol(ToolMenuHandler* toolMenuHandler, ActionHandler* handler, string id);
-	virtual ~ToolSelectCombocontrol();
+	~ToolSelectCombocontrol() override;
 
 public:
-	virtual void selected(ActionGroup group, ActionType action);
+	void selected(ActionGroup group, ActionType action) override;
 
 protected:
-	virtual GtkToolItem* newItem();
+	GtkToolItem* newItem() override;
 	void addMenuitem(string text, string icon, ActionType type, ActionGroup group);
 
 private:

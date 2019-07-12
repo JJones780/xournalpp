@@ -22,11 +22,11 @@ class EraseUndoAction : public UndoAction
 {
 public:
 	EraseUndoAction(PageRef page);
-	virtual ~EraseUndoAction();
+	~EraseUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
 
 	void addOriginal(Layer* layer, Stroke* element, int pos);
 	void addEdited(Layer* layer, Stroke* element, int pos);
@@ -34,7 +34,7 @@ public:
 
 	void finalize();
 
-	virtual string getText();
+	string getText() override;
 	
 private:
 	XOJ_TYPE_ATTRIB;

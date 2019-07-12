@@ -18,13 +18,13 @@ class XmlStrokeNode : public XmlNode
 {
 public:
 	XmlStrokeNode(const char* tag);
-	virtual ~XmlStrokeNode();
+	~XmlStrokeNode() override;
 
 public:
 	void setPoints(Point* points, int pointsLength);
 	void setWidth(double width, double* widths, int widthsLength);
 
-	virtual void writeOut(OutputStream* out);
+	void writeOut(OutputStream* out) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

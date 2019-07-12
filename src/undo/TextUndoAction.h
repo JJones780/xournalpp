@@ -22,13 +22,13 @@ class TextUndoAction : public UndoAction
 {
 public:
 	TextUndoAction(PageRef page, Layer* layer, Text* text, string lastText, TextEditor* textEditor);
-	virtual ~TextUndoAction();
+	~TextUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
 
-	virtual string getText();
+	string getText() override;
 
 	string getUndoText();
 

@@ -19,7 +19,7 @@ class InputStreamException : public std::exception
 {
 public:
 	InputStreamException(string message, string filename, int line);
-	virtual ~InputStreamException();
+	~InputStreamException() override;
 
 public:
 	virtual const char* what();

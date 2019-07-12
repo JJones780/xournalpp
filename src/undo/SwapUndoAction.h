@@ -21,13 +21,13 @@ class SwapUndoAction : public UndoAction
 public:
 	SwapUndoAction(size_t pageNr, bool moveUp, PageRef swappedPage, PageRef otherPage);
 
-	virtual ~SwapUndoAction();
+	~SwapUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
-	vector<PageRef> getPages();
-	virtual string getText();
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
+	vector<PageRef> getPages() override;
+	string getText() override;
 
 private:
 	void swap(Control* control);

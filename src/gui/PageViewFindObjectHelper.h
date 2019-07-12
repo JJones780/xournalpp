@@ -81,10 +81,10 @@ public:
 	{
 	}
 
-	virtual ~SelectObject()
-	= default;
+	~SelectObject()
+	override = default;
 
-	bool at(double x, double y)
+	bool at(double x, double y) override
 	{
 		BaseSelectObject::at(x, y);
 
@@ -106,7 +106,7 @@ public:
 	}
 
 protected:
-	virtual bool checkElement(Element* e)
+	bool checkElement(Element* e) override
 	{
 		if (e->getType() == ELEMENT_STROKE)
 		{
@@ -142,17 +142,17 @@ public:
 	{
 	}
 
-	virtual ~PlayObject()
-	= default;
+	~PlayObject()
+	override = default;
 
 public:
-	bool at(double x, double y)
+	bool at(double x, double y) override
 	{
 		return BaseSelectObject::at(x, y);
 	}
 
 protected:
-	virtual bool checkElement(Element* e)
+	bool checkElement(Element* e) override
 	{
 		if (e->getType() != ELEMENT_STROKE && e->getType() != ELEMENT_TEXT)
 		{

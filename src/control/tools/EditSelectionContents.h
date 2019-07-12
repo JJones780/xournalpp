@@ -35,7 +35,7 @@ class EditSelectionContents : public ElementContainer, public Serializeable
 public:
 	EditSelectionContents(double x, double y, double width, double height,
 						  PageRef sourcePage, Layer* sourceLayer, XojPageView* sourceView);
-	virtual ~EditSelectionContents();
+	~EditSelectionContents() override;
 
 public:
 	/**
@@ -77,7 +77,7 @@ public:
 	/**
 	 * Returns all containig elements of this selections
 	 */
-	vector<Element*>* getElements();
+	vector<Element*>* getElements() override;
 
 public:
 	/**
@@ -140,8 +140,8 @@ public:
 
 public:
 	// Serialize interface
-	void serialize(ObjectOutputStream& out);
-	void readSerialized(ObjectInputStream& in);
+	void serialize(ObjectOutputStream& out) override;
+	void readSerialized(ObjectInputStream& in) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

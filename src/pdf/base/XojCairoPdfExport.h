@@ -20,17 +20,17 @@ class XojCairoPdfExport : public XojPdfExport
 {
 public:
 	XojCairoPdfExport(Document* doc, ProgressListener* progressListener);
-	virtual ~XojCairoPdfExport();
+	~XojCairoPdfExport() override;
 
 public:
-	virtual bool createPdf(Path file);
-	virtual bool createPdf(Path file, PageRangeVector& range);
-	virtual string getLastError();
+	bool createPdf(Path file) override;
+	bool createPdf(Path file, PageRangeVector& range) override;
+	string getLastError() override;
 
 	/**
 	 * Export without background
 	 */
-	virtual void setNoBackgroundExport(bool noBackgroundExport);
+	void setNoBackgroundExport(bool noBackgroundExport) override;
 
 private:
 	bool startPdf(Path file);

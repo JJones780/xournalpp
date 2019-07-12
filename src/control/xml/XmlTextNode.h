@@ -19,12 +19,12 @@ class XmlTextNode : public XmlAudioNode
 public:
 	XmlTextNode(const char* tag, const char* text);
 	XmlTextNode(const char* tag);
-	virtual ~XmlTextNode();
+	~XmlTextNode() override;
 
 public:
 	void setText(const char* text);
 
-	virtual void writeOut(OutputStream* out);
+	void writeOut(OutputStream* out) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

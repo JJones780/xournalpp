@@ -34,12 +34,12 @@ class TouchDisableX11 : public TouchDisableInterface
 {
 public:
 	TouchDisableX11();
-	virtual ~TouchDisableX11();
+	~TouchDisableX11() override;
 
 public:
-	virtual void enableTouch();
-	virtual void disableTouch();
-	virtual void init();
+	void enableTouch() override;
+	void disableTouch() override;
+	void init() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

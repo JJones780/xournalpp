@@ -29,14 +29,14 @@ public:
 	PreviewJob(SidebarPreviewBaseEntry* sidebar);
 
 protected:
-	virtual ~PreviewJob();
+	~PreviewJob() override;
 
 public:
-	virtual void* getSource();
+	void* getSource() override;
 
-	virtual void run();
+	void run() override;
 
-	virtual JobType getType();
+	JobType getType() override;
 
 private:
 	void initGraphics();

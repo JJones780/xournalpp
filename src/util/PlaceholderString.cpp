@@ -27,7 +27,7 @@ public:
 	}
 
 public:
-	string format(string format)
+	string format(string format) override
 	{
 		return text;
 	}
@@ -48,7 +48,7 @@ public:
 	}
 
 public:
-	string format(string format)
+	string format(string format) override
 	{
 		return std::to_string(value);
 	}

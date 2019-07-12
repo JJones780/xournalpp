@@ -26,27 +26,27 @@ class PageBackgroundChangeController : public PageTypeMenuChangeListener, public
 {
 public:
 	PageBackgroundChangeController(Control* control);
-	virtual ~PageBackgroundChangeController();
+	~PageBackgroundChangeController() override;
 
 public:
 	virtual void changeCurrentPageBackground(PageType& pageType);
-	virtual void changeCurrentPageBackground(PageTypeInfo* info);
+	void changeCurrentPageBackground(PageTypeInfo* info) override;
 	void changeAllPagesBackground(PageType pt);
 	void insertNewPage(size_t position);
 	GtkWidget* getMenu();
 
 	// DocumentListener
 public:
-	virtual void documentChanged(DocumentChangeType type);
-	virtual void pageSizeChanged(size_t page);
-	virtual void pageChanged(size_t page);
-	virtual void pageInserted(size_t page);
-	virtual void pageDeleted(size_t page);
-	virtual void pageSelected(size_t page);
+	void documentChanged(DocumentChangeType type) override;
+	void pageSizeChanged(size_t page) override;
+	void pageChanged(size_t page) override;
+	void pageInserted(size_t page) override;
+	void pageDeleted(size_t page) override;
+	void pageSelected(size_t page) override;
 
 	// PageTypeApplyListener
 public:
-	virtual void applyCurrentPageBackground(bool allPages);
+	void applyCurrentPageBackground(bool allPages) override;
 
 private:
 

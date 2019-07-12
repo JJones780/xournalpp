@@ -25,17 +25,17 @@ class PageTemplateDialog : public GladeGui, public PageTypeMenuChangeListener
 {
 public:
 	PageTemplateDialog(GladeSearchpath* gladeSearchPath, Settings* settings, PageTypeHandler* types);
-	virtual ~PageTemplateDialog();
+	~PageTemplateDialog() override;
 
 public:
-	virtual void show(GtkWindow* parent);
+	void show(GtkWindow* parent) override;
 
 	/**
 	 * The dialog was confirmed / saved
 	 */
 	bool isSaved();
 
-	void changeCurrentPageBackground(PageTypeInfo* info);
+	void changeCurrentPageBackground(PageTypeInfo* info) override;
 
 private:
 	void showPageSizeDialog();

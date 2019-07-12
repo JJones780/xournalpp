@@ -19,7 +19,7 @@ class Tool : public ToolBase
 {
 public:
 	Tool(string name, ToolType tool, int color, int capabilities, double* thickness);
-	virtual ~Tool();
+	~Tool() override;
 
 public:
 	string getName();

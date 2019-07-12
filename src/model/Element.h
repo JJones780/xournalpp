@@ -39,7 +39,7 @@ protected:
 	Element(ElementType type);
 
 public:
-	virtual ~Element();
+	~Element() override;
 
 public:
 	ElementType getType() const;

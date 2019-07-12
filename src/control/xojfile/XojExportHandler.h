@@ -20,17 +20,17 @@ class XojExportHandler : public SaveHandler
 {
 public:
 	XojExportHandler();
-	virtual ~XojExportHandler();
+	~XojExportHandler() override;
 
 protected:
 	/**
 	 * Export the fill attributes
 	 */
-	virtual void visitStrokeExtended(XmlPointNode* stroke, Stroke* s);
+	void visitStrokeExtended(XmlPointNode* stroke, Stroke* s) override;
 
-	virtual void writeHeader();
-	virtual void writeSolidBackground(XmlNode* background, PageRef p);
-	virtual void writeTimestamp(AudioElement* audioElement, XmlAudioNode* xmlAudioNode);
+	void writeHeader() override;
+	void writeSolidBackground(XmlNode* background, PageRef p) override;
+	void writeTimestamp(AudioElement* audioElement, XmlAudioNode* xmlAudioNode) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

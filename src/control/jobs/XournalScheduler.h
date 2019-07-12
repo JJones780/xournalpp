@@ -23,7 +23,7 @@ class XournalScheduler : public Scheduler
 {
 public:
 	XournalScheduler();
-	virtual ~XournalScheduler();
+	~XournalScheduler() override;
 
 public:
 	/**

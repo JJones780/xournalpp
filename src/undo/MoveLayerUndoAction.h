@@ -21,13 +21,13 @@ class MoveLayerUndoAction : public UndoAction
 {
 public:
 	MoveLayerUndoAction(LayerController* layerController, PageRef page, Layer* layer, int oldLayerPos, int newLayerPos);
-	virtual ~MoveLayerUndoAction();
+	~MoveLayerUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
 
-	virtual string getText();
+	string getText() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

@@ -20,7 +20,7 @@ class XojFont : public Serializeable
 {
 public:
 	XojFont();
-	virtual ~XojFont();
+	~XojFont() override;
 
 public:
 	string getName();
@@ -33,8 +33,8 @@ public:
 
 public:
 	// Serialize interface
-	void serialize(ObjectOutputStream& out);
-	void readSerialized(ObjectInputStream& in);
+	void serialize(ObjectOutputStream& out) override;
+	void readSerialized(ObjectInputStream& in) override;
 
 private:
 	void updateFontDesc();

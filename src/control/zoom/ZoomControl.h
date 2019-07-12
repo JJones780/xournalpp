@@ -38,7 +38,7 @@ class ZoomControl :
 {
 public:
 	ZoomControl();
-	virtual ~ZoomControl();
+	~ZoomControl() override;
 
 	/**
 	 * Zoom one step
@@ -182,9 +182,9 @@ protected:
 	void fireZoomChanged();
 	void fireZoomRangeValueChanged();
 
-	void pageSizeChanged(size_t page);
+	void pageSizeChanged(size_t page) override;
 // 	void pageChanged(size_t page);
-	void pageSelected(size_t page);
+	void pageSelected(size_t page) override;
 
 	static bool onScrolledwindowMainScrollEvent(GtkWidget* widget, GdkEventScroll* event, ZoomControl* zoom);
 	static bool onWidgetSizeChangedEvent(GtkWidget* widget, GdkRectangle *allocation, ZoomControl* zoom);

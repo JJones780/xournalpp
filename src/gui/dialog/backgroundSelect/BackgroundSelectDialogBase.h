@@ -23,11 +23,11 @@ class BackgroundSelectDialogBase : public GladeGui
 public:
 	BackgroundSelectDialogBase(GladeSearchpath* gladeSearchPath, Document* doc, Settings* settings,
 			string glade, string mainWnd);
-	~BackgroundSelectDialogBase();
+	~BackgroundSelectDialogBase() override;
 
 public:
 	Settings* getSettings();
-	virtual void show(GtkWindow* parent);
+	void show(GtkWindow* parent) override;
 	virtual void setSelected(int selected);
 
 protected:

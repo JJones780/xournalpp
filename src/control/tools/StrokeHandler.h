@@ -30,19 +30,19 @@ class StrokeHandler : public InputHandler
 {
 public:
 	StrokeHandler(XournalView* xournal, XojPageView* redrawable, PageRef page);
-	virtual ~StrokeHandler();
+	~StrokeHandler() override;
 
-	void draw(cairo_t* cr);
+	void draw(cairo_t* cr) override;
 
-	bool onMotionNotifyEvent(const PositionInputData& pos);
-	void onButtonReleaseEvent(const PositionInputData& pos);
-	void onButtonPressEvent(const PositionInputData& pos);
-	bool onKeyEvent(GdkEventKey* event );
+	bool onMotionNotifyEvent(const PositionInputData& pos) override;
+	void onButtonReleaseEvent(const PositionInputData& pos) override;
+	void onButtonPressEvent(const PositionInputData& pos) override;
+	bool onKeyEvent(GdkEventKey* event ) override;
 	/**
 	 * Reset the shape recognizer, only implemented by drawing instances,
 	 * but needs to be in the base interface.
 	 */
-	virtual void resetShapeRecognizer();
+	void resetShapeRecognizer() override;
 
 protected:
 	void strokeRecognizerDetected(ShapeRecognizerResult* result, Layer* layer);

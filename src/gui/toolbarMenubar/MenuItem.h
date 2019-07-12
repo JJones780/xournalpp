@@ -20,7 +20,7 @@ class MenuItem : public AbstractItem
 {
 public:
 	MenuItem(ActionHandler* handler, GtkWidget* widget, ActionType type, ActionGroup group = GROUP_NOGROUP);
-	virtual ~MenuItem();
+	~MenuItem() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

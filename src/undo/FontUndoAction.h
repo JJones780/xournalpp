@@ -24,12 +24,12 @@ class FontUndoAction : public UndoAction
 {
 public:
 	FontUndoAction(PageRef page, Layer* layer);
-	virtual ~FontUndoAction();
+	~FontUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
-	virtual string getText();
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
+	string getText() override;
 
 	void addStroke(Text* e, XojFont& oldFont, XojFont& newFont);
 

@@ -22,12 +22,12 @@ class SizeUndoAction : public UndoAction
 {
 public:
 	SizeUndoAction(PageRef page, Layer* layer);
-	virtual ~SizeUndoAction();
+	~SizeUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
-	virtual string getText();
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
+	string getText() override;
 
 	void addStroke(Stroke* s, double originalWidth, double newWidth,
 				   vector<double> originalPressure, vector<double> newPressure, int pressureCount);

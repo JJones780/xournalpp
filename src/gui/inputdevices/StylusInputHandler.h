@@ -20,7 +20,7 @@ class StylusInputHandler : public PenInputHandler
 {
 public:
 	explicit StylusInputHandler(InputContext* inputContext);
-	~StylusInputHandler();
+	~StylusInputHandler() override;
 
 	bool handleImpl(InputEvent* event) override;
 	bool changeTool(InputEvent* event) override;

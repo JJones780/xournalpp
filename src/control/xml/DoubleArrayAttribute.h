@@ -18,10 +18,10 @@ class DoubleArrayAttribute : public XMLAttribute
 {
 public:
 	DoubleArrayAttribute(const char* name, double* values, int count);
-	virtual ~DoubleArrayAttribute();
+	~DoubleArrayAttribute() override;
 
 public:
-	virtual void writeOut(OutputStream* out);
+	void writeOut(OutputStream* out) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

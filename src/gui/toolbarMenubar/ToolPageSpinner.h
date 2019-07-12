@@ -21,16 +21,16 @@ class ToolPageSpinner : public AbstractToolItem
 {
 public:
 	ToolPageSpinner(GladeGui* gui, ActionHandler* handler, string id, ActionType type);
-	virtual ~ToolPageSpinner();
+	~ToolPageSpinner() override;
 
 public:
 	SpinPageAdapter* getPageSpinner();
 	void setText(string text);
-	virtual string getToolDisplayName();
+	string getToolDisplayName() override;
 
 protected:
-	virtual GtkToolItem* newItem();
-	virtual GtkWidget* getNewToolIcon();
+	GtkToolItem* newItem() override;
+	GtkWidget* getNewToolIcon() override;
 
 private:
 	XOJ_TYPE_ATTRIB;

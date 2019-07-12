@@ -17,12 +17,12 @@ class ScaleUndoAction : public UndoAction
 {
 public:
 	ScaleUndoAction(PageRef page, vector<Element*>* elements, double x0, double y0, double fx, double fy);
-	virtual ~ScaleUndoAction();
+	~ScaleUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
-	virtual string getText();
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
+	string getText() override;
 
 private:
 	void applyScale(double fx, double fy);

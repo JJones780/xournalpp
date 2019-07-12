@@ -17,10 +17,10 @@ class FillTransparencyDialog : public GladeGui
 {
 public:
 	FillTransparencyDialog(GladeSearchpath* gladeSearchPath, int alpha);
-	virtual ~FillTransparencyDialog();
+	~FillTransparencyDialog() override;
 
 public:
-	virtual void show(GtkWindow* parent);
+	void show(GtkWindow* parent) override;
 
 	int getResultAlpha();
 

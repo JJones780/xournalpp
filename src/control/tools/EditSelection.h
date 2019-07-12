@@ -37,7 +37,7 @@ public:
 	EditSelection(UndoRedoHandler* undo, Selection* selection, XojPageView* view);
 	EditSelection(UndoRedoHandler* undo, Element* e, XojPageView* view, PageRef page);
 	EditSelection(UndoRedoHandler* undo, vector<Element*> elements, XojPageView* view, PageRef page);
-	virtual ~EditSelection();
+	~EditSelection() override;
 
 private:
 	/**
@@ -157,7 +157,7 @@ public:
 	/**
 	 * Returns all containig elements of this selections
 	 */
-	vector<Element*>* getElements();
+	vector<Element*>* getElements() override;
 
 	/**
 	 * Finish the current movement
@@ -209,8 +209,8 @@ public:
 
 public:
 	// Serialize interface
-	void serialize(ObjectOutputStream& out);
-	void readSerialized(ObjectInputStream& in);
+	void serialize(ObjectOutputStream& out) override;
+	void readSerialized(ObjectInputStream& in) override;
 
 private:
 

@@ -23,12 +23,12 @@ class ColorUndoAction : public UndoAction
 {
 public:
 	ColorUndoAction(PageRef page, Layer* layer);
-	virtual ~ColorUndoAction();
+	~ColorUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
-	virtual string getText();
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
+	string getText() override;
 
 	void addStroke(Element* e, int originalColor, double newColor);
 

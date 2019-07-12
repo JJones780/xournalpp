@@ -18,7 +18,7 @@ class Image : public Element
 {
 public:
 	Image();
-	virtual ~Image();
+	~Image() override;
 
 public:
 	void setWidth(double width);
@@ -29,21 +29,21 @@ public:
 	void setImage(GdkPixbuf* img);
 	cairo_surface_t* getImage();
 
-	virtual void scale(double x0, double y0, double fx, double fy);
-	virtual void rotate(double x0, double y0, double xo, double yo, double th);
+	void scale(double x0, double y0, double fx, double fy) override;
+	void rotate(double x0, double y0, double xo, double yo, double th) override;
 
 	/**
 	 * @overwrite
 	 */
-	virtual Element* clone();
+	Element* clone() override;
 
 public:
 	// Serialize interface
-	void serialize(ObjectOutputStream& out);
-	void readSerialized(ObjectInputStream& in);
+	void serialize(ObjectOutputStream& out) override;
+	void readSerialized(ObjectInputStream& in) override;
 
 private:
-	virtual void calcSize();
+	void calcSize() override;
 
 	static cairo_status_t cairoReadFunction(Image* image, unsigned char* data, unsigned int length);
 private:

@@ -22,24 +22,24 @@ class PdfElementView : public BaseElementView
 {
 public:
 	PdfElementView(int id, XojPdfPageSPtr page, PdfPagesDialog* dlg);
-	~PdfElementView();
+	~PdfElementView() override;
 
 protected:
 
 	/**
 	 * Paint the contents (without border / selection)
 	 */
-	virtual void paintContents(cairo_t* cr);
+	void paintContents(cairo_t* cr) override;
 
 	/**
 	 * Get the width in pixel, without shadow / border
 	 */
-	virtual int getContentWidth();
+	int getContentWidth() override;
 
 	/**
 	 * Get the height in pixel, without shadow / border
 	 */
-	virtual int getContentHeight();
+	int getContentHeight() override;
 
 public:
 	bool isUsed();

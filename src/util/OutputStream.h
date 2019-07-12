@@ -34,12 +34,12 @@ class GzOutputStream : public OutputStream
 {
 public:
 	GzOutputStream(Path filename);
-	virtual ~GzOutputStream();
+	~GzOutputStream() override;
 
 public:
-	virtual void write(const char* data, int len);
+	void write(const char* data, int len) override;
 
-	virtual void close();
+	void close() override;
 
 	string& getLastError();
 

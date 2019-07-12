@@ -17,10 +17,10 @@ class CoordinateSystemHandler : public BaseStrokeHandler
 {
 public:
 	CoordinateSystemHandler(XournalView* xournal, XojPageView* redrawable, PageRef page, bool flipShift = false, bool flipControl = false);
-	virtual ~CoordinateSystemHandler();
+	~CoordinateSystemHandler() override;
 
 private:
-	virtual void drawShape(Point& currentPoint, const PositionInputData& pos);
+	void drawShape(Point& currentPoint, const PositionInputData& pos) override;
 private:
 	XOJ_TYPE_ATTRIB;
 	Point startPoint;

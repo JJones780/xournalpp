@@ -26,7 +26,7 @@ class AbstractSidebarPage : public DocumentListener, public SidebarToolbarAction
 {
 public:
 	AbstractSidebarPage(Control* control, SidebarToolbar* toolbar);
-	virtual ~AbstractSidebarPage();
+	~AbstractSidebarPage() override;
 
 public:
 	virtual void enableSidebar() = 0;

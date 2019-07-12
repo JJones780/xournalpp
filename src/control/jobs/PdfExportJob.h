@@ -19,14 +19,14 @@ public:
 	PdfExportJob(Control* control);
 
 protected:
-	virtual ~PdfExportJob();
+	~PdfExportJob() override;
 
 public:
-	void run();
+	void run() override;
 
 protected:
-	virtual void addFilterToDialog();
-	virtual bool isUriValid(string& uri);
+	void addFilterToDialog() override;
+	bool isUriValid(string& uri) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

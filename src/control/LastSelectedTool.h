@@ -21,7 +21,7 @@ class LastSelectedTool : public ToolBase
 {
 public:
 	LastSelectedTool(Tool* tool);
-	virtual ~LastSelectedTool();
+	~LastSelectedTool() override;
 
 public:
 	/**

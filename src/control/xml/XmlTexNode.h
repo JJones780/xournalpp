@@ -17,10 +17,10 @@ class XmlTexNode : public XmlNode
 {
 public:
 	XmlTexNode(const char* tag, string& binaryData);
-	virtual ~XmlTexNode();
+	~XmlTexNode() override;
 
 public:
-	virtual void writeOut(OutputStream* out);
+	void writeOut(OutputStream* out) override;
 
 private:
 	XOJ_TYPE_ATTRIB;

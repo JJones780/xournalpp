@@ -22,13 +22,13 @@ class MoveUndoAction : public UndoAction
 public:
 	MoveUndoAction(Layer* sourceLayer, PageRef sourcePage, vector<Element*>* selected, double mx, double my,
 				   Layer* targetLayer, PageRef targetPage);
-	virtual ~MoveUndoAction();
+	~MoveUndoAction() override;
 
 public:
-	virtual bool undo(Control* control);
-	virtual bool redo(Control* control);
-	vector<PageRef> getPages();
-	virtual string getText();
+	bool undo(Control* control) override;
+	bool redo(Control* control) override;
+	vector<PageRef> getPages() override;
+	string getText() override;
 
 private:
 	void switchLayer(vector<Element*>* entries, Layer* oldLayer, Layer* newLayer);
