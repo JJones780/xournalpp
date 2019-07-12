@@ -31,13 +31,13 @@ void TexImage::freeImageAndPdf()
 	if (this->image)
 	{
 		cairo_surface_destroy(this->image);
-		this->image = NULL;
+		this->image = nullptr;
 	}
 
 	if (this->pdf)
 	{
 		g_object_unref(this->pdf);
-		this->pdf = NULL;
+		this->pdf = nullptr;
 	}
 
 	this->parsedBinaryData = false;
@@ -139,7 +139,7 @@ cairo_surface_t* TexImage::getImage()
 {
 	XOJ_CHECK_TYPE(TexImage);
 
-	if (this->image == NULL && this->parsedBinaryData == false)
+	if (this->image == nullptr && this->parsedBinaryData == false)
 	{
 		loadBinaryData();
 	}
@@ -171,7 +171,7 @@ void TexImage::loadBinaryData()
 	}
 	else if (type[1] == 'P' && type[2] == 'D' && type[3] == 'F')
 	{
-		this->pdf = poppler_document_new_from_data((char*)this->binaryData.c_str(), this->binaryData.length(), NULL, NULL);
+		this->pdf = poppler_document_new_from_data((char*)this->binaryData.c_str(), this->binaryData.length(), nullptr, nullptr);
 	}
 	else
 	{
@@ -190,7 +190,7 @@ PopplerDocument* TexImage::getPdf()
 {
 	XOJ_CHECK_TYPE(TexImage);
 
-	if (this->pdf == NULL && this->parsedBinaryData == false)
+	if (this->pdf == nullptr && this->parsedBinaryData == false)
 	{
 		loadBinaryData();
 	}
@@ -207,14 +207,14 @@ void TexImage::setPdf(PopplerDocument* pdf)
 {
 	XOJ_CHECK_TYPE(TexImage);
 
-	if (this->pdf != NULL)
+	if (this->pdf != nullptr)
 	{
 		g_object_unref(this->pdf);
 	}
 
 	this->pdf = pdf;
 
-	if (this->pdf != NULL)
+	if (this->pdf != nullptr)
 	{
 		g_object_ref(this->pdf);
 		this->parsedBinaryData = true;
@@ -274,7 +274,7 @@ void TexImage::readSerialized(ObjectInputStream& in)
 
 	freeImageAndPdf();
 
-	char* data = NULL;
+	char* data = nullptr;
 	int len = 0;
 	in.readData((void**)&data, &len);
 

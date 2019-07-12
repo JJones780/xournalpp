@@ -18,7 +18,7 @@ void ActionEnabledListener::registerListener(ActionHandler* handler)
 {
 	XOJ_CHECK_TYPE(ActionEnabledListener);
 
-	if (this->handler == NULL)
+	if (this->handler == nullptr)
 	{
 		this->handler = handler;
 		this->handler->addListener(this);
@@ -32,7 +32,7 @@ void ActionEnabledListener::unregisterListener()
 	if (this->handler)
 	{
 		this->handler->removeListener(this);
-		this->handler = NULL;
+		this->handler = nullptr;
 	}
 }
 
@@ -40,7 +40,7 @@ ActionSelectionListener::ActionSelectionListener()
 {
 	XOJ_INIT_TYPE(ActionSelectionListener);
 
-	this->handler = NULL;
+	this->handler = nullptr;
 }
 
 ActionSelectionListener::~ActionSelectionListener()
@@ -56,7 +56,7 @@ void ActionSelectionListener::registerListener(ActionHandler* handler)
 {
 	XOJ_CHECK_TYPE(ActionSelectionListener);
 
-	if (this->handler == NULL)
+	if (this->handler == nullptr)
 	{
 		this->handler = handler;
 		handler->addListener(this);
@@ -67,7 +67,7 @@ void ActionSelectionListener::unregisterListener()
 {
 	XOJ_CHECK_TYPE(ActionSelectionListener);
 
-	if (this->handler != NULL)
+	if (this->handler != nullptr)
 	{
 		handler->removeListener(this);
 	}

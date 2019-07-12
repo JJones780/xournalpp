@@ -16,7 +16,7 @@ HandRecognition::HandRecognition(GtkWidget* widget, InputContext* inputContext, 
 
 #ifdef X11_ENABLED
 	const char* sessionType = g_getenv("XDG_SESSION_TYPE");
-	if (sessionType != NULL && strcmp(sessionType, "x11") == 0)
+	if (sessionType != nullptr && strcmp(sessionType, "x11") == 0)
 	{
 		x11Session = true;
 	}
@@ -36,7 +36,7 @@ HandRecognition::~HandRecognition()
 	}
 
 	delete touchImpl;
-	touchImpl = NULL;
+	touchImpl = nullptr;
 
 	XOJ_RELEASE_TYPE(HandRecognition);
 }
@@ -56,7 +56,7 @@ void HandRecognition::reload()
 	if (!enabled)
 	{
 		delete touchImpl;
-		touchImpl = NULL;
+		touchImpl = nullptr;
 		return;
 	}
 
@@ -68,7 +68,7 @@ void HandRecognition::reload()
 	}
 
 	delete touchImpl;
-	touchImpl = NULL;
+	touchImpl = nullptr;
 
 	string disableMethod;
 	touch.getString("method", disableMethod);

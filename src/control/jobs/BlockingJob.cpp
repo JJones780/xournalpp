@@ -15,7 +15,7 @@ BlockingJob::~BlockingJob()
 {
 	XOJ_CHECK_TYPE(BlockingJob);
 
-	this->control = NULL;
+	this->control = nullptr;
 
 	XOJ_RELEASE_TYPE(BlockingJob);
 }

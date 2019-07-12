@@ -12,7 +12,7 @@ BackgroundSelectDialogBase::BackgroundSelectDialogBase(GladeSearchpath* gladeSea
 {
 	XOJ_INIT_TYPE(BackgroundSelectDialogBase);
 
-	this->layoutContainer = gtk_layout_new(NULL, NULL);
+	this->layoutContainer = gtk_layout_new(nullptr, nullptr);
 	gtk_widget_show(this->layoutContainer);
 	this->scrollPreview = get("scrollContents");
 	gtk_container_add(GTK_CONTAINER(scrollPreview), layoutContainer);

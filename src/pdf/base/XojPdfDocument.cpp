@@ -21,7 +21,7 @@ XojPdfDocument::~XojPdfDocument()
 	XOJ_CHECK_TYPE(XojPdfDocument);
 
 	delete doc;
-	doc = NULL;
+	doc = nullptr;
 
 	XOJ_RELEASE_TYPE(XojPdfDocument);
 }

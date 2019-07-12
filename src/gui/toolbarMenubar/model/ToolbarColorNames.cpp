@@ -20,17 +20,17 @@ ToolbarColorNames::~ToolbarColorNames()
 	XOJ_CHECK_TYPE(ToolbarColorNames);
 
 	g_hash_table_destroy(this->predefinedColorNames);
-	this->predefinedColorNames = NULL;
+	this->predefinedColorNames = nullptr;
 	g_key_file_free(this->config);
 
 	XOJ_RELEASE_TYPE(ToolbarColorNames);
 }
 
-static ToolbarColorNames* instance = NULL;
+static ToolbarColorNames* instance = nullptr;
 
 ToolbarColorNames& ToolbarColorNames::getInstance()
 {
-	if (instance == NULL)
+	if (instance == nullptr)
 	{
 		instance = new ToolbarColorNames();
 	}
@@ -41,14 +41,14 @@ ToolbarColorNames& ToolbarColorNames::getInstance()
 void ToolbarColorNames::freeInstance()
 {
 	delete instance;
-	instance = NULL;
+	instance = nullptr;
 }
 
 void ToolbarColorNames::loadFile(const string file)
 {
 	XOJ_CHECK_TYPE(ToolbarColorNames);
 
-	GError* error = NULL;
+	GError* error = nullptr;
 	if (!g_key_file_load_from_file(config, file.c_str(), G_KEY_FILE_NONE, &error))
 	{
 		g_warning("Failed to load \"colornames.ini\" (%s): %s\n", file.c_str(), error->message);
@@ -64,7 +64,7 @@ void ToolbarColorNames::saveFile(const string file)
 	XOJ_CHECK_TYPE(ToolbarColorNames);
 
 	gsize len = 0;
-	char* data = g_key_file_to_data(this->config, &len, NULL);
+	char* data = g_key_file_to_data(this->config, &len, nullptr);
 
 	FILE* fp = g_fopen(file.c_str(), "wb");
 	if (!fp)
@@ -106,8 +106,8 @@ string ToolbarColorNames::getColorName(int color)
 
 	char colorHex[16];
 	sprintf(colorHex, "%06x", color);
-	char* name = g_key_file_get_string(this->config, "custom", colorHex, NULL);
-	if (name != NULL)
+	char* name = g_key_file_get_string(this->config, "custom", colorHex, nullptr);
+	if (name != nullptr)
 	{
 		colorName = name;
 	}

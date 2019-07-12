@@ -22,7 +22,7 @@ XojPreviewExtractor::XojPreviewExtractor()
 XojPreviewExtractor::~XojPreviewExtractor()
 {
 	g_free(data);
-	data = NULL;
+	data = nullptr;
 	dataLen = 0;
 }
 

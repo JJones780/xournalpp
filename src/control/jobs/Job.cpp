@@ -63,7 +63,7 @@ void* Job::getSource()
 {
 	XOJ_CHECK_TYPE(Job);
 
-	return NULL;
+	return nullptr;
 }
 
 bool Job::callAfterCallback(Job* job)

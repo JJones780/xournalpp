@@ -18,7 +18,7 @@ Tool::~Tool()
 	XOJ_CHECK_TYPE(Tool);
 
 	delete[] this->thickness;
-	this->thickness = NULL;
+	this->thickness = nullptr;
 
 	XOJ_RELEASE_TYPE(Tool);
 }

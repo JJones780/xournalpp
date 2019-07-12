@@ -29,7 +29,7 @@ void FontButton::activated(GdkEvent* event, GtkMenuItem* menuitem, GtkToolButton
 	this->font.setName(name.substr(0, pos));
 	this->font.setSize(std::stod(name.substr(pos + 1)));
 
-	handler->actionPerformed(ACTION_FONT_BUTTON_CHANGED, GROUP_NOGROUP, event, menuitem, NULL, true);
+	handler->actionPerformed(ACTION_FONT_BUTTON_CHANGED, GROUP_NOGROUP, event, menuitem, nullptr, true);
 }
 
 void FontButton::setFontFontButton(GtkWidget* fontButton, XojFont& font)
@@ -44,7 +44,7 @@ void FontButton::setFont(XojFont& font)
 	XOJ_CHECK_TYPE(FontButton);
 
 	this->font = font;
-	if (this->fontButton == NULL)
+	if (this->fontButton == nullptr)
 	{
 		return;
 	}
@@ -117,7 +117,7 @@ void FontButton::showFontDialog()
 {
 	XOJ_CHECK_TYPE(FontButton);
 
-	if (this->fontButton == NULL)
+	if (this->fontButton == nullptr)
 	{
 		newItem();
 	}

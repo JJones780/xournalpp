@@ -35,10 +35,10 @@ protected:
 private:
 	XOJ_TYPE_ATTRIB;
 
-	ToolMenuHandler* toolMenuHandler = NULL;
+	ToolMenuHandler* toolMenuHandler = nullptr;
 
-	GtkWidget* iconWidget = NULL;
-	GtkWidget* labelWidget = NULL;
+	GtkWidget* iconWidget = nullptr;
+	GtkWidget* labelWidget = nullptr;
 
 	vector<ToolDrawType *> drawTypes;
 };

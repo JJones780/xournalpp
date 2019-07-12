@@ -38,7 +38,7 @@ void Layer::addElement(Element* e)
 {
 	XOJ_CHECK_TYPE(Layer);
 
-	if (e == NULL)
+	if (e == nullptr)
 	{
 		g_warning("addElement(NULL)!");
 		Stacktrace::printStracktrace();
@@ -61,7 +61,7 @@ void Layer::insertElement(Element* e, int pos)
 {
 	XOJ_CHECK_TYPE(Layer);
 
-	if (e == NULL)
+	if (e == nullptr)
 	{
 		g_warning("insertElement(NULL)!");
 		Stacktrace::printStracktrace();

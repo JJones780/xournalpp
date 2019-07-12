@@ -37,7 +37,7 @@ void TextUndoAction::textEditFinished()
 {
 	XOJ_CHECK_TYPE(TextUndoAction);
 
-	this->textEditor = NULL;
+	this->textEditor = nullptr;
 }
 
 string TextUndoAction::getText()

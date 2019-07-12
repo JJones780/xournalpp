@@ -23,7 +23,7 @@ ScaleUndoAction::~ScaleUndoAction()
 {
 	XOJ_CHECK_TYPE(ScaleUndoAction);
 
-	this->page = NULL;
+	this->page = nullptr;
 
 	XOJ_RELEASE_TYPE(ScaleUndoAction);
 }

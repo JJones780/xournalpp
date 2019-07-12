@@ -19,9 +19,9 @@ SidebarIndexPage::SidebarIndexPage(Control* control, SidebarToolbar* toolbar)
 	gtk_tree_view_set_enable_search(GTK_TREE_VIEW(treeViewBookmarks), true);
 	gtk_tree_view_set_search_column(GTK_TREE_VIEW(treeViewBookmarks), DOCUMENT_LINKS_COLUMN_NAME);
 	gtk_tree_view_set_search_equal_func(GTK_TREE_VIEW(treeViewBookmarks),
-										(GtkTreeViewSearchEqualFunc) treeSearchFunction, this, NULL);
+										(GtkTreeViewSearchEqualFunc) treeSearchFunction, this, nullptr);
 
-	this->scrollBookmarks = gtk_scrolled_window_new(NULL, NULL);
+	this->scrollBookmarks = gtk_scrolled_window_new(nullptr, nullptr);
 	g_object_ref(this->scrollBookmarks);
 
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrollBookmarks), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
@@ -147,12 +147,12 @@ bool SidebarIndexPage::treeBookmarkSelected(GtkWidget* treeview, SidebarIndexPag
 
 	if (selection)
 	{
-		GtkTreeModel* model = NULL;
+		GtkTreeModel* model = nullptr;
 		GtkTreeIter iter = { 0 };
 
 		if (gtk_tree_selection_get_selected(selection, &model, &iter))
 		{
-			XojLinkDest* link = NULL;
+			XojLinkDest* link = nullptr;
 
 			gtk_tree_model_get(model, &iter, DOCUMENT_LINKS_COLUMN_LINK, &link, -1);
 			if (link && link->dest)
@@ -219,12 +219,12 @@ gboolean SidebarIndexPage::treeSearchFunction(GtkTreeModel* model, gint column, 
 		sidebar->searchTimeout = 0;
 	}
 	sidebar->searchTimeout = g_timeout_add_seconds_full(G_PRIORITY_DEFAULT_IDLE, 2,
-														(GSourceFunc) searchTimeoutFunc, sidebar, NULL);
+														(GSourceFunc) searchTimeoutFunc, sidebar, nullptr);
 
 	// Source: Pidgin
 	gchar* text;
 	gtk_tree_model_get(model, iter, DOCUMENT_LINKS_COLUMN_NAME, &text, -1);
-	if (text == NULL)
+	if (text == nullptr)
 	{
 		return TRUE;
 	}
@@ -248,7 +248,7 @@ gboolean SidebarIndexPage::treeSearchFunction(GtkTreeModel* model, gint column, 
 	size_t len = g_utf8_strlen(normalized, -1);
 	PangoLogAttr* log_attrs = g_new(PangoLogAttr, len + 1);
 
-	pango_get_log_attrs(normalized, strlen(normalized), -1, NULL, log_attrs, len + 1);
+	pango_get_log_attrs(normalized, strlen(normalized), -1, nullptr, log_attrs, len + 1);
 
 	gchar* word = normalized;
 	gboolean result = TRUE;
@@ -302,8 +302,8 @@ int SidebarIndexPage::expandOpenLinks(GtkTreeModel* model, GtkTreeIter* parent)
 	XOJ_CHECK_TYPE(SidebarIndexPage);
 
 	GtkTreeIter iter = { 0 };
-	XojLinkDest* link = NULL;
-	if (model == NULL)
+	XojLinkDest* link = nullptr;
+	if (model == nullptr)
 	{
 		return 0;
 	}
@@ -339,7 +339,7 @@ void SidebarIndexPage::selectPageNr(size_t page, size_t pdfPage)
 {
 	XOJ_CHECK_TYPE(SidebarIndexPage);
 
-	selectPageNr(page, pdfPage, NULL);
+	selectPageNr(page, pdfPage, nullptr);
 }
 
 bool SidebarIndexPage::selectPageNr(size_t page, size_t pdfPage, GtkTreeIter* parent)
@@ -351,7 +351,7 @@ bool SidebarIndexPage::selectPageNr(size_t page, size_t pdfPage, GtkTreeIter* pa
 	Document* doc = control->getDocument();
 	doc->lock();
 	GtkTreeModel* model = doc->getContentsModel();
-	if (model == NULL)
+	if (model == nullptr)
 	{
 		doc->unlock();
 		return false;
@@ -360,7 +360,7 @@ bool SidebarIndexPage::selectPageNr(size_t page, size_t pdfPage, GtkTreeIter* pa
 	g_object_ref(model);
 	doc->unlock();
 
-	if (parent == NULL)
+	if (parent == nullptr)
 	{
 
 		// check if there is already the current page selected
@@ -368,7 +368,7 @@ bool SidebarIndexPage::selectPageNr(size_t page, size_t pdfPage, GtkTreeIter* pa
 
 		if (gtk_tree_selection_get_selected(selection, &model, &iter))
 		{
-			XojLinkDest* link = NULL;
+			XojLinkDest* link = nullptr;
 
 			gtk_tree_model_get(model, &iter, DOCUMENT_LINKS_COLUMN_LINK, &link, -1);
 
@@ -395,7 +395,7 @@ bool SidebarIndexPage::selectPageNr(size_t page, size_t pdfPage, GtkTreeIter* pa
 
 	while (valid)
 	{
-		XojLinkDest* link = NULL;
+		XojLinkDest* link = nullptr;
 
 		gtk_tree_model_get(model, &iter, DOCUMENT_LINKS_COLUMN_LINK, &link, -1);
 
@@ -434,7 +434,7 @@ void SidebarIndexPage::documentChanged(DocumentChangeType type)
 
 	if (type == DOCUMENT_CHANGE_CLEARED)
 	{
-		gtk_tree_view_set_model(GTK_TREE_VIEW(this->treeViewBookmarks), NULL);
+		gtk_tree_view_set_model(GTK_TREE_VIEW(this->treeViewBookmarks), nullptr);
 	}
 	else if (type == DOCUMENT_CHANGE_PDF_BOOKMARKS || type == DOCUMENT_CHANGE_COMPLETE)
 	{
@@ -444,7 +444,7 @@ void SidebarIndexPage::documentChanged(DocumentChangeType type)
 		doc->lock();
 		GtkTreeModel* model = doc->getContentsModel();
 		gtk_tree_view_set_model(GTK_TREE_VIEW(this->treeViewBookmarks), model);
-		int count = expandOpenLinks(model, NULL);
+		int count = expandOpenLinks(model, nullptr);
 		doc->unlock();
 
 		hasContents = (count != 0);

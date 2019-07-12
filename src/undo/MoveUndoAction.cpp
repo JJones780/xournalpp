@@ -60,7 +60,7 @@ bool MoveUndoAction::undo(Control* control)
 {
 	XOJ_CHECK_TYPE(MoveUndoAction);
 
-	if (this->sourceLayer != this->targetLayer && this->targetLayer != NULL)
+	if (this->sourceLayer != this->targetLayer && this->targetLayer != nullptr)
 	{
 		switchLayer(&this->elements, this->targetLayer, this->sourceLayer);
 	}
@@ -76,7 +76,7 @@ bool MoveUndoAction::redo(Control* control)
 {
 	XOJ_CHECK_TYPE(MoveUndoAction);
 
-	if (this->sourceLayer != this->targetLayer && this->targetLayer != NULL)
+	if (this->sourceLayer != this->targetLayer && this->targetLayer != nullptr)
 	{
 		switchLayer(&this->elements, this->sourceLayer, this->targetLayer);
 	}

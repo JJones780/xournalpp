@@ -49,8 +49,8 @@ Scheduler::~Scheduler()
 
 	stop();
 
-	Job * job = NULL;
-	while ((job = getNextJobUnlocked()) != NULL)
+	Job * job = nullptr;
+	while ((job = getNextJobUnlocked()) != nullptr)
 	{
 		job->unref();
 	}
@@ -66,7 +66,7 @@ Scheduler::~Scheduler()
 void Scheduler::start()
 {
 	SDEBUG("Starting scheduler");
-	g_return_if_fail(this->thread == NULL);
+	g_return_if_fail(this->thread == nullptr);
 
 	this->thread = g_thread_new(name.c_str(), (GThreadFunc) jobThreadCallback, this);
 }
@@ -108,13 +108,13 @@ Job* Scheduler::getNextJobUnlocked(bool onlyNotRender, bool* hasRenderJobs)
 {
 	XOJ_CHECK_TYPE(Scheduler);
 
-	Job* job = NULL;
+	Job* job = nullptr;
 
 	for (int i = JOB_PRIORITY_URGENT; i < JOB_N_PRIORITIES; i++)
 	{
 		if (onlyNotRender)
 		{
-			for (GList* l = this->jobQueue[i]->head; l != NULL; l = l->next)
+			for (GList* l = this->jobQueue[i]->head; l != nullptr; l = l->next)
 			{
 				job = (Job*) l->data;
 
@@ -139,7 +139,7 @@ Job* Scheduler::getNextJobUnlocked(bool onlyNotRender, bool* hasRenderJobs)
 		}
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /**
@@ -170,7 +170,7 @@ void Scheduler::blockRerenderZoom()
 
 	g_mutex_lock(&this->blockRenderMutex);
 
-	if (this->blockRenderZoomTime == NULL)
+	if (this->blockRenderZoomTime == nullptr)
 	{
 		this->blockRenderZoomTime = g_new(GTimeVal, 1);
 	}
@@ -188,7 +188,7 @@ void Scheduler::unblockRerenderZoom()
 	g_mutex_lock(&this->blockRenderMutex);
 
 	g_free(this->blockRenderZoomTime);
-	this->blockRenderZoomTime = NULL;
+	this->blockRenderZoomTime = nullptr;
 	if (this->jobRenderThreadTimerId)
 	{
 		g_source_remove(this->jobRenderThreadTimerId);
@@ -230,7 +230,7 @@ bool Scheduler::jobRenderThreadTimer(Scheduler* scheduler)
 
 	g_mutex_lock(&scheduler->blockRenderMutex);
 	g_free(scheduler->blockRenderZoomTime);
-	scheduler->blockRenderZoomTime = NULL;
+	scheduler->blockRenderZoomTime = nullptr;
 	g_mutex_unlock(&scheduler->blockRenderMutex);
 
 	g_cond_broadcast(&scheduler->jobQueueCond);
@@ -259,7 +259,7 @@ gpointer Scheduler::jobThreadCallback(Scheduler* scheduler)
 			if (diff <= 0)
 			{
 				g_free(scheduler->blockRenderZoomTime);
-				scheduler->blockRenderZoomTime = NULL;
+				scheduler->blockRenderZoomTime = nullptr;
 			}
 			else
 			{
@@ -271,14 +271,14 @@ gpointer Scheduler::jobThreadCallback(Scheduler* scheduler)
 		g_mutex_lock(&scheduler->jobQueueMutex);
 		bool hasOnlyRenderJobs = false;
 		Job* job = scheduler->getNextJobUnlocked(onlyNoneRenderJobs, &hasOnlyRenderJobs);
-		if (job != NULL)
+		if (job != nullptr)
 		{
 			hasOnlyRenderJobs = false;
 		}
 
 		SDEBUG("get job: %" PRId64, (uint64_t) job);
 
-		if (job == NULL)
+		if (job == nullptr)
 		{
 			// unlock the whole scheduler
 			g_mutex_unlock(&scheduler->schedulerMutex);
@@ -317,5 +317,5 @@ gpointer Scheduler::jobThreadCallback(Scheduler* scheduler)
 
 	SDEBUG("finished");
 
-	return NULL;
+	return nullptr;
 }

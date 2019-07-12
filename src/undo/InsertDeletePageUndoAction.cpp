@@ -21,7 +21,7 @@ InsertDeletePageUndoAction::~InsertDeletePageUndoAction()
 {
 	XOJ_CHECK_TYPE(InsertDeletePageUndoAction);
 
-	this->page = NULL;
+	this->page = nullptr;
 
 	XOJ_RELEASE_TYPE(InsertDeletePageUndoAction);
 }

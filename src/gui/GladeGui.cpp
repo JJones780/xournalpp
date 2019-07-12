@@ -16,19 +16,19 @@ GladeGui::GladeGui(GladeSearchpath* gladeSearchPath, string glade, string mainWn
 
 	string filename = this->gladeSearchPath->findFile("", glade);
 
-	GError* error = NULL;
+	GError* error = nullptr;
 	builder = gtk_builder_new();
 
 	if (!gtk_builder_add_from_file(builder, filename.c_str(), &error))
 	{
 		string msg = FS(_F("Error loading glade file \"{1}\" (try to load \"{2}\")") % glade % filename);
 
-		if (error != NULL)
+		if (error != nullptr)
 		{
 			msg += "\n";
 			msg += error->message;
 		}
-		XojMsgBox::showErrorToUser(NULL, msg);
+		XojMsgBox::showErrorToUser(nullptr, msg);
 
 		g_error_free(error);
 
@@ -52,7 +52,7 @@ GtkWidget* GladeGui::get(string name)
 	XOJ_CHECK_TYPE(GladeGui);
 
 	GtkWidget* w = GTK_WIDGET(gtk_builder_get_object(builder, name.c_str()));
-	if (w == NULL)
+	if (w == nullptr)
 	{
 		g_warning("GladeGui::get: Could not find glade Widget: \"%s\"", name.c_str());
 	}

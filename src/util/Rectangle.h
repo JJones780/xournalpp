@@ -33,7 +33,7 @@ public:
 	 *
 	 * @return whether the rectangles intersect
 	 */
-	bool intersects(const Rectangle& other, Rectangle* dest = NULL) const;
+	bool intersects(const Rectangle& other, Rectangle* dest = nullptr) const;
 
 	/**
 	 * Computes the union of this rectangle with the one given by the parameters

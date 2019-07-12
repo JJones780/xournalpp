@@ -30,7 +30,7 @@ GzOutputStream::GzOutputStream(Path filename)
 	this->filename = filename;
 
 	this->fp = GzUtil::openPath(filename, "w");
-	if (this->fp == NULL)
+	if (this->fp == nullptr)
 	{
 		this->error = FS(_F("Error opening file: \"{1}\"") % filename.str());
 	}
@@ -44,7 +44,7 @@ GzOutputStream::~GzOutputStream()
 	{
 		close();
 	}
-	this->fp = NULL;
+	this->fp = nullptr;
 
 	XOJ_RELEASE_TYPE(GzOutputStream);
 }
@@ -70,6 +70,6 @@ void GzOutputStream::close()
 	if (this->fp)
 	{
 		gzclose(this->fp);
-		this->fp = NULL;
+		this->fp = nullptr;
 	}
 }

@@ -37,7 +37,7 @@ RecentManager::~RecentManager()
 		g_signal_handler_disconnect(recentManager, this->recentHandlerId);
 		this->recentHandlerId = 0;
 	}
-	this->menu = NULL;
+	this->menu = nullptr;
 
 	XOJ_RELEASE_TYPE(RecentManager);
 }
@@ -62,14 +62,14 @@ void RecentManager::addRecentFileFilename(Path filename)
 	GtkRecentManager* recentManager;
 	GtkRecentData* recentData;
 
-	static gchar* groups[2] = { g_strdup(GROUP), NULL};
+	static gchar* groups[2] = { g_strdup(GROUP), nullptr};
 
 	recentManager = gtk_recent_manager_get_default();
 
 	recentData = g_slice_new(GtkRecentData);
 
-	recentData->display_name = NULL;
-	recentData->description = NULL;
+	recentData->display_name = nullptr;
+	recentData->description = nullptr;
 
 	if (filename.hasExtension(".pdf"))
 	{
@@ -104,7 +104,7 @@ void RecentManager::removeRecentFileFilename(Path filename)
 	GFile* file = g_file_new_for_path(filename.c_str());
 
 	GtkRecentManager* recentManager = gtk_recent_manager_get_default();
-	gtk_recent_manager_remove_item(recentManager, g_file_get_uri(file), NULL);
+	gtk_recent_manager_remove_item(recentManager, g_file_get_uri(file), nullptr);
 
 	g_object_unref(file);
 }
@@ -166,10 +166,10 @@ GList* RecentManager::filterRecent(GList* items, bool xoj)
 {
 	XOJ_CHECK_TYPE(RecentManager);
 
-	GList* filteredItems = NULL;
+	GList* filteredItems = nullptr;
 
 	// filter
-	for (GList* l = items; l != NULL; l = l->next)
+	for (GList* l = items; l != nullptr; l = l->next)
 	{
 		auto* info = (GtkRecentInfo*) l->data;
 		
@@ -208,7 +208,7 @@ void RecentManager::recentsMenuActivateCallback(GtkAction* action, RecentManager
 	XOJ_CHECK_TYPE_OBJ(recentManager, RecentManager);
 
 	auto* info = (GtkRecentInfo*) g_object_get_data(G_OBJECT(action), "gtk-recent-info");
-	g_return_if_fail(info != NULL);
+	g_return_if_fail(info != nullptr);
 
 	Path p = Path::fromUri(gtk_recent_info_get_uri(info));
 	if (!p.isEmpty())
@@ -276,7 +276,7 @@ void RecentManager::updateMenu()
 	freeOldMenus();
 
 	int xojCount = 0;
-	for (GList* l = filteredItemsXoj; l != NULL; l = l->next)
+	for (GList* l = filteredItemsXoj; l != nullptr; l = l->next)
 	{
 		auto* info = (GtkRecentInfo*) l->data;
 
@@ -297,7 +297,7 @@ void RecentManager::updateMenu()
 	this->menuItemList.push_back(separator);
 
 	int pdfCount = 0;
-	for (GList* l = filteredItemsPdf; l != NULL; l = l->next)
+	for (GList* l = filteredItemsPdf; l != nullptr; l = l->next)
 	{
 		auto* info = (GtkRecentInfo*) l->data;
 
@@ -311,6 +311,6 @@ void RecentManager::updateMenu()
 	}
 	g_list_free(filteredItemsPdf);
 
-	g_list_foreach(items, (GFunc) gtk_recent_info_unref, NULL);
+	g_list_foreach(items, (GFunc) gtk_recent_info_unref, nullptr);
 	g_list_free(items);
 }

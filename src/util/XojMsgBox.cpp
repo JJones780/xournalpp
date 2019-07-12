@@ -2,7 +2,7 @@
 
 #include <i18n.h>
 
-GtkWindow* defaultWindow = NULL;
+GtkWindow* defaultWindow = nullptr;
 
 /**
  * Set window for messages without window
@@ -15,15 +15,15 @@ void XojMsgBox::setDefaultWindow(GtkWindow* win)
 
 void XojMsgBox::showErrorToUser(GtkWindow* win, string msg)
 {
-	if (win == NULL)
+	if (win == nullptr)
 	{
 		win = defaultWindow;
 	}
 
 	GtkWidget* dialog = gtk_message_dialog_new_with_markup(win, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
-											   NULL);
+											   nullptr);
 	gtk_message_dialog_set_markup( GTK_MESSAGE_DIALOG (dialog), msg.c_str());
-	if (win != NULL)
+	if (win != nullptr)
 	{
 		gtk_window_set_transient_for(GTK_WINDOW(dialog), win);
 	}
@@ -41,10 +41,10 @@ int XojMsgBox::showPluginMessage(string pluginName, string msg, map<int, string>
 	}
 
 	GtkWidget* dialog = gtk_message_dialog_new_with_markup(defaultWindow, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_NONE,
-											   NULL);
+											   nullptr);
 	gtk_message_dialog_set_markup( GTK_MESSAGE_DIALOG (dialog), header.c_str());
 	
-	if (defaultWindow != NULL)
+	if (defaultWindow != nullptr)
 	{
 		gtk_window_set_transient_for(GTK_WINDOW(dialog), defaultWindow);
 	}
@@ -69,7 +69,7 @@ int XojMsgBox::replaceFileQuestion(GtkWindow* win, string msg)
 {
 	GtkWidget* dialog = gtk_message_dialog_new(win, GTK_DIALOG_MODAL, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE,
 											   "%s", msg.c_str());
-	if (win != NULL)
+	if (win != nullptr)
 	{
 		gtk_window_set_transient_for(GTK_WINDOW(dialog), win);
 	}
@@ -84,7 +84,7 @@ int XojMsgBox::replaceFileQuestion(GtkWindow* win, string msg)
 
 void XojMsgBox::showHelp(GtkWindow* win)
 {
-	GError* error = NULL;
+	GError* error = nullptr;
 	gtk_show_uri(gtk_window_get_screen(win), XOJ_HELP, gtk_get_current_event_time(), &error);
 
 	if (error)

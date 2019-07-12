@@ -133,7 +133,7 @@ void Util::openFileWithDefaultApplicaion(Path filename)
 	if (system(command.c_str()) != 0)
 	{
 		string msg = FS(_F("File couldn't be opened. You have to do it manually:\n" "URL: {1}") % filename.str());
-		XojMsgBox::showErrorToUser(NULL, msg);
+		XojMsgBox::showErrorToUser(nullptr, msg);
 	}
 }
 
@@ -153,7 +153,7 @@ void Util::openFileWithFilebrowser(Path filename)
 	if (system(command.c_str()) != 0)
 	{
 		string msg = FS(_F("File couldn't be opened. You have to do it manually:\n" "URL: {1}") % filename.str());
-		XojMsgBox::showErrorToUser(NULL, msg);
+		XojMsgBox::showErrorToUser(nullptr, msg);
 	}
 }
 

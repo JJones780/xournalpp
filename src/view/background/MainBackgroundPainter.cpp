@@ -29,7 +29,7 @@ MainBackgroundPainter::~MainBackgroundPainter()
 	painter.clear();
 
 	delete defaultPainter;
-	defaultPainter = NULL;
+	defaultPainter = nullptr;
 
 	XOJ_RELEASE_TYPE(MainBackgroundPainter);
 }

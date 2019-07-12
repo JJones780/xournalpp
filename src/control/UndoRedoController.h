@@ -37,12 +37,12 @@ private:
 	/**
 	 * Controller
 	 */
-	Control* control = NULL;
+	Control* control = nullptr;
 
 	/**
 	 * Layer of the selection before change
 	 */
-	Layer* layer = NULL;
+	Layer* layer = nullptr;
 
 	/**
 	 * Selected elements

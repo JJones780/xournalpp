@@ -24,7 +24,7 @@ RotateUndoAction::~RotateUndoAction()
 {
 	XOJ_CHECK_TYPE(RotateUndoAction);
 
-	this->page = NULL;
+	this->page = nullptr;
 
 	XOJ_RELEASE_TYPE(RotateUndoAction);
 }

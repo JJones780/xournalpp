@@ -7,7 +7,7 @@ ObjectOutputStream::ObjectOutputStream(ObjectEncoding* encoder)
 {
 	XOJ_INIT_TYPE(ObjectOutputStream);
 
-	g_assert(encoder != NULL);
+	g_assert(encoder != nullptr);
 	this->encoder = encoder;
 
 	writeString(XML_VERSION_STR);
@@ -18,7 +18,7 @@ ObjectOutputStream::~ObjectOutputStream()
 	XOJ_CHECK_TYPE(ObjectOutputStream);
 
 	delete this->encoder;
-	this->encoder = NULL;
+	this->encoder = nullptr;
 
 	XOJ_RELEASE_TYPE(ObjectOutputStream);
 }
@@ -89,7 +89,7 @@ void ObjectOutputStream::writeData(const void* data, int len, int width)
 
 	// size of one element
 	this->encoder->addData(&width, sizeof(int));
-	if (data != NULL)
+	if (data != nullptr)
 	{
 		this->encoder->addData(data, len * width);
 	}

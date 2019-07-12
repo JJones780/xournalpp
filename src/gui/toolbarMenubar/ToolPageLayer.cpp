@@ -8,7 +8,7 @@
 #include <i18n.h>
 
 ToolPageLayer::ToolPageLayer(LayerController* lc, GladeGui* gui, ActionHandler* handler, string id, ActionType type)
- : AbstractToolItem(id, handler, type, NULL),
+ : AbstractToolItem(id, handler, type, nullptr),
    lc(lc),
    gui(gui),
    menu(gtk_menu_new())
@@ -32,7 +32,7 @@ ToolPageLayer::~ToolPageLayer()
 	XOJ_CHECK_TYPE(ToolPageLayer);
 
 	delete popupMenuButton;
-	popupMenuButton = NULL;
+	popupMenuButton = nullptr;
 
 	XOJ_RELEASE_TYPE(ToolPageLayer);
 }

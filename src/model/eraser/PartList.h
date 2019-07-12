@@ -34,7 +34,7 @@ public:
 private:
 	XOJ_TYPE_ATTRIB;
 
-	GList* data = NULL;
+	GList* data = nullptr;
 
 	friend class EraseableStroke;
 };

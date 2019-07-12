@@ -43,7 +43,7 @@ void installCrashHandlers()
 	sigaddset(&mask, SIGABRT);
 #endif
 
-	sigprocmask(SIG_UNBLOCK, &mask, 0);
+	sigprocmask(SIG_UNBLOCK, &mask, nullptr);
 
 }
 
@@ -69,7 +69,7 @@ static void crashHandler(int sig)
 	// get void*'s for all entries on the stack
 	size = backtrace(array, 100);
 
-	time_t curtime = time(0);
+	time_t curtime = time(nullptr);
 	char stime[128];
 	strftime(stime, sizeof(stime), "%Y%m%d-%H%M%S", localtime(&curtime));
 	string filename = Util::getConfigFile(std::string("errorlogs/errorlog.")  + stime + ".log").str();
@@ -79,7 +79,7 @@ static void crashHandler(int sig)
 		g_warning("[Crash Handler] Wrote crash log to: %s", filename.c_str());
 	}
 
-	lt = time(NULL);
+	lt = time(nullptr);
 
 	fp << FORMAT_STR("Date: {1}") % ctime(&lt);
 	fp << FORMAT_STR("Error: signal {1}") % sig;

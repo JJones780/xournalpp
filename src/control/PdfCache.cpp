@@ -17,9 +17,9 @@ public:
 	{
 		XOJ_CHECK_TYPE(PdfCacheEntry);
 
-		this->popplerPage = NULL;
+		this->popplerPage = nullptr;
 		cairo_surface_destroy(this->rendered);
-		this->rendered = NULL;
+		this->rendered = nullptr;
 
 		XOJ_RELEASE_TYPE(PdfCacheEntry);
 	}
@@ -86,7 +86,7 @@ cairo_surface_t* PdfCache::lookup(XojPdfPageSPtr popplerPage)
 		}
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 void PdfCache::cache(XojPdfPageSPtr popplerPage, cairo_surface_t* img)
@@ -112,7 +112,7 @@ void PdfCache::render(cairo_t* cr, XojPdfPageSPtr popplerPage, double zoom)
 	this->setZoom(zoom);
 
 	cairo_surface_t* img = lookup(popplerPage);
-	if (img == NULL)
+	if (img == nullptr)
 	{
 		img = cairo_image_surface_create(CAIRO_FORMAT_ARGB32,
 										 popplerPage->getWidth() * this->zoom, popplerPage->getHeight() * this->zoom);

@@ -9,7 +9,7 @@ RecoSegment::RecoSegment()
 {
 	XOJ_INIT_TYPE(RecoSegment);
 
-	this->stroke = NULL;
+	this->stroke = nullptr;
 	this->angle = 0;
 	this->endpt = 0;
 

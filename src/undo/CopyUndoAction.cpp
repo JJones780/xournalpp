@@ -19,7 +19,7 @@ CopyUndoAction::~CopyUndoAction()
 {
 	XOJ_CHECK_TYPE(CopyUndoAction);
 
-	this->page = NULL;
+	this->page = nullptr;
 
 	XOJ_RELEASE_TYPE(CopyUndoAction);
 }

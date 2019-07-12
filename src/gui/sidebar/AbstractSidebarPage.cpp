@@ -11,8 +11,8 @@ AbstractSidebarPage::~AbstractSidebarPage()
 {
 	XOJ_CHECK_TYPE(AbstractSidebarPage);
 
-	this->control = NULL;
-	this->toolbar = NULL;
+	this->control = nullptr;
+	this->toolbar = nullptr;
 
 	XOJ_RELEASE_TYPE(AbstractSidebarPage);
 }
@@ -33,7 +33,7 @@ void AbstractSidebarPage::setTmpDisabled(bool disabled)
 {
 	XOJ_CHECK_TYPE(AbstractSidebarPage);
 
-	GdkCursor* cursor = NULL;
+	GdkCursor* cursor = nullptr;
 	if (disabled)
 	{
 		cursor = gdk_cursor_new_for_display(gdk_display_get_default(), GDK_WATCH);

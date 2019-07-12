@@ -18,7 +18,7 @@ SpinPageAdapter::~SpinPageAdapter()
 	XOJ_CHECK_TYPE(SpinPageAdapter);
 
 	g_object_unref(this->widget);
-	this->widget = NULL;
+	this->widget = nullptr;
 
 	XOJ_RELEASE_TYPE(SpinPageAdapter);
 }

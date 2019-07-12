@@ -6,7 +6,7 @@ PopplerGlibPage::PopplerGlibPage(PopplerPage* page)
 {
 	XOJ_INIT_TYPE(PopplerGlibPage);
 
-	if (page != NULL)
+	if (page != nullptr)
 	{
 		g_object_ref(page);
 	}
@@ -17,7 +17,7 @@ PopplerGlibPage::PopplerGlibPage(const PopplerGlibPage& other)
 {
 	XOJ_INIT_TYPE(PopplerGlibPage);
 
-	if (page != NULL)
+	if (page != nullptr)
 	{
 		g_object_ref(page);
 	}
@@ -30,7 +30,7 @@ PopplerGlibPage::~PopplerGlibPage()
 	if (page)
 	{
 		g_object_unref(page);
-		page = NULL;
+		page = nullptr;
 	}
 
 	XOJ_RELEASE_TYPE(PopplerGlibPage);
@@ -43,11 +43,11 @@ void PopplerGlibPage::operator=(const PopplerGlibPage& other)
 	if (page)
 	{
 		g_object_unref(page);
-		page = NULL;
+		page = nullptr;
 	}
 
 	page = other.page;
-	if (page != NULL)
+	if (page != nullptr)
 	{
 		g_object_ref(page);
 	}
@@ -58,7 +58,7 @@ double PopplerGlibPage::getWidth()
 	XOJ_CHECK_TYPE(PopplerGlibPage);
 
 	double width = 0;
-	poppler_page_get_size(page, &width, NULL);
+	poppler_page_get_size(page, &width, nullptr);
 
 	return width;
 }
@@ -68,7 +68,7 @@ double PopplerGlibPage::getHeight()
 	XOJ_CHECK_TYPE(PopplerGlibPage);
 
 	double height = 0;
-	poppler_page_get_size(page, NULL, &height);
+	poppler_page_get_size(page, nullptr, &height);
 
 	return height;
 }

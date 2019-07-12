@@ -19,8 +19,8 @@ AbstractInputDevice::~AbstractInputDevice()
 {
 	XOJ_CHECK_TYPE(AbstractInputDevice);
 
-	widget = NULL;
-	view = NULL;
+	widget = nullptr;
+	view = nullptr;
 
 	XOJ_RELEASE_TYPE(AbstractInputDevice);
 }

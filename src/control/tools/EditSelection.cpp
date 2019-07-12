@@ -152,14 +152,14 @@ EditSelection::~EditSelection()
 
 	finalizeSelection();
 
-	this->sourcePage = NULL;
-	this->sourceLayer = NULL;
+	this->sourcePage = nullptr;
+	this->sourceLayer = nullptr;
 
 	delete this->contents;
-	this->contents = NULL;
+	this->contents = nullptr;
 
-	this->view = NULL;
-	this->undo = NULL;
+	this->view = nullptr;
+	this->undo = nullptr;
 
 	XOJ_RELEASE_TYPE(EditSelection);
 }
@@ -173,7 +173,7 @@ void EditSelection::finalizeSelection()
 	XOJ_CHECK_TYPE(EditSelection);
 
 	XojPageView* v = getPageViewUnderCursor();
-	if (v == NULL)
+	if (v == nullptr)
 	{	// Not on any page - move back to original page and position
 		this->x = this->contents->getOriginalX();
 		this->y = this->contents->getOriginalY();
@@ -909,7 +909,7 @@ void EditSelection::paint(cairo_t* cr, double zoom)
 	selectionColor.applyWithAlpha(cr, 0.3);
 	cairo_fill(cr);
 
-	cairo_set_dash(cr, NULL, 0, 0);
+	cairo_set_dash(cr, nullptr, 0, 0);
 
 	if (!this->aspectRatio)
 	{

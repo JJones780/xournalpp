@@ -45,9 +45,9 @@ private:
 	XOJ_TYPE_ATTRIB;
 
 protected:
-	GtkAdjustment* adjHorizontal = NULL;
-	GtkAdjustment* adjVertical = NULL;
+	GtkAdjustment* adjHorizontal = nullptr;
+	GtkAdjustment* adjVertical = nullptr;
 
-	GtkWidget* xournal = NULL;
-	Layout* layout = NULL;
+	GtkWidget* xournal = nullptr;
+	Layout* layout = nullptr;
 };

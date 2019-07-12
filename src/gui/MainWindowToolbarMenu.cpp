@@ -64,13 +64,13 @@ void MainWindowToolbarMenu::selectToolbar(Settings* settings, ToolMenuHandler* t
 {
 	XOJ_CHECK_TYPE(MainWindowToolbarMenu);
 
-	selectedToolbar = NULL;
+	selectedToolbar = nullptr;
 
 	string selectedId = settings->getSelectedToolbar();
 
 	for (ToolbarData* d : *toolbar->getModel()->getToolbars())
 	{
-		if (selectedToolbar == NULL)
+		if (selectedToolbar == nullptr)
 		{
 			selectedToolbar = d;
 		}

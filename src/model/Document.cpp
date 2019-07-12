@@ -36,23 +36,23 @@ void Document::freeTreeContentModel()
 		gtk_tree_model_foreach(this->contentsModel, (GtkTreeModelForeachFunc) freeTreeContentEntry, this);
 
 		g_object_unref(this->contentsModel);
-		this->contentsModel = NULL;
+		this->contentsModel = nullptr;
 	}
 }
 
 bool Document::freeTreeContentEntry(GtkTreeModel* treeModel, GtkTreePath* path, GtkTreeIter* iter, Document* doc)
 {
-	XojLinkDest* link = NULL;
+	XojLinkDest* link = nullptr;
 	gtk_tree_model_get(treeModel, iter, DOCUMENT_LINKS_COLUMN_LINK, &link, -1);
 
-	if (link == NULL)
+	if (link == nullptr)
 	{
 		return false;
 	}
 
 	// The dispose function of XojLinkDest is not called, this workaround fixes the Memory Leak
 	delete link->dest;
-	link->dest = NULL;
+	link->dest = nullptr;
 
 	return false;
 }
@@ -96,7 +96,7 @@ void Document::clearDocument(bool destroy)
 	if (this->preview)
 	{
 		cairo_surface_destroy(this->preview);
-		this->preview = NULL;
+		this->preview = nullptr;
 	}
 
 	if (!destroy)
@@ -189,7 +189,7 @@ Path Document::createSaveFilename(DocumentType type, string defaultSaveName)
 	}
 	else
 	{
-		time_t curtime = time(NULL);
+		time_t curtime = time(nullptr);
 		char stime[128];
 		strftime(stime, sizeof(stime), defaultSaveName.c_str(), localtime(&curtime));
 
@@ -222,7 +222,7 @@ void Document::setPreview(cairo_surface_t* preview)
 	}
 	else
 	{
-		this->preview = NULL;
+		this->preview = nullptr;
 	}
 }
 
@@ -322,14 +322,14 @@ void Document::buildContentsModel()
 	freeTreeContentModel();
 
 	XojPdfBookmarkIterator* iter = pdfDocument.getContentsIter();
-	if (iter == NULL)
+	if (iter == nullptr)
 	{
 		// No Bookmarks
 		return;
 	}
 
 	this->contentsModel = (GtkTreeModel*) gtk_tree_store_new(4, G_TYPE_STRING, G_TYPE_OBJECT, G_TYPE_BOOLEAN, G_TYPE_STRING);
-	buildTreeContentsModel(NULL, iter);
+	buildTreeContentsModel(nullptr, iter);
 	delete iter;
 }
 
@@ -342,17 +342,17 @@ GtkTreeModel* Document::getContentsModel()
 
 bool Document::fillPageLabels(GtkTreeModel* treeModel, GtkTreePath* path, GtkTreeIter* iter, Document* doc)
 {
-	XojLinkDest* link = NULL;
+	XojLinkDest* link = nullptr;
 	gtk_tree_model_get(treeModel, iter, DOCUMENT_LINKS_COLUMN_LINK, &link, -1);
 
-	if (link == NULL)
+	if (link == nullptr)
 	{
 		return false;
 	}
 
 	int page = doc->findPdfPage(link->dest->getPdfPage());
 
-	gchar* pageLabel = NULL;
+	gchar* pageLabel = nullptr;
 	if (page != -1)
 	{
 		pageLabel = g_strdup_printf("%i", page + 1);
@@ -368,7 +368,7 @@ void Document::updateIndexPageNumbers()
 {
 	XOJ_CHECK_TYPE(Document);
 
-	if (this->contentsModel != NULL)
+	if (this->contentsModel != nullptr)
 	{
 		gtk_tree_model_foreach(this->contentsModel, (GtkTreeModelForeachFunc) fillPageLabels, this);
 	}
@@ -378,7 +378,7 @@ bool Document::readPdf(Path filename, bool initPages, bool attachToDocument, gpo
 {
 	XOJ_CHECK_TYPE(Document);
 
-	GError* popplerError = NULL;
+	GError* popplerError = nullptr;
 
 	lock();
 
@@ -513,11 +513,11 @@ PageRef Document::getPage(size_t page)
 
 	if (getPageCount() <= page)
 	{
-		return NULL;
+		return nullptr;
 	}
 	if (page == size_t_npos)
 	{
-		return NULL;
+		return nullptr;
 	}
 
 	return this->pages[page];

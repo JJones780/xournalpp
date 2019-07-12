@@ -13,7 +13,7 @@ DoubleArrayAttribute::~DoubleArrayAttribute()
 	XOJ_CHECK_TYPE(DoubleArrayAttribute);
 
 	delete values;
-	values = NULL;
+	values = nullptr;
 
 	XOJ_RELEASE_TYPE(DoubleArrayAttribute);
 }

@@ -45,7 +45,7 @@ PageRangeVector PageRange::parse(const char* str)
 	}
 
 	int start, end;
-	char* next = NULL;
+	char* next = nullptr;
 	const char* p = str;
 	while (*p)
 	{

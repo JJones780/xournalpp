@@ -20,10 +20,10 @@ SettingsDialog::SettingsDialog(GladeSearchpath* gladeSearchPath, Settings* setti
 	XOJ_INIT_TYPE(SettingsDialog);
 
 	GtkWidget* vbox = get("zoomVBox");
-	g_return_if_fail(vbox != NULL);
+	g_return_if_fail(vbox != nullptr);
 
 	GtkWidget* slider = get("zoomCallibSlider");
-	g_return_if_fail(slider != NULL);
+	g_return_if_fail(slider != nullptr);
 
 	g_signal_connect(slider, "change-value", G_CALLBACK(
 		+[](GtkRange* range, GtkScrollType scroll, gdouble value, SettingsDialog* self)
@@ -139,7 +139,7 @@ SettingsDialog::~SettingsDialog()
 	this->deviceClassConfigs.clear();
 
 	// DO NOT delete settings!
-	this->settings = NULL;
+	this->settings = nullptr;
 
 	XOJ_RELEASE_TYPE(SettingsDialog);
 }
@@ -573,7 +573,7 @@ void SettingsDialog::save()
 
 	settings->setDefaultSaveName(gtk_entry_get_text(GTK_ENTRY(get("txtDefaultSaveName"))));
 	char* uri = gtk_file_chooser_get_uri(GTK_FILE_CHOOSER(get("fcAudioPath")));
-	if (uri != NULL)
+	if (uri != nullptr)
 	{
 		settings->setAudioFolder(uri);
 		g_free(uri);

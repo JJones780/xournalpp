@@ -40,7 +40,7 @@ void ColorToolItem::freeIcons()
 	XOJ_CHECK_TYPE(ColorToolItem);
 
 	delete this->icon;
-	this->icon = NULL;
+	this->icon = nullptr;
 }
 
 bool ColorToolItem::isSelector()

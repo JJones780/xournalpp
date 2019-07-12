@@ -21,8 +21,8 @@ using std::endl;
 	xojTypeList[id] = #name
 
 static bool listInited = false;
-static const char* xojTypeList[XOURNAL_TYPE_LIST_LENGTH] = { 0 };
-static GMutex mutex = { 0 };
+static const char* xojTypeList[XOURNAL_TYPE_LIST_LENGTH] = { nullptr };
+static GMutex mutex = { nullptr };
 
 static void initXournalClassList()
 {
@@ -52,7 +52,7 @@ const char* xoj_type_getName(int id)
 
 	const char* typeName = xojTypeList[id];
 
-	if (typeName == NULL)
+	if (typeName == nullptr)
 	{
 		g_warning("Type check: name of id %i is NULL!", id);
 	}

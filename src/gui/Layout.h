@@ -112,11 +112,11 @@ private:
 private:
 	XOJ_TYPE_ATTRIB;
 
-	XournalView* view = NULL;	
+	XournalView* view = nullptr;	
 
 	LayoutMapper mapper;
 
-	ScrollHandling* scrollHandling = NULL;
+	ScrollHandling* scrollHandling = nullptr;
 
 	double lastScrollHorizontal = -1;
 	double lastScrollVertical = -1;

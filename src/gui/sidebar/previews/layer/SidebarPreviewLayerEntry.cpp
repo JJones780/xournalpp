@@ -57,7 +57,7 @@ SidebarPreviewLayerEntry::~SidebarPreviewLayerEntry()
 	XOJ_CHECK_TYPE(SidebarPreviewLayerEntry);
 
 	gtk_widget_destroy(this->box);
-	this->box = NULL;
+	this->box = nullptr;
 
 	XOJ_RELEASE_TYPE(SidebarPreviewLayerEntry);
 }

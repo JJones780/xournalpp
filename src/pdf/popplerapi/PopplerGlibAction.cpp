@@ -13,12 +13,12 @@ PopplerGlibAction::~PopplerGlibAction()
 	XOJ_CHECK_TYPE(PopplerGlibAction);
 
 	poppler_action_free(action);
-	action = NULL;
+	action = nullptr;
 
 	if (document)
 	{
 		g_object_unref(document);
-		document = NULL;
+		document = nullptr;
 	}
 
 	XOJ_RELEASE_TYPE(PopplerGlibAction);
@@ -38,7 +38,7 @@ XojLinkDest* PopplerGlibAction::getDestination()
 		auto* actionDest = (PopplerActionGotoDest*)action;
 		PopplerDest* pDest = actionDest->dest;
 
-		if (pDest == NULL)
+		if (pDest == nullptr)
 		{
 			return dest;
 		}
@@ -61,7 +61,7 @@ void PopplerGlibAction::linkFromDest(LinkDestination* link, PopplerDest* pDest)
 	case POPPLER_DEST_XYZ:
 		{
 			PopplerPage* page = poppler_document_get_page(document, pDest->page_num);
-			if (page == NULL)
+			if (page == nullptr)
 			{
 				return;
 			}
@@ -120,7 +120,7 @@ void PopplerGlibAction::linkFromDest(LinkDestination* link, PopplerDest* pDest)
 	case POPPLER_DEST_NAMED:
 		{
 			PopplerDest* pDest2 = poppler_document_find_dest(document, pDest->named_dest);
-			if (pDest2 != NULL)
+			if (pDest2 != nullptr)
 			{
 				linkFromDest(link, pDest2);
 				poppler_dest_free(pDest2);

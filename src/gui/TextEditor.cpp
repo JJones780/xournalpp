@@ -127,7 +127,7 @@ void TextEditor::setText(string text)
 
 	gtk_text_buffer_set_text(this->buffer, text.c_str(), -1);
 
-	GtkTextIter first = {0};
+	GtkTextIter first = {nullptr};
 	gtk_text_buffer_get_iter_at_offset(this->buffer, &first, 0);
 	gtk_text_buffer_place_cursor(this->buffer, &first);
 }
@@ -1192,7 +1192,7 @@ void TextEditor::paint(cairo_t* cr, GdkRectangle* repaintRect, double zoom)
 
 	DocumentView::applyColor(cr, this->text);
 
-	GtkTextIter cursorIter = {0};
+	GtkTextIter cursorIter = {nullptr};
 	GtkTextMark* cursor = gtk_text_buffer_get_insert(this->buffer);
 	gtk_text_buffer_get_iter_at_mark(this->buffer, &cursorIter, cursor);
 

@@ -24,6 +24,6 @@ GString* ObjectEncoding::getData()
 	XOJ_CHECK_TYPE(ObjectEncoding);
 
 	GString* str = this->data;
-	this->data = NULL;
+	this->data = nullptr;
 	return str;
 }

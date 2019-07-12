@@ -64,11 +64,11 @@ private:
 private:
 	XOJ_TYPE_ATTRIB;
 
-	ClipboardListener* listener = NULL;
-	GtkClipboard* clipboard = NULL;
+	ClipboardListener* listener = nullptr;
+	GtkClipboard* clipboard = nullptr;
 	gulong hanlderId = -1;
 
-	EditSelection* selection = NULL;
+	EditSelection* selection = nullptr;
 
 	bool containsText = false;
 	bool containsXournal = false;

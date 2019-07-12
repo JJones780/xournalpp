@@ -77,7 +77,7 @@ void ScrollHandler::scrollToPage(size_t page, double top)
 	XOJ_CHECK_TYPE(ScrollHandler);
 
 	MainWindow* win = this->control->getWindow();
-	if (win == NULL)
+	if (win == nullptr)
 	{
 		g_error("Windows is NULL!");
 		return;

@@ -69,7 +69,7 @@ ToolbarManageDialog::ToolbarManageDialog(GladeSearchpath* gladeSearchPath, Toolb
 	g_signal_connect(get("btDelete"), "clicked", G_CALLBACK(buttonDeleteCallback), this);
 	g_signal_connect(get("btCopy"), "clicked", G_CALLBACK(buttonCopyCallback), this);
 
-	entrySelected(NULL);
+	entrySelected(nullptr);
 }
 
 ToolbarManageDialog::~ToolbarManageDialog()
@@ -77,7 +77,7 @@ ToolbarManageDialog::~ToolbarManageDialog()
 	XOJ_CHECK_TYPE(ToolbarManageDialog);
 
 	g_object_unref(this->model);
-	this->tbModel = NULL;
+	this->tbModel = nullptr;
 
 	XOJ_RELEASE_TYPE(ToolbarManageDialog);
 }
@@ -98,7 +98,7 @@ void ToolbarManageDialog::buttonDeleteCallback(GtkButton* button, ToolbarManageD
 	XOJ_CHECK_TYPE_OBJ(dlg, ToolbarManageDialog);
 
 	ToolbarData* selected = dlg->getSelectedEntry();
-	if (selected == NULL)
+	if (selected == nullptr)
 	{
 		return;
 	}
@@ -109,7 +109,7 @@ void ToolbarManageDialog::buttonDeleteCallback(GtkButton* button, ToolbarManageD
 	{
 		do
 		{
-			ToolbarData* data = NULL;
+			ToolbarData* data = nullptr;
 			gtk_tree_model_get(GTK_TREE_MODEL(dlg->model), &iter, COLUMN_POINTER, &data, -1);
 
 			if (data == selected)
@@ -130,7 +130,7 @@ void ToolbarManageDialog::buttonCopyCallback(GtkButton* button, ToolbarManageDia
 	XOJ_CHECK_TYPE_OBJ(dlg, ToolbarManageDialog);
 
 	ToolbarData* selected = dlg->getSelectedEntry();
-	if (selected == NULL)
+	if (selected == nullptr)
 	{
 		return;
 	}
@@ -164,7 +164,7 @@ void ToolbarManageDialog::treeCellEditedCallback(GtkCellRendererText* renderer, 
 	XOJ_CHECK_TYPE_OBJ(dlg, ToolbarManageDialog);
 
 	GtkTreeIter iter;
-	ToolbarData* data = NULL;
+	ToolbarData* data = nullptr;
 
 	gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(dlg->model), &iter, pathString);
 	gtk_tree_model_get(GTK_TREE_MODEL(dlg->model), &iter, COLUMN_POINTER, &data, -1);
@@ -182,7 +182,7 @@ void ToolbarManageDialog::entrySelected(ToolbarData* data)
 	GtkWidget* btCopy = get("btCopy");
 	GtkWidget* btDelete = get("btDelete");
 
-	if (data == NULL)
+	if (data == nullptr)
 	{
 		gtk_widget_set_sensitive(btCopy, false);
 		gtk_widget_set_sensitive(btDelete, false);
@@ -199,15 +199,15 @@ ToolbarData* ToolbarManageDialog::getSelectedEntry()
 	XOJ_CHECK_TYPE(ToolbarManageDialog);
 
 	GtkTreeIter iter;
-	GtkTreeModel* model = NULL;
-	ToolbarData* data = NULL;
+	GtkTreeModel* model = nullptr;
+	ToolbarData* data = nullptr;
 
 	GtkWidget* tree = get("toolbarList");
 
 	GtkTreeSelection* selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree));
-	if (selection == NULL)
+	if (selection == nullptr)
 	{
-		return NULL;
+		return nullptr;
 	}
 
 	if (gtk_tree_selection_get_selected(selection, &model, &iter))
@@ -217,7 +217,7 @@ ToolbarData* ToolbarManageDialog::getSelectedEntry()
 	}
 	else
 	{
-		return NULL;
+		return nullptr;
 	}
 }
 

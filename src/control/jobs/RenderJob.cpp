@@ -24,7 +24,7 @@ RenderJob::~RenderJob()
 {
 	XOJ_CHECK_TYPE(RenderJob);
 
-	this->view = NULL;
+	this->view = nullptr;
 
 	XOJ_RELEASE_TYPE(RenderJob);
 }

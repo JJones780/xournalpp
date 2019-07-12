@@ -2,7 +2,7 @@
 
 XmlPointNode::XmlPointNode(const char* tag)
  : XmlAudioNode(tag),
-   points(NULL)
+   points(nullptr)
 {
 	XOJ_INIT_TYPE(XmlPointNode);
 }
@@ -11,13 +11,13 @@ XmlPointNode::~XmlPointNode()
 {
 	XOJ_CHECK_TYPE(XmlPointNode);
 
-	for (GList* l = this->points; l != NULL; l = l->next)
+	for (GList* l = this->points; l != nullptr; l = l->next)
 	{
 		auto* p = (Point*) l->data;
 		delete p;
 	}
 	g_list_free(this->points);
-	this->points = NULL;
+	this->points = nullptr;
 
 	XOJ_RELEASE_TYPE(XmlPointNode);
 }
@@ -40,7 +40,7 @@ void XmlPointNode::writeOut(OutputStream* out)
 
 	out->write(">");
 
-	for (GList* l = this->points; l != NULL; l = l->next)
+	for (GList* l = this->points; l != nullptr; l = l->next)
 	{
 		auto* p = (Point*) l->data;
 		if (l != this->points)

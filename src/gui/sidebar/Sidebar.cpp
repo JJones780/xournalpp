@@ -90,7 +90,7 @@ Sidebar::~Sidebar()
 {
 	XOJ_CHECK_TYPE(Sidebar);
 
-	this->control = NULL;
+	this->control = nullptr;
 
 	for (AbstractSidebarPage* p : this->pages)
 	{
@@ -98,8 +98,8 @@ Sidebar::~Sidebar()
 	}
 	this->pages.clear();
 
-	this->sidebar = NULL;
-	this->currentPage = NULL;
+	this->sidebar = nullptr;
+	this->currentPage = nullptr;
 
 	XOJ_RELEASE_TYPE(Sidebar);
 }
@@ -133,8 +133,8 @@ void Sidebar::setSelectedPage(size_t page)
 {
 	XOJ_CHECK_TYPE(Sidebar);
 
-	this->visiblePage = NULL;
-	this->currentPage = NULL;
+	this->visiblePage = nullptr;
+	this->currentPage = nullptr;
 
 	size_t i = 0;
 	for (AbstractSidebarPage* p : this->pages)

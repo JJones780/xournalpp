@@ -31,7 +31,7 @@ ShapeRecognizerResult::~ShapeRecognizerResult()
 {
 	XOJ_CHECK_TYPE(ShapeRecognizerResult);
 
-	this->recognized = NULL;
+	this->recognized = nullptr;
 
 	XOJ_RELEASE_TYPE(ShapeRecognizerResult);
 }

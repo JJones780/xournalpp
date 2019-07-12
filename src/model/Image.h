@@ -50,7 +50,7 @@ private:
 	XOJ_TYPE_ATTRIB;
 
 
-	cairo_surface_t* image = NULL;
+	cairo_surface_t* image = nullptr;
 
 	string data;
 

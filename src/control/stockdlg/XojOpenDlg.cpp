@@ -40,7 +40,7 @@ XojOpenDlg::~XojOpenDlg()
 	{
 		gtk_widget_destroy(dialog);
 	}
-	dialog = NULL;
+	dialog = nullptr;
 
 	XOJ_RELEASE_TYPE(XojOpenDlg);
 }
@@ -104,7 +104,7 @@ Path XojOpenDlg::runDialog()
 	if (gtk_dialog_run(GTK_DIALOG(dialog)) != GTK_RESPONSE_OK)
 	{
 		gtk_widget_destroy(dialog);
-		dialog = NULL;
+		dialog = nullptr;
 		return Path("");
 	}
 
@@ -148,7 +148,7 @@ Path XojOpenDlg::showOpenDialog(bool pdf, bool& attachPdf)
 	addFilterPdf();
 	addFilterAllFiles();
 
-	GtkWidget* attachOpt = NULL;
+	GtkWidget* attachOpt = nullptr;
 	if (pdf)
 	{
 		attachOpt = gtk_check_button_new_with_label(_("Attach file to the journal"));
@@ -202,7 +202,7 @@ void XojOpenDlg::updatePreviewCallback(GtkFileChooser* fileChooser, void* userDa
 
 	Path filepath = filename;
 	g_free(filename);
-	filename = NULL;
+	filename = nullptr;
 
 	if (!filepath.hasXournalFileExt())
 	{
@@ -219,19 +219,19 @@ void XojOpenDlg::updatePreviewCallback(GtkFileChooser* fileChooser, void* userDa
 		return;
 	}
 
-	GError* error = NULL;
+	GError* error = nullptr;
 	gsize dataLen = 0;
 	unsigned char* imageData = extractor.getData(dataLen);
 
-	GInputStream* in = g_memory_input_stream_new_from_data(imageData, dataLen, NULL);
-	GdkPixbuf* pixbuf = gdk_pixbuf_new_from_stream(in, NULL, &error);
-	if (error != NULL)
+	GInputStream* in = g_memory_input_stream_new_from_data(imageData, dataLen, nullptr);
+	GdkPixbuf* pixbuf = gdk_pixbuf_new_from_stream(in, nullptr, &error);
+	if (error != nullptr)
 	{
 		g_warning("Could not load preview image, error: %s\n", error->message);
 		g_error_free(error);
 	}
 
-	g_input_stream_close(in, NULL, NULL);
+	g_input_stream_close(in, nullptr, nullptr);
 
 	if (pixbuf)
 	{

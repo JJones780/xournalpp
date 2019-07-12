@@ -74,7 +74,7 @@ PopupMenuButton::PopupMenuButton(GtkWidget* button, GtkWidget* menu)
 	{
 			XOJ_CHECK_TYPE_OBJ(self, PopupMenuButton);
 
-			gtk_menu_popup(GTK_MENU(self->menu), NULL, NULL, (GtkMenuPositionFunc) menu_position_func,
+			gtk_menu_popup(GTK_MENU(self->menu), nullptr, nullptr, (GtkMenuPositionFunc) menu_position_func,
 			               button, 0, gtk_get_current_event_time());
 
 			gtk_menu_shell_select_first(GTK_MENU_SHELL(self->menu), FALSE);

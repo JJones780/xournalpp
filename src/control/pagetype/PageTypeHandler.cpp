@@ -16,7 +16,7 @@ PageTypeHandler::PageTypeHandler(GladeSearchpath* gladeSearchPath)
 	{
 
 		string msg = FS(_F("Could not load pagetemplates.ini file"));
-		XojMsgBox::showErrorToUser(NULL, msg);
+		XojMsgBox::showErrorToUser(nullptr, msg);
 
 		// On failure load the hardcoded and predefined values
 		addPageTypeInfo(_("Plain"), "plain", "");
@@ -51,7 +51,7 @@ bool PageTypeHandler::parseIni(string filename)
 
 	GKeyFile* config = g_key_file_new();
 	g_key_file_set_list_separator(config, ',');
-	if (!g_key_file_load_from_file(config, filename.c_str(), G_KEY_FILE_NONE, NULL))
+	if (!g_key_file_load_from_file(config, filename.c_str(), G_KEY_FILE_NONE, nullptr))
 	{
 		g_key_file_free(config);
 		return false;
@@ -75,24 +75,24 @@ void PageTypeHandler::loadFormat(GKeyFile* config, const char* group)
 	XOJ_CHECK_TYPE(PageTypeHandler);
 
 	string strName;
-	gchar* name = g_key_file_get_locale_string(config, group, "name", NULL, NULL);
-	if (name != NULL)
+	gchar* name = g_key_file_get_locale_string(config, group, "name", nullptr, nullptr);
+	if (name != nullptr)
 	{
 		strName = name;
 		g_free(name);
 	}
 
 	string strFormat;
-	gchar* format = g_key_file_get_string(config, group, "format", NULL);
-	if (format != NULL)
+	gchar* format = g_key_file_get_string(config, group, "format", nullptr);
+	if (format != nullptr)
 	{
 		strFormat = format;
 		g_free(format);
 	}
 
 	string strConfig;
-	gchar* cconfig = g_key_file_get_string(config, group, "config", NULL);
-	if (cconfig != NULL)
+	gchar* cconfig = g_key_file_get_string(config, group, "config", nullptr);
+	if (cconfig != nullptr)
 	{
 		strConfig = cconfig;
 		g_free(cconfig);

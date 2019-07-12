@@ -148,17 +148,17 @@ private:
 	/**
 	 * Current editing page
 	 */
-	XojPageView* current_view = NULL;
+	XojPageView* current_view = nullptr;
 
 	/**
 	 * Current input page. Mege together with current_view??
 	 */
-	XojPageView* currentInputPage = NULL;
+	XojPageView* currentInputPage = nullptr;
 
 	/**
 	 * Current input device
 	 */
-	GdkDevice* device = NULL;
+	GdkDevice* device = nullptr;
 
 	/**
 	 * This is a pen / eraser device
@@ -168,7 +168,7 @@ private:
 	/**
 	 * Axes of the input
 	 */
-	gdouble* axes = NULL;
+	gdouble* axes = nullptr;
 
 	/**
 	 * Pressure sensitivity enabled

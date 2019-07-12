@@ -15,10 +15,10 @@ SidebarPreviewBase::SidebarPreviewBase(Control* control, GladeGui* gui, SidebarT
 
 	this->cache = new PdfCache(control->getSettings()->getPdfPageCacheSize());
 
-	this->iconViewPreview = gtk_layout_new(NULL, NULL);
+	this->iconViewPreview = gtk_layout_new(nullptr, nullptr);
 	g_object_ref(this->iconViewPreview);
 
-	this->scrollPreview = gtk_scrolled_window_new(NULL, NULL);
+	this->scrollPreview = gtk_scrolled_window_new(nullptr, nullptr);
 	g_object_ref(this->scrollPreview);
 
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(this->scrollPreview), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
@@ -43,15 +43,15 @@ SidebarPreviewBase::~SidebarPreviewBase()
 	XOJ_CHECK_TYPE(SidebarPreviewBase);
 
 	gtk_widget_destroy(this->iconViewPreview);
-	this->iconViewPreview = NULL;
+	this->iconViewPreview = nullptr;
 
 	delete this->cache;
-	this->cache = NULL;
+	this->cache = nullptr;
 
 	delete this->layoutmanager;
-	this->layoutmanager = NULL;
+	this->layoutmanager = nullptr;
 
-	this->scrollPreview = NULL;
+	this->scrollPreview = nullptr;
 
 	for (SidebarPreviewBaseEntry* p : this->previews)
 	{
@@ -149,7 +149,7 @@ bool SidebarPreviewBase::scrollToPreview(SidebarPreviewBase* sidebar)
 	}
 
 	MainWindow* win = sidebar->control->getWindow();
-	if (win == NULL)
+	if (win == nullptr)
 	{
 		return false;
 	}

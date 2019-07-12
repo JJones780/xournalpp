@@ -20,12 +20,12 @@ PageTypeMenu::PageTypeMenu(PageTypeHandler* types, Settings* settings, bool show
    types(types),
    settings(settings),
    ignoreEvents(false),
-   listener(NULL),
+   listener(nullptr),
    menuX(0),
    menuY(0),
-   backgroundPainter(NULL),
+   backgroundPainter(nullptr),
    showPreview(showPreview),
-   pageTypeApplyListener(NULL)
+   pageTypeApplyListener(nullptr)
 {
 	XOJ_INIT_TYPE(PageTypeMenu);
 
@@ -41,7 +41,7 @@ PageTypeMenu::~PageTypeMenu()
 	 * The menu is used from the GUI
 	 * Therefore the menu is not freed here, this will be done in the GUI
 	 */
-	menu = NULL;
+	menu = nullptr;
 
 	XOJ_RELEASE_TYPE(PageTypeMenu);
 }
@@ -93,7 +93,7 @@ void PageTypeMenu::addMenuEntry(PageTypeInfo* t)
 	bool special = t->page.isSpecial();
 	bool showImg = !special && showPreview;
 
-	GtkWidget* entry = NULL;
+	GtkWidget* entry = nullptr;
 	if (showImg)
 	{
 		cairo_surface_t* img = createPreviewImage(t->page);
@@ -185,7 +185,7 @@ void PageTypeMenu::entrySelected(PageTypeInfo* t)
 
 	selected = t->page;
 
-	if (listener != NULL)
+	if (listener != nullptr)
 	{
 		listener->changeCurrentPageBackground(t);
 	}
@@ -323,7 +323,7 @@ void PageTypeMenu::initDefaultMenu()
 	}
 
 	delete this->backgroundPainter;
-	this->backgroundPainter = NULL;
+	this->backgroundPainter = nullptr;
 }
 
 GtkWidget* PageTypeMenu::getMenu()

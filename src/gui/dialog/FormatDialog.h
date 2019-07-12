@@ -45,9 +45,9 @@ private:
 private:
 	XOJ_TYPE_ATTRIB;
 
-	Settings* settings = NULL;
+	Settings* settings = nullptr;
 
-	GList* list = NULL;
+	GList* list = nullptr;
 
 	Orientation orientation = ORIENTATION_NOT_DEFINED;
 	double scale = 0;

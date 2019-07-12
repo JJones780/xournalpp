@@ -105,7 +105,7 @@ public:
 	/**
 	 * Convert this path to Uri
 	 */
-	string toUri(GError** error = NULL);
+	string toUri(GError** error = nullptr);
 
 #ifndef BUILD_THUMBNAILER
 	/**

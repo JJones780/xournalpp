@@ -29,7 +29,7 @@ BaseElementView::~BaseElementView()
 	if (this->crBuffer)
 	{
 		cairo_surface_destroy(this->crBuffer);
-		this->crBuffer = NULL;
+		this->crBuffer = nullptr;
 	}
 
 	XOJ_RELEASE_TYPE(BaseElementView);
@@ -72,7 +72,7 @@ void BaseElementView::repaint()
 	if (this->crBuffer)
 	{
 		cairo_surface_destroy(this->crBuffer);
-		this->crBuffer = NULL;
+		this->crBuffer = nullptr;
 	}
 	gtk_widget_queue_draw(this->widget);
 }
@@ -84,7 +84,7 @@ void BaseElementView::paint(cairo_t* cr)
 	GtkAllocation alloc;
 	gtk_widget_get_allocation(this->widget, &alloc);
 
-	if (this->crBuffer == NULL)
+	if (this->crBuffer == nullptr)
 	{
 		this->crBuffer = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, alloc.width, alloc.height);
 

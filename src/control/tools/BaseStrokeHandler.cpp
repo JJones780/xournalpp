@@ -186,7 +186,7 @@ void BaseStrokeHandler::onButtonReleaseEvent(const PositionInputData& pos)
 
 	xournal->getCursor()->activateDrawDirCursor(false);	//in case released within  fixate_Dir_Mods_Dist
 	
-	if (stroke == NULL)
+	if (stroke == nullptr)
 	{
 		return;
 	}
@@ -213,7 +213,7 @@ void BaseStrokeHandler::onButtonReleaseEvent(const PositionInputData& pos)
 			{
 				//stroke not being added to layer... delete here.
 				delete stroke;
-				stroke = NULL;
+				stroke = nullptr;
 				this->userTapped = true;
 				
 				this->lastStrokeTime = pos.timestamp;
@@ -233,7 +233,7 @@ void BaseStrokeHandler::onButtonReleaseEvent(const PositionInputData& pos)
 	{
 		g_warning("Stroke incomplete!");
 		delete stroke;
-		stroke = NULL;
+		stroke = nullptr;
 		return;
 	}
 
@@ -251,7 +251,7 @@ void BaseStrokeHandler::onButtonReleaseEvent(const PositionInputData& pos)
 	layer->addElement(stroke);
 	page->fireElementChanged(stroke);
 
-	stroke = NULL;
+	stroke = nullptr;
 
 	xournal->getCursor()->updateCursor();
 	

@@ -25,8 +25,8 @@ MoveLayerUndoAction::~MoveLayerUndoAction()
 {
 	XOJ_CHECK_TYPE(MoveLayerUndoAction);
 
-	this->layerController = NULL;
-	this->layer = NULL;
+	this->layerController = nullptr;
+	this->layer = nullptr;
 
 	XOJ_RELEASE_TYPE(MoveLayerUndoAction);
 }

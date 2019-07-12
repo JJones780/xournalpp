@@ -51,7 +51,7 @@ ToolDrawCombocontrol::~ToolDrawCombocontrol()
 		delete t;
 	}
 	this->drawTypes.clear();
-	this->toolMenuHandler = NULL;
+	this->toolMenuHandler = nullptr;
 
 	XOJ_RELEASE_TYPE(ToolDrawCombocontrol);
 }

@@ -124,7 +124,7 @@ MainWindow::MainWindow(GladeSearchpath* gladeSearchPath, Control* control)
 	// Drag and Drop
 	g_signal_connect(this->window, "drag-data-received", G_CALLBACK(dragDataRecived), this);
 
-	gtk_drag_dest_set(this->window, GTK_DEST_DEFAULT_ALL, NULL, 0, GDK_ACTION_COPY);
+	gtk_drag_dest_set(this->window, GTK_DEST_DEFAULT_ALL, nullptr, 0, GDK_ACTION_COPY);
 	gtk_drag_dest_add_uri_targets(this->window);
 	gtk_drag_dest_add_image_targets(this->window);
 	gtk_drag_dest_add_text_targets(this->window);
@@ -166,25 +166,25 @@ MainWindow::~MainWindow()
 	}
 
 	delete[] this->toolbarWidgets;
-	this->toolbarWidgets = NULL;
+	this->toolbarWidgets = nullptr;
 
 	delete this->toolbarSelectMenu;
-	this->toolbarSelectMenu = NULL;
+	this->toolbarSelectMenu = nullptr;
 
 	delete this->floatingToolbox;
-	this->floatingToolbox = NULL;
+	this->floatingToolbox = nullptr;
 	
 	delete this->xournal;
-	this->xournal = NULL;
+	this->xournal = nullptr;
 
 	delete this->toolbar;
-	this->toolbar = NULL;
+	this->toolbar = nullptr;
 
 	delete this->zoomGesture;
-	this->zoomGesture = NULL;
+	this->zoomGesture = nullptr;
 
 	delete scrollHandling;
-	scrollHandling = NULL;
+	scrollHandling = nullptr;
 
 	XOJ_RELEASE_TYPE(MainWindow);
 }
@@ -192,7 +192,7 @@ MainWindow::~MainWindow()
 /**
  * Topmost widgets, to check if there is a menu above
  */
-const char* TOP_WIDGETS[] = {"tbTop1", "tbTop2", "mainContainerBox", NULL};
+const char* TOP_WIDGETS[] = {"tbTop1", "tbTop2", "mainContainerBox", nullptr};
 
 
 void MainWindow::toggleMenuBar(MainWindow* win)
@@ -249,13 +249,13 @@ void MainWindow::initXournalWidget()
 	}
 	else
 	{
-		winXournal = gtk_scrolled_window_new(NULL, NULL);
+		winXournal = gtk_scrolled_window_new(nullptr, nullptr);
 
 		setTouchscreenScrollingForDeviceMapping();
 
 		gtk_container_add(GTK_CONTAINER(boxContents), winXournal);
 
-		GtkWidget* vpXournal = gtk_viewport_new(NULL, NULL);
+		GtkWidget* vpXournal = gtk_viewport_new(nullptr, nullptr);
 
 		gtk_container_add(GTK_CONTAINER(winXournal), vpXournal);
 
@@ -331,7 +331,7 @@ void MainWindow::initHideMenu()
 
 		GtkAccelGroup* accelGroup = gtk_accel_group_new();
 		gtk_accel_group_connect(accelGroup, GDK_KEY_F10, (GdkModifierType) 0, GTK_ACCEL_VISIBLE,
-				g_cclosure_new_swap(G_CALLBACK(toggleMenuBar), this, NULL));
+				g_cclosure_new_swap(G_CALLBACK(toggleMenuBar), this, nullptr));
 		gtk_window_add_accel_group(GTK_WINDOW(getWindow()), accelGroup);
 	}
 
@@ -354,7 +354,7 @@ bool MainWindow::isGestureActive()
 {
 	XOJ_CHECK_TYPE(MainWindow);
 
-	if (zoomGesture == NULL) // Gestures disabled
+	if (zoomGesture == nullptr) // Gestures disabled
 	{
 		return false;
 	}
@@ -406,7 +406,7 @@ void MainWindow::dragDataRecived(GtkWidget* widget, GdkDragContext* dragContext,
 	gchar** uris = gtk_selection_data_get_uris(data);
 	if (uris)
 	{
-		for (int i = 0; uris[i] != NULL && i < 3; i++)
+		for (int i = 0; uris[i] != nullptr && i < 3; i++)
 		{
 			const char* uri = uris[i];
 
@@ -414,7 +414,7 @@ void MainWindow::dragDataRecived(GtkWidget* widget, GdkDragContext* dragContext,
 			int cancelTimeout = g_timeout_add(3000, (GSourceFunc) cancellable_cancel, cancel);
 
 			GFile* file = g_file_new_for_uri(uri);
-			GError* err = NULL;
+			GError* err = nullptr;
 			GFileInputStream* in = g_file_read(file, cancel, &err);
 			if (g_cancellable_is_cancelled(cancel))
 			{
@@ -422,14 +422,14 @@ void MainWindow::dragDataRecived(GtkWidget* widget, GdkDragContext* dragContext,
 			}
 
 			g_object_unref(file);
-			if (err == NULL)
+			if (err == nullptr)
 			{
-				GdkPixbuf* pixbuf = gdk_pixbuf_new_from_stream(G_INPUT_STREAM(in), cancel, NULL);
+				GdkPixbuf* pixbuf = gdk_pixbuf_new_from_stream(G_INPUT_STREAM(in), cancel, nullptr);
 				if (g_cancellable_is_cancelled(cancel))
 				{
 					continue;
 				}
-				g_input_stream_close(G_INPUT_STREAM(in), cancel, NULL);
+				g_input_stream_close(G_INPUT_STREAM(in), cancel, nullptr);
 				if (g_cancellable_is_cancelled(cancel))
 				{
 					continue;
@@ -487,7 +487,7 @@ void MainWindow::updateScrollbarSidebarPosition()
 
 	GtkWidget* panelMainContents = get("panelMainContents");
 
-	if (winXournal != NULL)
+	if (winXournal != nullptr)
 	{
 		GtkScrolledWindow* scrolledWindow = GTK_SCROLLED_WINDOW(winXournal);
 
@@ -595,7 +595,7 @@ void MainWindow::setSidebarVisible(bool visible)
 	gtk_widget_set_visible(sidebar, visible);
 	settings->setSidebarVisible(visible);
 
-	if(!visible && (control->getSidebar() != NULL))
+	if(!visible && (control->getSidebar() != nullptr))
 	{
 		saveSidebarSize();
 	}
@@ -689,7 +689,7 @@ ToolbarData* MainWindow::clearToolbar()
 {
 	XOJ_CHECK_TYPE(MainWindow);
 
-	if (this->selectedToolbar != NULL)
+	if (this->selectedToolbar != nullptr)
 	{
 		for (int i = 0; i < TOOLBAR_DEFINITIONS_LEN; i++)
 		{
@@ -701,7 +701,7 @@ ToolbarData* MainWindow::clearToolbar()
 
 	ToolbarData* oldData = this->selectedToolbar;
 
-	this->selectedToolbar = NULL;
+	this->selectedToolbar = nullptr;
 
 	return oldData;
 }
@@ -773,7 +773,7 @@ void MainWindow::createToolbarAndMenu()
 	XOJ_CHECK_TYPE(MainWindow);
 
 	GtkMenuShell* menubar = GTK_MENU_SHELL(get("menuViewToolbar"));
-	g_return_if_fail(menubar != NULL);
+	g_return_if_fail(menubar != nullptr);
 
 	toolbarSelectMenu->updateToolbarMenu(menubar, control->getSettings(), toolbar);
 
@@ -864,7 +864,7 @@ void MainWindow::setRecentMenu(GtkWidget* submenu)
 	XOJ_CHECK_TYPE(MainWindow);
 
 	GtkWidget* menuitem = get("menuFileRecent");
-	g_return_if_fail(menuitem != NULL);
+	g_return_if_fail(menuitem != nullptr);
 	gtk_menu_item_set_submenu(GTK_MENU_ITEM(menuitem), submenu);
 }
 
@@ -939,7 +939,7 @@ void MainWindow::loadMainCSS(GladeSearchpath* gladeSearchPath, const gchar* cssF
 
 	string filename = gladeSearchPath->findFile("", cssFilename);
 	GtkCssProvider *provider = gtk_css_provider_new ();
-	gtk_css_provider_load_from_path (provider, filename.c_str(), NULL);
+	gtk_css_provider_load_from_path (provider, filename.c_str(), nullptr);
 	gtk_style_context_add_provider_for_screen(gdk_screen_get_default(), GTK_STYLE_PROVIDER(provider),
 											  GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 	g_object_unref(provider);

@@ -497,7 +497,7 @@ XojPageView* Layout::getViewAt(int x, int y)
 		
 	}
 	
-	return NULL;
+	return nullptr;
 	
 	
 }

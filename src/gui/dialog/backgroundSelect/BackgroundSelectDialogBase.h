@@ -40,11 +40,11 @@ private:
 	XOJ_TYPE_ATTRIB;
 
 protected:
-	Settings* settings = NULL;
-	GtkWidget* scrollPreview = NULL;
-	GtkWidget* layoutContainer = NULL;
+	Settings* settings = nullptr;
+	GtkWidget* scrollPreview = nullptr;
+	GtkWidget* layoutContainer = nullptr;
 
-	Document* doc = NULL;
+	Document* doc = nullptr;
 
 	/**
 	 * Selection confirmed

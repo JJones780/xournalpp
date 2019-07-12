@@ -33,7 +33,7 @@ EditSelectionContents::EditSelectionContents(double x, double y, double width, d
 {
 	XOJ_INIT_TYPE(EditSelectionContents);
 
-	this->crBuffer = NULL;
+	this->crBuffer = nullptr;
 
 	this->rescaleId = 0;
 
@@ -149,7 +149,7 @@ UndoAction* EditSelectionContents::setSize(ToolSize size,
 	else
 	{
 		delete undo;
-		return NULL;
+		return nullptr;
 	}
 }
 
@@ -209,7 +209,7 @@ UndoAction* EditSelectionContents::setFill(int alphaPen, int alphaHighligther)
 	else
 	{
 		delete undo;
-		return NULL;
+		return nullptr;
 	}
 }
 
@@ -270,7 +270,7 @@ UndoAction* EditSelectionContents::setFont(XojFont& font)
 		return undo;
 	}
 	delete undo;
-	return NULL;
+	return nullptr;
 }
 
 /**
@@ -307,10 +307,10 @@ UndoAction* EditSelectionContents::setColor(int color)
 	else
 	{
 		delete undo;
-		return NULL;
+		return nullptr;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /**
@@ -362,7 +362,7 @@ void EditSelectionContents::deleteViewBuffer()
 	if (this->crBuffer)
 	{
 		cairo_surface_destroy(this->crBuffer);
-		this->crBuffer = NULL;
+		this->crBuffer = nullptr;
 	}
 }
 
@@ -545,7 +545,7 @@ void EditSelectionContents::paint(cairo_t* cr, double x, double y, double rotati
 		this->rotation = rotation;
 	}
 
-	if (this->crBuffer == NULL)
+	if (this->crBuffer == nullptr)
 	{
 		this->crBuffer = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width * zoom, height * zoom);
 		cairo_t* cr2 = cairo_create(this->crBuffer);

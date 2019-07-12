@@ -78,7 +78,7 @@ public:
 	/**
 	 * Document to export
 	 */
-	Document* doc = NULL;
+	Document* doc = nullptr;
 
 	/**
 	 * Filename for export
@@ -108,12 +108,12 @@ public:
 	/**
 	 * Export surface
 	 */
-	cairo_surface_t* surface = NULL;
+	cairo_surface_t* surface = nullptr;
 
 	/**
 	 * Cairo context
 	 */
-	cairo_t* cr = NULL;
+	cairo_t* cr = nullptr;
 
 	/**
 	 * The last error message to show to the user

@@ -18,7 +18,7 @@ XojCairoPdfExport::~XojCairoPdfExport()
 {
 	XOJ_CHECK_TYPE(XojCairoPdfExport);
 
-	if (this->surface != NULL)
+	if (this->surface != nullptr)
 	{
 		endPdf();
 	}
@@ -55,9 +55,9 @@ void XojCairoPdfExport::endPdf()
 	XOJ_CHECK_TYPE(XojCairoPdfExport);
 
 	cairo_destroy(this->cr);
-	this->cr = NULL;
+	this->cr = nullptr;
 	cairo_surface_destroy(this->surface);
-	this->surface = NULL;
+	this->surface = nullptr;
 }
 
 void XojCairoPdfExport::exportPage(size_t page)

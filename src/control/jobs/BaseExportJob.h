@@ -46,7 +46,7 @@ private:
 	XOJ_TYPE_ATTRIB;
 
 protected:
-	GtkWidget* dialog = NULL;
+	GtkWidget* dialog = nullptr;
 
 	Path filename;
 

@@ -74,15 +74,15 @@ private:
 	/**
 	 * Icon to display
 	 */
-	ColorSelectImage* icon = NULL;
+	ColorSelectImage* icon = nullptr;
 
 	/**
 	 * Switch to pen if the color icon is pressed
 	 */
 	bool switchToPen = false;
 
-	GtkWindow* parent = NULL;
-	ToolHandler* toolHandler = NULL;
+	GtkWindow* parent = nullptr;
+	ToolHandler* toolHandler = nullptr;
 
 	static bool inUpdate;
 };

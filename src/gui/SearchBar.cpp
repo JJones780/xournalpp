@@ -32,7 +32,7 @@ SearchBar::~SearchBar()
 {
 	XOJ_CHECK_TYPE(SearchBar);
 
-	this->control = NULL;
+	this->control = nullptr;
 
 	XOJ_RELEASE_TYPE(SearchBar);
 }
@@ -58,7 +58,7 @@ void SearchBar::search(const char* text)
 
 	if (*text != 0)
 	{
-		found = searchTextonCurrentPage(text, &occures, NULL);
+		found = searchTextonCurrentPage(text, &occures, nullptr);
 		if (found)
 		{
 			if (occures == 1)
@@ -79,17 +79,17 @@ void SearchBar::search(const char* text)
 	}
 	else
 	{
-		searchTextonCurrentPage("", NULL, NULL);
+		searchTextonCurrentPage("", nullptr, nullptr);
 		gtk_label_set_text(GTK_LABEL(lbSearchState), "");
 	}
 
 	if (found)
 	{
-		gtk_css_provider_load_from_data(cssTextFild, "GtkSearchEntry {}", -1, NULL);
+		gtk_css_provider_load_from_data(cssTextFild, "GtkSearchEntry {}", -1, nullptr);
 	}
 	else
 	{
-		gtk_css_provider_load_from_data(cssTextFild, "GtkSearchEntry { color: #ff0000; }", -1, NULL);
+		gtk_css_provider_load_from_data(cssTextFild, "GtkSearchEntry { color: #ff0000; }", -1, nullptr);
 	}
 }
 
@@ -252,7 +252,7 @@ void SearchBar::showSearchBar(bool show)
 		gtk_widget_hide(searchBar);
 		for (int i = control->getDocument()->getPageCount() - 1; i >= 0; i--)
 		{
-			control->searchTextOnPage("", i, NULL, NULL);
+			control->searchTextOnPage("", i, nullptr, nullptr);
 		}
 	}
 }

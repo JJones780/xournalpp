@@ -50,7 +50,7 @@ FormatDialog::FormatDialog(GladeSearchpath* gladeSearchPath, Settings* settings,
 	loadPageFormats();
 
 	int i = 0;
-	for (GList* l = list; l != NULL; l = l->next)
+	for (GList* l = list; l != nullptr; l = l->next)
 	{
 		auto* s = (GtkPaperSize*) l->data;
 
@@ -80,7 +80,7 @@ FormatDialog::FormatDialog(GladeSearchpath* gladeSearchPath, Settings* settings,
 
 	gtk_combo_box_set_active(GTK_COMBO_BOX(cbTemplate), selectedFormat);
 
-	spinValueChangedCb(NULL, this);
+	spinValueChangedCb(nullptr, this);
 
 	g_signal_connect(get("btLandscape"), "toggled", G_CALLBACK(landscapeSelectedCb), this);
 	g_signal_connect(get("btPortrait"), "toggled", G_CALLBACK(portraitSelectedCb), this);
@@ -95,14 +95,14 @@ FormatDialog::~FormatDialog()
 {
 	XOJ_CHECK_TYPE(FormatDialog);
 
-	for (GList* l = this->list; l != NULL; l = l->next)
+	for (GList* l = this->list; l != nullptr; l = l->next)
 	{
 		auto* s = (GtkPaperSize*) l->data;
 		gtk_paper_size_free(s);
 	}
 
 	g_list_free(this->list);
-	this->list = NULL;
+	this->list = nullptr;
 
 	XOJ_RELEASE_TYPE(FormatDialog);
 }
@@ -115,8 +115,8 @@ void FormatDialog::loadPageFormats()
 
 	this->list = gtk_paper_size_get_paper_sizes(false);
 
-	GList* next = NULL;
-	for (GList* l = list; l != NULL; l = next)
+	GList* next = nullptr;
+	for (GList* l = list; l != nullptr; l = next)
 	{
 		// Copy next here, because the entry may be deleted
 		next = l->next;
@@ -198,7 +198,7 @@ void FormatDialog::spinValueChangedCb(GtkSpinButton* spinbutton, FormatDialog* d
 	}
 
 	int i = 0;
-	for (GList* l = dlg->list; l != NULL; l = l->next)
+	for (GList* l = dlg->list; l != nullptr; l = l->next)
 	{
 		auto* s = (GtkPaperSize*) l->data;
 		double w = gtk_paper_size_get_width(s, GTK_UNIT_POINTS);
@@ -258,7 +258,7 @@ void FormatDialog::cbFormatChangedCb(GtkComboBox* widget, FormatDialog* dlg)
 	}
 	auto* s = (GtkPaperSize*) g_value_get_pointer(&value);
 
-	if (s == NULL)
+	if (s == nullptr)
 	{
 		return;
 	}

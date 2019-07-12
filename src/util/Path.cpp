@@ -245,9 +245,9 @@ string Path::getFilename()
  */
 string Path::toUri(GError** error)
 {
-	char * uri = g_filename_to_uri(path.c_str(), NULL, error);
+	char * uri = g_filename_to_uri(path.c_str(), nullptr, error);
 
-	if (uri == NULL)
+	if (uri == nullptr)
 	{
 		return "";
 	}
@@ -292,7 +292,7 @@ Path Path::fromUri(string uri)
 		return Path();
 	}
 
-	gchar* filename = g_filename_from_uri (uri.c_str(), NULL, NULL);
+	gchar* filename = g_filename_from_uri (uri.c_str(), nullptr, nullptr);
 	Path p(filename);
 	g_free(filename);
 

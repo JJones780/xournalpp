@@ -26,7 +26,7 @@ DocumentView::~DocumentView()
 	XOJ_CHECK_TYPE(DocumentView);
 
 	delete this->backgroundPainter;
-	this->backgroundPainter = NULL;
+	this->backgroundPainter = nullptr;
 
 	XOJ_RELEASE_TYPE(DocumentView);
 }
@@ -349,8 +349,8 @@ void DocumentView::finializeDrawing()
 	this->lWidth = -1;
 	this->lHeight = -1;
 
-	this->page = NULL;
-	this->cr = NULL;
+	this->page = nullptr;
+	this->cr = nullptr;
 }
 
 /**

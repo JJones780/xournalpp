@@ -13,7 +13,7 @@ XmlTextNode::XmlTextNode(const char* tag) : XmlAudioNode(tag)
 {
 	XOJ_INIT_TYPE(XmlTextNode);
 
-	this->text = NULL;
+	this->text = nullptr;
 
 	XOJ_RELEASE_TYPE(XmlTextNode);
 }
@@ -23,7 +23,7 @@ XmlTextNode::~XmlTextNode()
 	XOJ_CHECK_TYPE(XmlTextNode);
 
 	g_free(this->text);
-	this->text = NULL;
+	this->text = nullptr;
 
 	XOJ_RELEASE_TYPE(XmlTextNode);
 }

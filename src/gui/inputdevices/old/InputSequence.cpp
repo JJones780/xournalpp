@@ -227,7 +227,7 @@ bool InputSequence::actionMoved(guint32 time)
 		return true;
 	}
 
-	XojPageView* pv = NULL;
+	XojPageView* pv = nullptr;
 
 	if (current_view)
 	{
@@ -238,12 +238,12 @@ bool InputSequence::actionMoved(guint32 time)
 		pv = getPageAtCurrentPosition();
 	}
 
-	xournal->view->getCursor()->setInsidePage(pv != NULL);
+	xournal->view->getCursor()->setInsidePage(pv != nullptr);
 
 	if (pv && inputRunning)
 	{
 		// allow events only to a single page!
-		if (currentInputPage == NULL || pv == currentInputPage)
+		if (currentInputPage == nullptr || pv == currentInputPage)
 		{
 			PositionInputData pos = getInputDataRelativeToCurrentPage(pv);
 			return pv->onMotionNotifyEvent(pos);
@@ -364,7 +364,7 @@ bool InputSequence::checkStillRunning()
 
 	auto mask = (GdkModifierType) 0;
 	GdkWindow* window = gtk_widget_get_window(GTK_WIDGET(inputHandler->getXournal()));
-	gdk_device_get_state(device, window, NULL, &mask);
+	gdk_device_get_state(device, window, nullptr, &mask);
 
 	if ((GDK_BUTTON1_MASK & mask) ||
 		(GDK_BUTTON2_MASK & mask) ||
@@ -401,7 +401,7 @@ void InputSequence::actionEnd(guint32 time)
 	// Mouse button not pressed anymore
 	this->button = 0;
 
-	current_view = NULL;
+	current_view = nullptr;
 
 	GtkXournal* xournal = inputHandler->getXournal();
 	XournalppCursor* cursor = xournal->view->getCursor();
@@ -427,11 +427,11 @@ void InputSequence::actionEnd(guint32 time)
 	{
 		PositionInputData pos = getInputDataRelativeToCurrentPage(currentInputPage);
 		currentInputPage->onButtonReleaseEvent(pos);
-		currentInputPage = NULL;
+		currentInputPage = nullptr;
 	}
 
 	EditSelection* tmpSelection = xournal->selection;
-	xournal->selection = NULL;
+	xournal->selection = nullptr;
 
 	h->restoreLastConfig();
 
@@ -511,7 +511,7 @@ bool InputSequence::changeTool()
 	ToolHandler* h = inputHandler->getToolHandler();
 	GtkXournal* xournal = inputHandler->getXournal();
 
-	ButtonConfig* cfg = NULL;
+	ButtonConfig* cfg = nullptr;
 	if (gdk_device_get_source(device) == GDK_SOURCE_PEN)
 	{
 		penDevice = true;

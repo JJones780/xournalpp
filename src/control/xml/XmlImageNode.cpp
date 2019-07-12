@@ -4,8 +4,8 @@ XmlImageNode::XmlImageNode(const char* tag) : XmlNode(tag)
 {
 	XOJ_INIT_TYPE(XmlImageNode);
 
-	this->img = NULL;
-	this->out = NULL;
+	this->img = nullptr;
+	this->out = nullptr;
 	this->pos = 0;
 }
 
@@ -59,7 +59,7 @@ void XmlImageNode::writeOut(OutputStream* out)
 
 	out->write(">");
 
-	if (this->img == NULL)
+	if (this->img == nullptr)
 	{
 		g_error("XmlImageNode::writeOut(); this->img == NULL");
 	}
@@ -72,7 +72,7 @@ void XmlImageNode::writeOut(OutputStream* out)
 		out->write(base64_str);
 		g_free(base64_str);
 
-		this->out = NULL;
+		this->out = nullptr;
 	}
 
 	out->write("</");

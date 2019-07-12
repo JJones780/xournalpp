@@ -16,7 +16,7 @@ RepaintHandler::~RepaintHandler()
 {
 	XOJ_CHECK_TYPE(RepaintHandler);
 
-	this->xournal = NULL;
+	this->xournal = nullptr;
 
 	XOJ_RELEASE_TYPE(RepaintHandler);
 }

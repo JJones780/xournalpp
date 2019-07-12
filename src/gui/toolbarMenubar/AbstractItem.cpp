@@ -38,7 +38,7 @@ void AbstractItem::setMenuItem(GtkWidget* menuitem)
 {
 	XOJ_CHECK_TYPE(AbstractItem);
 
-	if (this->menuitem != NULL)
+	if (this->menuitem != nullptr)
 	{
 		g_warning("The menu item %i / %s has already a menu item registered!", action, ActionType_toString(action).c_str());
 		return;
@@ -48,7 +48,7 @@ void AbstractItem::setMenuItem(GtkWidget* menuitem)
 			+[](GtkMenuItem* menuitem, AbstractItem* self)
 			{
 				XOJ_CHECK_TYPE_OBJ(self, AbstractItem);
-				self->activated(NULL, menuitem, NULL);
+				self->activated(nullptr, menuitem, nullptr);
 			}), this);
 
 	g_object_ref(G_OBJECT(menuitem));

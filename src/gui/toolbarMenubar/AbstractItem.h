@@ -20,7 +20,7 @@
 class AbstractItem : public ActionEnabledListener, public ActionSelectionListener
 {
 public:
-	AbstractItem(string id, ActionHandler* handler, ActionType action, GtkWidget* menuitem = NULL);
+	AbstractItem(string id, ActionHandler* handler, ActionType action, GtkWidget* menuitem = nullptr);
 	virtual ~AbstractItem();
 
 public:
@@ -62,13 +62,13 @@ protected:
 
 	string id;
 
-	ActionHandler* handler = NULL;
+	ActionHandler* handler = nullptr;
 
 	bool enabled = true;
 
 private:
 	gulong menuSignalHandler = 0;
-	GtkWidget* menuitem = NULL;
+	GtkWidget* menuitem = nullptr;
 
 	/**
 	 * This is a check menu item which is not displayed as radio

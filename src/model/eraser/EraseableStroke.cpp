@@ -27,7 +27,7 @@ EraseableStroke::~EraseableStroke()
 	XOJ_CHECK_TYPE(EraseableStroke);
 
 	delete this->parts;
-	this->parts = NULL;
+	this->parts = nullptr;
 
 	XOJ_RELEASE_TYPE(EraseableStroke);
 }
@@ -48,7 +48,7 @@ void EraseableStroke::draw(cairo_t* cr)
 
 	double w = this->stroke->getWidth();
 
-	for (GList* l = tmpCopy->data; l != NULL; l = l->next)
+	for (GList* l = tmpCopy->data; l != nullptr; l = l->next)
 	{
 		auto* part = (EraseableStrokePart*) l->data;
 		if (part->getWidth() == Point::NO_PRESSURE)
@@ -65,7 +65,7 @@ void EraseableStroke::draw(cairo_t* cr)
 		cairo_move_to(cr, p->x, p->y);
 
 		pl = pl->next;
-		for (; pl != NULL; pl = pl->next)
+		for (; pl != nullptr; pl = pl->next)
 		{
 			auto* p = (Point*) pl->data;
 			cairo_line_to(cr, p->x, p->y);
@@ -93,7 +93,7 @@ Range* EraseableStroke::erase(double x, double y, double halfEraserSize, Range* 
 	PartList* tmpCopy = this->parts->clone();
 	g_mutex_unlock(&this->partLock);
 
-	for (GList* l = tmpCopy->data; l != NULL;)
+	for (GList* l = tmpCopy->data; l != nullptr;)
 	{
 		auto* p = (EraseableStrokePart*) l->data;
 		l = l->next;
@@ -130,7 +130,7 @@ void EraseableStroke::erase(double x, double y, double halfEraserSize, Eraseable
 {
 	XOJ_CHECK_TYPE(EraseableStroke);
 
-	if (part->points->next == NULL)
+	if (part->points->next == nullptr)
 	{
 		return;
 	}
@@ -255,7 +255,7 @@ bool EraseableStroke::erasePart(double x, double y, double halfEraserSize, Erase
 	/**
 	 * erase the beginning
 	 */
-	for (GList* l = part->getPoints(); l != NULL;)
+	for (GList* l = part->getPoints(); l != nullptr;)
 	{
 		auto* p = (Point*) l->data;
 		l = l->next;
@@ -275,7 +275,7 @@ bool EraseableStroke::erasePart(double x, double y, double halfEraserSize, Erase
 	/**
 	 * erase the end
 	 */
-	for (GList* l = g_list_last(part->getPoints()); l != NULL;)
+	for (GList* l = g_list_last(part->getPoints()); l != nullptr;)
 	{
 		auto* p = (Point*) l->data;
 		l = l->prev;
@@ -296,10 +296,10 @@ bool EraseableStroke::erasePart(double x, double y, double halfEraserSize, Erase
 	 * handle the rest
 	 */
 
-	GList* lists = NULL;
-	GList* current = NULL;
+	GList* lists = nullptr;
+	GList* current = nullptr;
 
-	for (GList* l = part->points; l != NULL;)
+	for (GList* l = part->points; l != nullptr;)
 	{
 		auto* p = (Point*) l->data;
 		l = l->next;
@@ -310,7 +310,7 @@ bool EraseableStroke::erasePart(double x, double y, double halfEraserSize, Erase
 			if (current)
 			{
 				lists = g_list_append(lists, current);
-				current = NULL;
+				current = nullptr;
 			}
 			changed = true;
 		}
@@ -323,11 +323,11 @@ bool EraseableStroke::erasePart(double x, double y, double halfEraserSize, Erase
 	if (current)
 	{
 		lists = g_list_append(lists, current);
-		current = NULL;
+		current = nullptr;
 	}
 
 	g_list_free(part->points);
-	part->points = NULL;
+	part->points = nullptr;
 	if (lists)
 	{
 		part->points = (GList*) lists->data;
@@ -336,7 +336,7 @@ bool EraseableStroke::erasePart(double x, double y, double halfEraserSize, Erase
 		int pos = g_list_index(list->data, part) + 1;
 		
 		// create data structure for all new (splitted) parts
-		for (GList* l = lists; l != NULL; l = l->next)
+		for (GList* l = lists; l != nullptr; l = l->next)
 		{
 			auto* newPart = new EraseableStrokePart(part->width);
 			newPart->points = (GList*) l->data;
@@ -359,11 +359,11 @@ GList* EraseableStroke::getStroke(Stroke* original)
 {
 	XOJ_CHECK_TYPE(EraseableStroke);
 
-	GList* list = NULL;
+	GList* list = nullptr;
 
-	Stroke* s = NULL;
+	Stroke* s = nullptr;
 	Point lastPoint(NAN, NAN);
-	for (GList* l = this->parts->data; l != NULL; l = l->next)
+	for (GList* l = this->parts->data; l != nullptr; l = l->next)
 	{
 		auto* p = (EraseableStrokePart*) l->data;
 		GList* points = p->getPoints();
@@ -376,7 +376,7 @@ GList* EraseableStroke::getStroke(Stroke* original)
 		Point b = *((Point*) g_list_last(points)->data);
 		a.z = p->width;
 
-		if (!lastPoint.equalsPos(a) || s == NULL)
+		if (!lastPoint.equalsPos(a) || s == nullptr)
 		{
 			if (s)
 			{

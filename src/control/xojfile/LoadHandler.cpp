@@ -28,23 +28,23 @@
 
 LoadHandler::LoadHandler()
  : 
-   zipFp(NULL),
-   zipContentFile(NULL),
-   gzFp(NULL),
-   layer(NULL),
-   stroke(NULL),
-   text(NULL),
-   image(NULL),
-   teximage(NULL),
-   attributeNames(NULL),
-   attributeValues(NULL),
-   elementName(NULL),
+   zipFp(nullptr),
+   zipContentFile(nullptr),
+   gzFp(nullptr),
+   layer(nullptr),
+   stroke(nullptr),
+   text(nullptr),
+   image(nullptr),
+   teximage(nullptr),
+   attributeNames(nullptr),
+   attributeValues(nullptr),
+   elementName(nullptr),
    
    doc(&dHanlder)
 {
 	XOJ_INIT_TYPE(LoadHandler);
 
-	this->error = NULL;
+	this->error = nullptr;
 
 	initAttributes();
 }
@@ -62,23 +62,23 @@ void LoadHandler::initAttributes()
 {
 	XOJ_CHECK_TYPE(LoadHandler);
 
-	this->zipFp = NULL;
-	this->zipContentFile = NULL;
-	this->gzFp = NULL;
+	this->zipFp = nullptr;
+	this->zipContentFile = nullptr;
+	this->gzFp = nullptr;
 	this->isGzFile = false;
-	this->error = NULL;
-	this->attributeNames = NULL;
-	this->attributeValues = NULL;
-	this->elementName = NULL;
+	this->error = nullptr;
+	this->attributeNames = nullptr;
+	this->attributeValues = nullptr;
+	this->elementName = nullptr;
 	this->pdfFilenameParsed = false;
 	this->attachedPdfMissing = false;
 
-	this->page = NULL;
-	this->layer = NULL;
-	this->stroke = NULL;
-	this->image = NULL;
-	this->teximage = NULL;
-	this->text = NULL;
+	this->page = nullptr;
+	this->layer = nullptr;
+	this->stroke = nullptr;
+	this->image = nullptr;
+	this->teximage = nullptr;
+	this->text = nullptr;
 
 	if (this->audioFiles)
 	{
@@ -237,15 +237,15 @@ bool LoadHandler::parseXml()
 {
 	XOJ_CHECK_TYPE(LoadHandler);
 
-	const GMarkupParser parser = { LoadHandler::parserStartElement, LoadHandler::parserEndElement, LoadHandler::parserText, NULL, NULL };
-	this->error = NULL;
+	const GMarkupParser parser = { LoadHandler::parserStartElement, LoadHandler::parserEndElement, LoadHandler::parserText, nullptr, nullptr };
+	this->error = nullptr;
 	gboolean valid = true;
 
 	this->pos = PARSER_POS_NOT_STARTED;
 	this->creator = "Unknown";
 	this->fileVersion = 1;
 
-	GMarkupParseContext* context = g_markup_parse_context_new(&parser, (GMarkupParseFlags) 0, this, NULL);
+	GMarkupParseContext* context = g_markup_parse_context_new(&parser, (GMarkupParseFlags) 0, this, nullptr);
 
 	zip_int64_t len = 0;
 	do
@@ -272,7 +272,7 @@ bool LoadHandler::parseXml()
 	}
 	else
 	{
-		if (error != NULL && error->message != NULL)
+		if (error != nullptr && error->message != nullptr)
 		{
 			this->lastError = FS(_F("XML Parser error: {1}") % error->message);
 			g_error_free(error);
@@ -388,13 +388,13 @@ void LoadHandler::parseBgSolid()
 
 	PageType bg;
 	const char* style = LoadHandlerHelper::getAttrib("style", false, this);
-	if (style != NULL)
+	if (style != nullptr)
 	{
 		bg.format = style;
 	}
 
 	const char* config = LoadHandlerHelper::getAttrib("config", true, this);
-	if (config != NULL)
+	if (config != nullptr)
 	{
 		bg.config = config;
 	}
@@ -501,7 +501,7 @@ void LoadHandler::parseBgPdf()
 			const char* domain = LoadHandlerHelper::getAttrib("domain", false, this);
 			const char* sFilename = LoadHandlerHelper::getAttrib("filename", false, this);
 
-			if (sFilename == NULL)
+			if (sFilename == nullptr)
 			{
 				error("PDF Filename missing!");
 				return;
@@ -649,7 +649,7 @@ void LoadHandler::parseStroke()
 
 	const char* width = LoadHandlerHelper::getAttrib("width", false, this);
 
-	char* endPtr = NULL;
+	char* endPtr = nullptr;
 	stroke->setWidth(g_ascii_strtod(width, &endPtr));
 	if (endPtr == width)
 	{
@@ -659,7 +659,7 @@ void LoadHandler::parseStroke()
 
 	// MrWriter writes pressures as separate field
 	const char* pressure = LoadHandlerHelper::getAttrib("pressures", true, this);
-	if (pressure == NULL)
+	if (pressure == nullptr)
 	{
 		// Xournal / Xournal++ uses the width field
 		pressure = endPtr;
@@ -667,7 +667,7 @@ void LoadHandler::parseStroke()
 
 	while (*pressure != 0)
 	{
-		char* tmpptr = NULL;
+		char* tmpptr = nullptr;
 		double val = g_ascii_strtod(pressure, &tmpptr);
 		if (tmpptr == pressure)
 		{
@@ -687,7 +687,7 @@ void LoadHandler::parseStroke()
 
 	/** read stroke timestamps (xopp fileformat) */
 	const char* fn = LoadHandlerHelper::getAttrib("fn", true, this);
-	if (fn != NULL)
+	if (fn != nullptr)
 	{
 		if (this->isGzFile)
 		{
@@ -727,7 +727,7 @@ void LoadHandler::parseStroke()
 	}
 
 	const char* style = LoadHandlerHelper::getAttrib("style", true, this);
-	if (style != NULL)
+	if (style != nullptr)
 	{
 		stroke->setLineStyle(StrokeStyle::parseStyle(style));
 	}
@@ -789,7 +789,7 @@ void LoadHandler::parseText()
 	text->setColor(color);
 
 	const char* fn = LoadHandlerHelper::getAttrib("fn", true, this);
-	if (fn != NULL)
+	if (fn != nullptr)
 	{
 		if (this->isGzFile)
 		{
@@ -840,7 +840,7 @@ void LoadHandler::parseTexImage()
 	const char* imText = LoadHandlerHelper::getAttrib("text", false, this);
 	const char* compatibilityTest = LoadHandlerHelper::getAttrib("texlength", true, this);
 	int imTextLen = strlen(imText);
-	if (compatibilityTest != NULL)
+	if (compatibilityTest != nullptr)
 	{
 		imTextLen = LoadHandlerHelper::getAttribInt("texlength", this);
 	}
@@ -1041,9 +1041,9 @@ void LoadHandler::parserStartElement(GMarkupParseContext* context, const gchar* 
 		}
 	}
 
-	handler->attributeNames = NULL;
-	handler->attributeValues = NULL;
-	handler->elementName = NULL;
+	handler->attributeNames = nullptr;
+	handler->attributeValues = nullptr;
+	handler->elementName = nullptr;
 }
 
 void LoadHandler::parserEndElement(GMarkupParseContext* context, const gchar* elementName,
@@ -1065,38 +1065,38 @@ void LoadHandler::parserEndElement(GMarkupParseContext* context, const gchar* el
 	else if (handler->pos == PARSER_POS_IN_PAGE && strcmp(elementName, "page") == 0)
 	{
 		handler->pos = PARSER_POS_STARTED;
-		handler->page = NULL;
+		handler->page = nullptr;
 	}
 	else if (handler->pos == PARSER_POS_IN_LAYER && strcmp(elementName, "layer") == 0)
 	{
 		handler->pos = PARSER_POS_IN_PAGE;
-		handler->layer = NULL;
+		handler->layer = nullptr;
 	}
 	else if (handler->pos == PARSER_POS_IN_LAYER && strcmp(elementName, "timestamp") == 0)
 	{
 		/** Used for backwards compatibility against xoj files with timestamps) */
 		handler->pos = PARSER_POS_IN_LAYER;
-		handler->stroke = NULL;
+		handler->stroke = nullptr;
 	}
 	else if (handler->pos == PARSER_POS_IN_STROKE && strcmp(elementName, "stroke") == 0)
 	{
 		handler->pos = PARSER_POS_IN_LAYER;
-		handler->stroke = NULL;
+		handler->stroke = nullptr;
 	}
 	else if (handler->pos == PARSER_POS_IN_TEXT && strcmp(elementName, "text") == 0)
 	{
 		handler->pos = PARSER_POS_IN_LAYER;
-		handler->text = NULL;
+		handler->text = nullptr;
 	}
 	else if (handler->pos == PARSER_POS_IN_IMAGE && strcmp(elementName, "image") == 0)
 	{
 		handler->pos = PARSER_POS_IN_LAYER;
-		handler->image = NULL;
+		handler->image = nullptr;
 	}
 	else if (handler->pos == PARSER_POS_IN_TEXIMAGE && strcmp(elementName, "teximage") == 0)
 	{
 		handler->pos = PARSER_POS_IN_LAYER;
-		handler->teximage = NULL;
+		handler->teximage = nullptr;
 	}
 }
 
@@ -1238,7 +1238,7 @@ Document* LoadHandler::loadDocument(string filename)
 
 	if (!openFile(filename))
 	{
-		return NULL;
+		return nullptr;
 	}
 
 	xournalFilename = filename;
@@ -1248,7 +1248,7 @@ Document* LoadHandler::loadDocument(string filename)
 	if (!parseXml())
 	{
 		closeFile();
-		return NULL;
+		return nullptr;
 	}
 
 	if (fileVersion == 1)

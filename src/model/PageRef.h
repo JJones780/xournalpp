@@ -47,6 +47,6 @@ public:
 private:
 	XOJ_TYPE_ATTRIB;
 
-	XojPage* page = NULL;
+	XojPage* page = nullptr;
 };
 

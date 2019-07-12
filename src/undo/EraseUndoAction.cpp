@@ -21,7 +21,7 @@ EraseUndoAction::~EraseUndoAction()
 {
 	XOJ_CHECK_TYPE(EraseUndoAction);
 
-	for (GList* l = this->original; l != NULL; l = l->next)
+	for (GList* l = this->original; l != nullptr; l = l->next)
 	{
 		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 		if (!undone)
@@ -31,9 +31,9 @@ EraseUndoAction::~EraseUndoAction()
 		delete e;
 	}
 	g_list_free(this->original);
-	this->original = NULL;
+	this->original = nullptr;
 
-	for (GList* l = this->edited; l != NULL; l = l->next)
+	for (GList* l = this->edited; l != nullptr; l = l->next)
 	{
 		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 		if (undone)
@@ -43,7 +43,7 @@ EraseUndoAction::~EraseUndoAction()
 		delete e;
 	}
 	g_list_free(this->edited);
-	this->edited = NULL;
+	this->edited = nullptr;
 
 	XOJ_RELEASE_TYPE(EraseUndoAction);
 }
@@ -68,14 +68,14 @@ void EraseUndoAction::removeEdited(Stroke* element)
 {
 	XOJ_CHECK_TYPE(EraseUndoAction);
 
-	for (GList* l = this->edited; l != NULL; l = l->next)
+	for (GList* l = this->edited; l != nullptr; l = l->next)
 	{
 		auto* p = (PageLayerPosEntry<Stroke>*) l->data;
 		if (p->element == element)
 		{
 			this->edited = g_list_delete_link(this->edited, l);
 			delete p;
-			p = NULL;
+			p = nullptr;
 			return;
 		}
 	}
@@ -85,7 +85,7 @@ void EraseUndoAction::finalize()
 {
 	XOJ_CHECK_TYPE(EraseUndoAction);
 
-	for (GList* l = this->original; l != NULL;)
+	for (GList* l = this->original; l != nullptr;)
 	{
 		auto* p = (PageLayerPosEntry<Stroke>*) l->data;
 		GList* del = l;
@@ -95,7 +95,7 @@ void EraseUndoAction::finalize()
 		{
 			this->edited = g_list_delete_link(this->edited, del);
 			delete p;
-			p = NULL;
+			p = nullptr;
 		}
 		else
 		{
@@ -105,7 +105,7 @@ void EraseUndoAction::finalize()
 
 			EraseableStroke* e = p->element->getEraseable();
 			GList* stroke = e->getStroke(p->element);
-			for (GList* ls = stroke; ls != NULL; ls = ls->next)
+			for (GList* ls = stroke; ls != nullptr; ls = ls->next)
 			{
 				auto* copy = (Stroke*) ls->data;
 				p->layer->insertElement(copy, pos);
@@ -114,8 +114,8 @@ void EraseUndoAction::finalize()
 			}
 
 			delete e;
-			e = NULL;
-			p->element->setEraseable(NULL);
+			e = nullptr;
+			p->element->setEraseable(nullptr);
 		}
 	}
 
@@ -133,7 +133,7 @@ bool EraseUndoAction::undo(Control* control)
 {
 	XOJ_CHECK_TYPE(EraseUndoAction);
 
-	for (GList* l = this->edited; l != NULL; l = l->next)
+	for (GList* l = this->edited; l != nullptr; l = l->next)
 	{
 		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 
@@ -141,7 +141,7 @@ bool EraseUndoAction::undo(Control* control)
 		this->page->fireElementChanged(e->element);
 	}
 
-	for (GList* l = this->original; l != NULL; l = l->next)
+	for (GList* l = this->original; l != nullptr; l = l->next)
 	{
 		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 
@@ -157,7 +157,7 @@ bool EraseUndoAction::redo(Control* control)
 {
 	XOJ_CHECK_TYPE(EraseUndoAction);
 
-	for (GList* l = this->original; l != NULL; l = l->next)
+	for (GList* l = this->original; l != nullptr; l = l->next)
 	{
 		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 
@@ -165,7 +165,7 @@ bool EraseUndoAction::redo(Control* control)
 		this->page->fireElementChanged(e->element);
 	}
 
-	for (GList* l = this->edited; l != NULL; l = l->next)
+	for (GList* l = this->edited; l != nullptr; l = l->next)
 	{
 		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 

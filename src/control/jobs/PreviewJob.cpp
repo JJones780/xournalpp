@@ -19,7 +19,7 @@ PreviewJob::~PreviewJob()
 {
 	XOJ_CHECK_TYPE(PreviewJob);
 
-	this->sidebarPreview = NULL;
+	this->sidebarPreview = nullptr;
 
 	XOJ_RELEASE_TYPE(PreviewJob);
 }

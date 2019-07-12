@@ -58,9 +58,9 @@ PageTemplateDialog::~PageTemplateDialog()
 	XOJ_CHECK_TYPE(PageTemplateDialog);
 
 	delete pageMenu;
-	pageMenu = NULL;
+	pageMenu = nullptr;
 	delete popupMenuButton;
-	popupMenuButton = NULL;
+	popupMenuButton = nullptr;
 
 	XOJ_RELEASE_TYPE(PageTemplateDialog);
 }
@@ -125,7 +125,7 @@ void PageTemplateDialog::saveToFile()
 	}
 
 
-	time_t curtime = time(NULL);
+	time_t curtime = time(nullptr);
 	char stime[128];
 	strftime(stime, sizeof(stime), "%F-Template-%H-%M.xopt", localtime(&curtime));
 	string saveFilename = stime;

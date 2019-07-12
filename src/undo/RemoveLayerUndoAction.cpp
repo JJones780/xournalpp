@@ -29,7 +29,7 @@ RemoveLayerUndoAction::~RemoveLayerUndoAction()
 		// The layer was NOT undone, also NOT restored
 		delete this->layer;
 	}
-	this->layer = NULL;
+	this->layer = nullptr;
 
 	XOJ_RELEASE_TYPE(RemoveLayerUndoAction);
 }

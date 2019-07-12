@@ -7,7 +7,7 @@
 #include <i18n.h>
 
 ToolPageSpinner::ToolPageSpinner(GladeGui* gui, ActionHandler* handler, string id, ActionType type)
- : AbstractToolItem(id, handler, type, NULL)
+ : AbstractToolItem(id, handler, type, nullptr)
 {
 	XOJ_INIT_TYPE(ToolPageSpinner);
 
@@ -20,7 +20,7 @@ ToolPageSpinner::~ToolPageSpinner()
 	XOJ_CHECK_TYPE(ToolPageSpinner);
 
 	delete this->pageSpinner;
-	this->pageSpinner = NULL;
+	this->pageSpinner = nullptr;
 
 	XOJ_RELEASE_TYPE(ToolPageSpinner);
 }

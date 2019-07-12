@@ -18,7 +18,7 @@ Stroke::~Stroke()
 	XOJ_CHECK_TYPE(Stroke);
 
 	g_free(this->points);
-	this->points = NULL;
+	this->points = nullptr;
 	this->pointCount = 0;
 	this->pointAllocCount = 0;
 
@@ -96,7 +96,7 @@ void Stroke::readSerialized(ObjectInputStream& in)
 	this->fill = in.readInt();
 
 	g_free(this->points);
-	this->points = NULL;
+	this->points = nullptr;
 	this->pointCount = 0;
 	in.readData((void**) &this->points, &this->pointCount);
 

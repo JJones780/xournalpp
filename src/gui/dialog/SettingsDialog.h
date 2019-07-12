@@ -51,9 +51,9 @@ private:
 private:
 	XOJ_TYPE_ATTRIB;
 
-	Settings* settings = NULL;
-	Control* control = NULL;
-	GtkWidget* callib = NULL;
+	Settings* settings = nullptr;
+	Control* control = nullptr;
+	GtkWidget* callib = nullptr;
 	int dpi = 72;
 	vector<DeviceInfo> audioInputDevices;
 	vector<DeviceInfo> audioOutputDevices;

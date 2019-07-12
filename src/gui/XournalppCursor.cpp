@@ -183,7 +183,7 @@ void XournalppCursor::setCursorBusy(bool busy)
 	{
 		if (gtk_widget_get_window(win->getWindow()))
 		{
-			gdk_window_set_cursor(gtk_widget_get_window(win->getWindow()), NULL);
+			gdk_window_set_cursor(gtk_widget_get_window(win->getWindow()), nullptr);
 		}
 	}
 
@@ -231,7 +231,7 @@ void XournalppCursor::updateCursor()
 	XournalView* xournal = win->getXournal();
 	if (!xournal) return;
 
-	GdkCursor* cursor = NULL;
+	GdkCursor* cursor = nullptr;
 	
 	
 	if (this->busy)
@@ -369,7 +369,7 @@ void XournalppCursor::updateCursor()
 	GdkWindow* window = gtk_widget_get_window(xournal->getWidget());
 	if (window)
 	{
-		if (cursor != NULL)
+		if (cursor != nullptr)
 		{
 			gdk_window_set_cursor(window, cursor);
 		}
@@ -378,7 +378,7 @@ void XournalppCursor::updateCursor()
 
 	gdk_display_sync(gdk_display_get_default());
 
-	if (cursor != NULL)
+	if (cursor != nullptr)
 	{
 		g_object_unref(cursor);
 	}
@@ -388,7 +388,7 @@ void XournalppCursor::updateCursor()
 GdkCursor* XournalppCursor::getEraserCursor()
 {
 
-	if (CRSR_ERASER == this->currentCursor) return NULL;  // cursor already set
+	if (CRSR_ERASER == this->currentCursor) return nullptr;  // cursor already set
 	this->currentCursor = CRSR_ERASER;
 
 
@@ -457,7 +457,7 @@ GdkCursor* XournalppCursor::createHighlighterOrPenCursor(int size, double alpha)
 	gulong flavour =
 	        (big ? 1 : 0) | (bright ? 2 : 0) | (gulong)(64 * alpha) << 2 | (gulong) size << 9 | (gulong) rgb << 14;
 
-	if (CRSR_PENORHIGHLIGHTER == this->currentCursor && flavour == this->currentCursorFlavour) return NULL;
+	if (CRSR_PENORHIGHLIGHTER == this->currentCursor && flavour == this->currentCursorFlavour) return nullptr;
 	this->currentCursor = CRSR_PENORHIGHLIGHTER;
 	this->currentCursorFlavour = flavour;
 
@@ -544,14 +544,14 @@ void XournalppCursor::setCursor(int cursorID)
 	if (!window) return;
 
 	GdkCursor* cursor = gdk_cursor_new_from_name(gdk_window_get_display(window), cssCursors[cursorID].cssName);
-	if (cursor == NULL)  // failed to get a cursor, try backup cursor.
+	if (cursor == nullptr)  // failed to get a cursor, try backup cursor.
 	{
 		if (cursorID != CRSR_NULL)
 		{
 			cursor = gdk_cursor_new_from_name(gdk_window_get_display(window), cssCursors[cursorID].cssBackupName);
 
 			// Null cursor is ok but not wanted ... warn user
-			if (cursor == NULL)
+			if (cursor == nullptr)
 			{
 				if (CRSR_NULL == this->currentCursor) return;  // We've already been here
 				g_warning("CSS Cursor and backup not valid '%s', '%s'",
@@ -559,7 +559,7 @@ void XournalppCursor::setCursor(int cursorID)
 				          cssCursors[cursorID].cssBackupName);
 			}
 		}
-		cursorID = cursor == NULL ? CRSR_NULL : cursorID;
+		cursorID = cursor == nullptr ? CRSR_NULL : cursorID;
 	}
 
 	this->currentCursor = cursorID;
@@ -578,7 +578,7 @@ GdkCursor* XournalppCursor::createCustomDrawDirCursor(int size, bool shift, bool
 	int newCursorID = CRSR_DRAWDIRNONE + (shift ? 1 : 0) + (ctrl ? 2 : 0);
 	gulong flavour = (big ? 1 : 0) | (bright ? 2 : 0) | (gulong) size << 2;  // hash of variables for comparison only
 
-	if (newCursorID == this->currentCursor && flavour == this->currentCursorFlavour) return NULL;
+	if (newCursorID == this->currentCursor && flavour == this->currentCursorFlavour) return nullptr;
 	this->currentCursor = newCursorID;
 	this->currentCursorFlavour = flavour;
 

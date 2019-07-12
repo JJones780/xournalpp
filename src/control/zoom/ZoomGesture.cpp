@@ -12,7 +12,7 @@ ZoomGesture::~ZoomGesture()
 	XOJ_CHECK_TYPE(ZoomGesture);
 
 	g_object_unref(this->gesture);
-	this->gesture = NULL;
+	this->gesture = nullptr;
 
 	XOJ_RELEASE_TYPE(ZoomGesture);
 }
