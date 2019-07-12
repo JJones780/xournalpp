@@ -22,7 +22,7 @@ class AbstractToolItem;
 class MainWindow;
 class ToolbarDragDropHandler;
 
-typedef struct _ToolItemDragData ToolItemDragData;
+using ToolItemDragData = struct _ToolItemDragData;
 struct _ToolItemDragData;
 
 class ToolbarCustomizeDialog : public GladeGui

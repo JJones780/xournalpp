@@ -21,8 +21,8 @@ G_BEGIN_DECLS
 #define ZOOM_CALLIB_CLASS(klass) GTK_CHECK_CLASS_CAST(klass, zoomcallib_get_type(), ZoomCallibClass)
 #define IS_ZOOM_CALLIB(obj) G_TYPE_CHECK_INSTANCE_TYPE(obj, zoomcallib_get_type())
 
-typedef struct _ZoomCallib ZoomCallib;
-typedef struct _ZoomCallibClass ZoomCallibClass;
+using ZoomCallib = struct _ZoomCallib;
+using ZoomCallibClass = struct _ZoomCallibClass;
 
 struct _ZoomCallib
 {

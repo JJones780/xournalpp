@@ -21,8 +21,8 @@
 #define GTK_IS_XOJ_INT_TXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_TYPE_XOJ_INT_TXT))
 #define GTK_XOJ_INT_TXT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_TYPE_XOJ_INT_TXT, GtkXojIntTxtClass))
 
-typedef struct _GtkXojIntTxt GtkXojIntTxt;
-typedef struct _GtkXojIntTxtClass GtkXojIntTxtClass;
+using GtkXojIntTxt = struct _GtkXojIntTxt;
+using GtkXojIntTxtClass = struct _GtkXojIntTxtClass;
 
 struct _GtkXojIntTxt
 {

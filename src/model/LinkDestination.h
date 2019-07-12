@@ -15,8 +15,8 @@
 
 #include <gtk/gtk.h>
 
-typedef struct _LinkDest XojLinkDest;
-typedef struct _LinkDestClass XojLinkDestClass;
+using XojLinkDest = struct _LinkDest;
+using XojLinkDestClass = struct _LinkDestClass;
 
 class LinkDestination
 {

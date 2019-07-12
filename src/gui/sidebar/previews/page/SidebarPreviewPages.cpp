@@ -33,7 +33,7 @@ SidebarPreviewPages::SidebarPreviewPages(Control* control, GladeGui* gui, Sideba
 
 		// Unfortunately, we need a fairly complicated mechanism to keep track
 		// of which action we want to execute.
-		typedef SidebarPreviewPages::ContextMenuData Data;
+		using Data = SidebarPreviewPages::ContextMenuData;
 		auto userdata = mem::make_unique<Data>(Data{this->toolbar, pair.second});
 
 		const auto callback =

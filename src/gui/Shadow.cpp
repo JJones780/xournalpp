@@ -4,7 +4,7 @@
 
 Shadow* Shadow::instance = new Shadow();
 
-typedef const unsigned char* u8ptr;
+using u8ptr = const unsigned char *;
 
 Shadow::Shadow()
 {

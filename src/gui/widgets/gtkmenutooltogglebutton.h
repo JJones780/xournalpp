@@ -37,9 +37,9 @@ G_BEGIN_DECLS
 #define GTK_IS_MENU_TOOL_TOGGLE_BUTTON_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), GTK_TYPE_MENU_TOOL_TOGGLE_BUTTON))
 #define GTK_MENU_TOOL_TOGGLE_BUTTON_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), GTK_TYPE_MENU_TOOL_TOGGLE_BUTTON, GtkMenuToolToggleButtonClass))
 
-typedef struct _GtkMenuToolToggleButtonClass GtkMenuToolToggleButtonClass;
-typedef struct _GtkMenuToolToggleButton GtkMenuToolToggleButton;
-typedef struct _GtkMenuToolToggleButtonPrivate GtkMenuToolToggleButtonPrivate;
+using GtkMenuToolToggleButtonClass = struct _GtkMenuToolToggleButtonClass;
+using GtkMenuToolToggleButton = struct _GtkMenuToolToggleButton;
+using GtkMenuToolToggleButtonPrivate = struct _GtkMenuToolToggleButtonPrivate;
 
 struct _GtkMenuToolToggleButton
 {

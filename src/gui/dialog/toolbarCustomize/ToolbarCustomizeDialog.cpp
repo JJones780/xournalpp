@@ -17,7 +17,7 @@
 #include <i18n.h>
 #include <Util.h>
 
-typedef struct _ToolItemDragData ToolItemDragData;
+using ToolItemDragData = struct _ToolItemDragData;
 
 struct _ToolItemDragData
 {

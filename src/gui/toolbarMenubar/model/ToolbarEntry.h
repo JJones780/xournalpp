@@ -13,7 +13,7 @@
 
 #include "ToolbarItem.h"
 
-typedef vector<ToolbarItem*> ToolbarItemVector;
+using ToolbarItemVector = vector<ToolbarItem *>;
 
 class ToolbarEntry
 {

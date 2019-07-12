@@ -51,5 +51,5 @@ private:
 	XOJ_TYPE_ATTRIB;
 };
 
-typedef std::shared_ptr<XojPdfPage> XojPdfPageSPtr;
+using XojPdfPageSPtr = std::shared_ptr<XojPdfPage>;
 

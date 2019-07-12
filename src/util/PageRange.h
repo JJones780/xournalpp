@@ -30,7 +30,7 @@ private:
 	int last;
 };
 
-typedef vector<PageRangeEntry*> PageRangeVector;
+using PageRangeVector = vector<PageRangeEntry *>;
 
 class PageRange
 {

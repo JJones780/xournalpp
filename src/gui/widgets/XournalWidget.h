@@ -30,8 +30,8 @@ class InputContext;
 class NewGtkInputDevice;
 
 
-typedef struct _GtkXournal GtkXournal;
-typedef struct _GtkXournalClass GtkXournalClass;
+using GtkXournal = struct _GtkXournal;
+using GtkXournalClass = struct _GtkXournalClass;
 
 struct _GtkXournal
 {
