@@ -3,7 +3,7 @@
 #include "GzUtil.h"
 #include <i18n.h>
 
-#include <stdlib.h>
+#include <cstdlib>
 
 OutputStream::OutputStream() { }
 

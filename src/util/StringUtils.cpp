@@ -2,7 +2,7 @@
 #include <sstream> // std::istringstream
 
 #include <glib.h>
-#include <string.h>
+#include <cstring>
 
 string StringUtils::toLowerCase(string input)
 {	

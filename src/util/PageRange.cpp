@@ -1,7 +1,7 @@
 #include "PageRange.h"
 
-#include <ctype.h>
-#include <stdlib.h>
+#include <cctype>
+#include <cstdlib>
 
 PageRangeEntry::PageRangeEntry(int first, int last)
 {

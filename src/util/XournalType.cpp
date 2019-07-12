@@ -3,7 +3,7 @@
 #include "StringUtils.h"
 #include <config-dev.h>
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
 using std::cout;
 using std::endl;

@@ -2,7 +2,7 @@
 #include "StringUtils.h"
 
 #include <glib/gstdio.h>
-#include <string.h>
+#include <cstring>
 
 Path::Path()
 {

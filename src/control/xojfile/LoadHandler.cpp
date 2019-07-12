@@ -12,7 +12,7 @@
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 
-#include <stdlib.h>
+#include <cstdlib>
 
 #define error2(var, ...)																	\
 	if (var == NULL)																		\

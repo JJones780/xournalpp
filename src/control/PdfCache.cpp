@@ -1,6 +1,6 @@
 #include "PdfCache.h"
 
-#include <stdio.h>
+#include <cstdio>
 
 class PdfCacheEntry
 {

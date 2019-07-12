@@ -6,7 +6,7 @@
 #include <i18n.h>
 #include <XojMsgBox.h>
 
-#include <stdlib.h>
+#include <cstdlib>
 
 GladeGui::GladeGui(GladeSearchpath* gladeSearchPath, string glade, string mainWnd)
 {

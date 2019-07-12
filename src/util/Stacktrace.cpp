@@ -5,7 +5,7 @@
 #else
 #include <execinfo.h>
 #include <unistd.h>
-#include <limits.h>
+#include <climits>
 #endif
 
 #ifdef __APPLE__

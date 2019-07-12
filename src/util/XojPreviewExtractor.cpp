@@ -2,7 +2,7 @@
 
 #include <glib.h>
 #include <zlib.h>
-#include <string.h>
+#include <cstring>
 
 #include <GzUtil.h>
 #include <zip.h>

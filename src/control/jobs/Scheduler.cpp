@@ -1,7 +1,7 @@
 #include "Scheduler.h"
 #include <config-debug.h>
 
-#include <inttypes.h>
+#include <cinttypes>
 
 #ifdef DEBUG_SHEDULER
 #define SDEBUG g_message

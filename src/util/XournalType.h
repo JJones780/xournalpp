@@ -25,7 +25,7 @@ using std::string;
 #include <vector>
 using std::vector;
 
-#include <string.h>
+#include <cstring>
 
 #ifdef DEV_MEMORY_CHECKING
 

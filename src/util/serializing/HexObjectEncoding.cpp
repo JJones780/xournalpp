@@ -1,6 +1,6 @@
 #include "HexObjectEncoding.h"
 
-#include <stdio.h>
+#include <cstdio>
 
 HexObjectEncoding::HexObjectEncoding()
 {

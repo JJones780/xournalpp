@@ -5,7 +5,7 @@
 #include <Util.h>
 
 #include <gtk/gtk.h>
-#include <stdio.h>
+#include <cstdio>
 #include <config-debug.h>
 
 ToolListener::~ToolListener() { }

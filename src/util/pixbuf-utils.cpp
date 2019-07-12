@@ -41,9 +41,9 @@
 
 #include "pixbuf-utils.h"
 
-#include <math.h>
-#include <stdio.h>
-#include <errno.h>
+#include <cmath>
+#include <cstdio>
+#include <cerrno>
 #include <gdk/gdk.h>
 
 const cairo_user_data_key_t pixel_key = { 0 };
