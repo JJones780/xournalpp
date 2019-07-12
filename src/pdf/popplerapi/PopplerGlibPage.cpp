@@ -107,7 +107,7 @@ vector<XojPdfRectangle> PopplerGlibPage::findText(string& text)
 	{
 		auto* rect = (PopplerRectangle*) l->data;
 
-		findings.push_back(XojPdfRectangle(rect->x1, height - rect->y1, rect->x2, height - rect->y2));
+		findings.emplace_back(rect->x1, height - rect->y1, rect->x2, height - rect->y2);
 
 		poppler_rectangle_free(rect);
 	}

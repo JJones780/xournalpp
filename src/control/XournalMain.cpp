@@ -105,7 +105,7 @@ void XournalMain::checkForErrorlog()
 		{
 			if (StringUtils::startsWith(file, "errorlog."))
 			{
-				errorList.push_back(file);
+				errorList.emplace_back(file);
 			}
 		}
 	}
