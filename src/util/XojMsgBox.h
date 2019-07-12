@@ -21,8 +21,8 @@ using std::map;
 class XojMsgBox
 {
 private:
-	XojMsgBox();
-	virtual ~XojMsgBox();
+	XojMsgBox() = delete;
+	virtual ~XojMsgBox() = delete;
 
 public:
 	/**

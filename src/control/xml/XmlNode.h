@@ -25,8 +25,8 @@ public:
 	virtual ~XmlNode();
 
 private:
-	XmlNode(const XmlNode& node);
-	void operator=(const XmlNode& node);
+	XmlNode(const XmlNode& node) = delete;
+	void operator=(const XmlNode& node) = delete;
 
 public:
 	void setAttrib(const char* attrib, string value);

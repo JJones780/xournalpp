@@ -17,8 +17,8 @@ class Inertia;
 class CircleRecognizer
 {
 private:
-	CircleRecognizer();
-	virtual ~CircleRecognizer();
+	CircleRecognizer() = delete;
+	virtual ~CircleRecognizer() = delete;
 
 public:
 	static Stroke* recognize(Stroke* s);

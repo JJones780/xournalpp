@@ -17,8 +17,8 @@
 class GzUtil
 {
 private:
-	GzUtil();
-	virtual ~GzUtil();
+	GzUtil() = delete;
+	virtual ~GzUtil() = delete;
 
 public:
 	static gzFile openPath(Path path, string flags);

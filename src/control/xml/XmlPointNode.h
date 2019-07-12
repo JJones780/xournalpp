@@ -21,8 +21,8 @@ public:
 	virtual ~XmlPointNode();
 
 private:
-	XmlPointNode(const XmlPointNode& node);
-	void operator=(const XmlPointNode& node);
+	XmlPointNode(const XmlPointNode& node) = delete;
+	void operator=(const XmlPointNode& node) = delete;
 
 public:
 	void addPoint(const Point* point);

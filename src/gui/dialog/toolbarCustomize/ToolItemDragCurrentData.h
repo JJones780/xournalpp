@@ -18,8 +18,8 @@
 class ToolItemDragCurrentData
 {
 private:
-	ToolItemDragCurrentData();
-	virtual ~ToolItemDragCurrentData();
+	ToolItemDragCurrentData() = delete;
+	virtual ~ToolItemDragCurrentData() = delete;
 
 public:
 	static void clearData();

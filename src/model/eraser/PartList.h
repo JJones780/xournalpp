@@ -24,8 +24,8 @@ public:
 	virtual ~PartList();
 
 private:
-	PartList(const PartList& list);
-	void operator=(const PartList& list);
+	PartList(const PartList& list) = delete;
+	void operator=(const PartList& list) = delete;
 
 public:
 	void add(EraseableStrokePart* part);

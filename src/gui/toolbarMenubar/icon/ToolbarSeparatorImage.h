@@ -19,8 +19,8 @@
 class ToolbarSeparatorImage
 {
 private:
-	ToolbarSeparatorImage();
-	virtual ~ToolbarSeparatorImage();
+	ToolbarSeparatorImage() = delete;
+	virtual ~ToolbarSeparatorImage() = delete;
 
 public:
 	static GtkWidget* newSepeartorImage();

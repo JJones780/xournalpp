@@ -18,8 +18,8 @@ class LoadHandler;
 class LoadHandlerHelper
 {
 private:
-	LoadHandlerHelper();
-	~LoadHandlerHelper();
+	LoadHandlerHelper() = delete;
+	~LoadHandlerHelper() = delete;
 
 public:
 	static int parseBackgroundColor(LoadHandler* loadHandler);

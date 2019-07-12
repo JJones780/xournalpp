@@ -27,8 +27,8 @@ public:
 	virtual ~PdfCache();
 
 private:
-	PdfCache(const PdfCache& cache);
-	void operator=(const PdfCache& cache);
+	PdfCache(const PdfCache& cache) = delete;
+	void operator=(const PdfCache& cache) = delete;
 
 public:
 	void render(cairo_t* cr, XojPdfPageSPtr popplerPage, double zoom);

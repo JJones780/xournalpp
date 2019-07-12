@@ -22,7 +22,7 @@ public:
 	virtual ~ToolbarItem();
 
 private:
-	void operator=(const ToolbarItem& other);
+	void operator=(const ToolbarItem& other) = delete;
 
 public:
 	string getName();

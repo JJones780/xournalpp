@@ -17,7 +17,7 @@ class PathUtil
 {
 	// No instance allowed
 private:
-	PathUtil();
+	PathUtil() = delete;
 
 public:
 	/**

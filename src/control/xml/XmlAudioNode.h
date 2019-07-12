@@ -21,8 +21,8 @@ public:
 	virtual ~XmlAudioNode();
 
 private:
-	XmlAudioNode(const XmlAudioNode& node);
-	void operator=(const XmlAudioNode& node);
+	XmlAudioNode(const XmlAudioNode& node) = delete;
+	void operator=(const XmlAudioNode& node) = delete;
 
 public:
 	string getAudioFilename();

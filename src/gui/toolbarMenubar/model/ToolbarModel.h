@@ -23,8 +23,8 @@ public:
 	virtual ~ToolbarModel();
 
 private:
-	ToolbarModel(const ToolbarModel& other);
-	void operator=(const ToolbarModel& other);
+	ToolbarModel(const ToolbarModel& other) = delete;
+	void operator=(const ToolbarModel& other) = delete;
 
 public:
 	vector<ToolbarData*>* getToolbars();

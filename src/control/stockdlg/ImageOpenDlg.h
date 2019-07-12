@@ -18,8 +18,8 @@ class Settings;
 class ImageOpenDlg
 {
 private:
-	ImageOpenDlg();
-	virtual ~ImageOpenDlg();
+	ImageOpenDlg() = delete;
+	virtual ~ImageOpenDlg() = delete;
 
 public:
 	static GFile* show(GtkWindow* win, Settings* settings, bool localOnly = false, bool* attach = NULL);

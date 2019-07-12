@@ -32,8 +32,8 @@ protected:
 	void setCapability(int capability, bool enabled);
 
 private:
-	Tool(const Tool& t);
-	void operator=(const Tool& t);
+	Tool(const Tool& t) = delete;
+	void operator=(const Tool& t) = delete;
 
 private:
 	XOJ_TYPE_ATTRIB;

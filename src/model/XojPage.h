@@ -28,9 +28,9 @@ public:
 	void unreference();
 
 private:
-	XojPage(const XojPage& page);
+	XojPage(const XojPage& page) = delete;
 	virtual ~XojPage();
-	void operator=(const XojPage& p);
+	void operator=(const XojPage& p) = delete;
 
 	// Do not modify layers directly, use LayerController
 	// So notification can be sent on change

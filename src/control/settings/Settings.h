@@ -466,13 +466,13 @@ private:
 	 * Not implemented, do not use
 	 * @param settings
 	 */
-	Settings(const Settings& settings);
+	Settings(const Settings& settings) = delete;
 
 	/**
 	 * Not implemented, do not use
 	 * @param settings
 	 */
-	void operator=(const Settings& settings);
+	void operator=(const Settings& settings) = delete;
 
 private:
 	XOJ_TYPE_ATTRIB;

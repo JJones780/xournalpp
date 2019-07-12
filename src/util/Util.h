@@ -24,8 +24,8 @@ using std::string;
 class Util
 {
 private:
-	Util();
-	virtual ~Util();
+	Util() = delete;
+	virtual ~Util() = delete;
 
 public:
 	static void cairo_set_source_rgbi(cairo_t* cr, int color);

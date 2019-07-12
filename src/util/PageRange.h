@@ -35,8 +35,8 @@ typedef vector<PageRangeEntry*> PageRangeVector;
 class PageRange
 {
 private:
-	PageRange();
-	virtual ~PageRange();
+	PageRange() = delete;
+	virtual ~PageRange() = delete;
 
 public:
 	static bool isSeparator(char c);

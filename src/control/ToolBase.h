@@ -29,8 +29,8 @@ public:
 	void applyFrom(const ToolBase* t);
 
 private:
-	void operator=(const ToolBase& t);
-	ToolBase(const ToolBase& t);
+	void operator=(const ToolBase& t) = delete;
+	ToolBase(const ToolBase& t) = delete;
 
 public:
 	/**
