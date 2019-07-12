@@ -5,9 +5,9 @@
 
 #include <cstdlib>
 
-OutputStream::OutputStream() { }
+OutputStream::OutputStream() = default;
 
-OutputStream::~OutputStream() { }
+OutputStream::~OutputStream() = default;
 
 void OutputStream::write(const string& str)
 {

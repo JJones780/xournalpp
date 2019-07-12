@@ -77,8 +77,7 @@ void SidebarToolbar::setButtonEnabled(SidebarActions enabledActions)
 
 
 SidebarToolbarActionListener::~SidebarToolbarActionListener()
-{
-}
+= default;
 
 void SidebarToolbarActionListener::actionPerformed(SidebarActions action)
 {

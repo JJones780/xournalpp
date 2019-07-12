@@ -26,8 +26,7 @@ public:
 	}
 
 	virtual ~BaseSelectObject()
-	{
-	}
+	= default;
 
 public:
 	virtual bool at(double x, double y)
@@ -83,8 +82,7 @@ public:
 	}
 
 	virtual ~SelectObject()
-	{
-	}
+	= default;
 
 	bool at(double x, double y)
 	{
@@ -145,8 +143,7 @@ public:
 	}
 
 	virtual ~PlayObject()
-	{
-	}
+	= default;
 
 public:
 	bool at(double x, double y)

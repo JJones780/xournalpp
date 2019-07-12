@@ -105,5 +105,5 @@ void SpinPageAdapter::firePageChanged()
 	}
 }
 
-SpinPageListener::~SpinPageListener() { }
+SpinPageListener::~SpinPageListener() = default;
 

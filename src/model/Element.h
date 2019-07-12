@@ -30,7 +30,7 @@ class ShapeContainer
 public:
 	virtual bool contains(double x, double y) = 0;
 
-	virtual ~ShapeContainer() { }
+	virtual ~ShapeContainer() = default;
 };
 
 class Element : public Serializeable

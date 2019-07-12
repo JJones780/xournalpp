@@ -8,7 +8,7 @@
 #include <cstdio>
 #include <config-debug.h>
 
-ToolListener::~ToolListener() { }
+ToolListener::~ToolListener() = default;
 
 
 ToolHandler::ToolHandler(ToolListener* listener, ActionHandler* actionHandler, Settings* settings)

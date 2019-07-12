@@ -3,12 +3,10 @@
 #include "model/Stroke.h"
 
 StrokeStyle::StrokeStyle()
-{
-}
+= default;
 
 StrokeStyle::~StrokeStyle()
-{
-}
+= default;
 
 const double dashLinePattern[] = { 6, 3 };
 const double dashDotLinePattern[] = { 6, 3, 0.5, 3 };

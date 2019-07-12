@@ -6,13 +6,11 @@
 #include <utility>
 
 Path::Path()
-{
-}
+= default;
 
 Path::Path(const Path& other)
- : path(other.path)
-{
-}
+  
+= default;
 
 Path::Path(string path)
  : path(std::move(path))
@@ -25,8 +23,7 @@ Path::Path(const char* path)
 }
 
 Path::~Path()
-{
-}
+= default;
 
 /**
  * @return true if empty

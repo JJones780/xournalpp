@@ -7,9 +7,9 @@
 #include <Util.h>
 #include <StringUtils.h>
 
-TextView::TextView() { }
+TextView::TextView() = default;
 
-TextView::~TextView() { }
+TextView::~TextView() = default;
 
 static int textDpi = 72;
 

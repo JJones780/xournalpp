@@ -24,9 +24,9 @@ using std::endl;
  * Another solution would be backtrace-symbols.c from cairo/util, but its really complicated
  */
 
-Stacktrace::Stacktrace() { }
+Stacktrace::Stacktrace() = default;
 
-Stacktrace::~Stacktrace() { }
+Stacktrace::~Stacktrace() = default;
 
 #ifdef WIN32
 std::string Stacktrace::getExePath()

@@ -8,8 +8,8 @@
 
 #include <i18n.h>
 
-PageTypeMenuChangeListener::~PageTypeMenuChangeListener() {}
-PageTypeApplyListener::~PageTypeApplyListener() {}
+PageTypeMenuChangeListener::~PageTypeMenuChangeListener() = default;
+PageTypeApplyListener::~PageTypeApplyListener() = default;
 
 #define PREVIEW_COLUMNS 3
 

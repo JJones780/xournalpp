@@ -13,7 +13,7 @@
 #define MIME_PDF "application/x-pdf"
 #define GROUP "xournal++"
 
-RecentManagerListener::~RecentManagerListener() { }
+RecentManagerListener::~RecentManagerListener() = default;
 
 RecentManager::RecentManager()
 {

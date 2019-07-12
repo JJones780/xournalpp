@@ -11,8 +11,7 @@
 #include <cairo-svg.h>
 #include <pixbuf-utils.h>
 
-ClipboardListener::~ClipboardListener() {
-}
+ClipboardListener::~ClipboardListener() = default;
 
 ClipboardHandler::ClipboardHandler(ClipboardListener* listener, GtkWidget* widget)
 {

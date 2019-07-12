@@ -10,8 +10,7 @@
 class PlaceholderElement {
 public:
 	virtual ~PlaceholderElement()
-	{
-	}
+	= default;
 
 public:
 	virtual string format(string format) = 0;

@@ -17,8 +17,7 @@ using namespace std;
 MetadataEntry::MetadataEntry()
  
    
-{
-}
+= default;
 
 
 MetadataManager::MetadataManager()
