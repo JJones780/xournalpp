@@ -362,7 +362,7 @@ bool InputSequence::checkStillRunning()
 		return true;
 	}
 
-	GdkModifierType mask = (GdkModifierType) 0;
+	auto mask = (GdkModifierType) 0;
 	GdkWindow* window = gtk_widget_get_window(GTK_WIDGET(inputHandler->getXournal()));
 	gdk_device_get_state(device, window, NULL, &mask);
 

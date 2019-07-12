@@ -61,7 +61,7 @@ bool ImageHandler::insertImage(GFile* file, double x, double y)
 		return false;
 	}
 
-	Image* img = new Image();
+	auto* img = new Image();
 	img->setX(x);
 	img->setY(y);
 	img->setImage(pixbuf);

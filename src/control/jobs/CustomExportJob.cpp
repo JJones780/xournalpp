@@ -92,7 +92,7 @@ bool CustomExportJob::showFilechooser()
 
 	Document* doc = control->getDocument();
 	doc->lock();
-	ExportDialog* dlg = new ExportDialog(control->getGladeSearchPath());
+	auto* dlg = new ExportDialog(control->getGladeSearchPath());
 	if (filename.hasExtension(".pdf"))
 	{
 		dlg->removeDpiSelection();

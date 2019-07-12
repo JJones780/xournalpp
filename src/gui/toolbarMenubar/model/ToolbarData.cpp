@@ -108,7 +108,7 @@ void ToolbarData::load(GKeyFile* config, const char* group)
 			continue;
 		}
 
-		ToolbarEntry* e = new ToolbarEntry();
+		auto* e = new ToolbarEntry();
 		gsize keyLen = 0;
 		e->setName(keys[i]);
 		gchar** list = g_key_file_get_string_list(config, group, keys[i], &keyLen, NULL);
@@ -172,7 +172,7 @@ int ToolbarData::insertItem(string toolbar, string item, int position)
 		}
 	}
 
-	ToolbarEntry* newEntry = new ToolbarEntry();
+	auto* newEntry = new ToolbarEntry();
 	newEntry->setName(toolbar);
 	int id = newEntry->addItem(item);
 	contents.push_back(newEntry);

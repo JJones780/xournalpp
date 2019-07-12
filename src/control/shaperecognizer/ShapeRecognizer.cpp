@@ -108,7 +108,7 @@ Stroke* ShapeRecognizer::tryRectangle()
 		avgAngle = M_PI / 2;
 	}
 
-	Stroke* s = new Stroke();
+	auto* s = new Stroke();
 	s->applyStyleFrom(this->stroke);
 
 	for (int i = 0; i <= 3; i++)
@@ -278,7 +278,7 @@ Stroke* ShapeRecognizer::tryArrow()
 	double delta = fabs(alpha[1] - alpha[2]) / 2;
 	dist = (hypot(rs[1].x1 - rs[1].x2, rs[1].y1 - rs[1].y2) + hypot(rs[2].x1 - rs[2].x2, rs[2].y1 - rs[2].y2)) / 2;
 
-	Stroke* s = new Stroke();
+	auto* s = new Stroke();
 	s->applyStyleFrom(this->stroke);
 
 	s->addPoint(Point(x1, y1));
@@ -596,7 +596,7 @@ ShapeRecognizerResult* ShapeRecognizer::recognizePatterns(Stroke* stroke)
 
 		if ((tmp = tryRectangle()) != NULL)
 		{
-			ShapeRecognizerResult* result = new ShapeRecognizerResult(tmp, this);
+			auto* result = new ShapeRecognizerResult(tmp, this);
 			resetRecognizer();
 			RDEBUG("return tryRectangle()");
 			return result;
@@ -642,13 +642,13 @@ ShapeRecognizerResult* ShapeRecognizer::recognizePatterns(Stroke* stroke)
 				rs->x1 = rs->x2 = rs->xcenter;
 			}
 
-			Stroke* s = new Stroke();
+			auto* s = new Stroke();
 			s->applyStyleFrom(this->stroke);
 
 			s->addPoint(Point(rs->x1, rs->y1));
 			s->addPoint(Point(rs->x2, rs->y2));
 			rs->stroke = s;
-			ShapeRecognizerResult* result = new ShapeRecognizerResult(s);
+			auto* result = new ShapeRecognizerResult(s);
 			RDEBUG("return line");
 			return result;
 		}

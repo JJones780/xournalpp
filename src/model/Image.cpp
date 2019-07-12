@@ -29,7 +29,7 @@ Element* Image::clone()
 {
 	XOJ_CHECK_TYPE(Image);
 
-	Image* img = new Image();
+	auto* img = new Image();
 
 	img->x = this->x;
 	img->y = this->y;

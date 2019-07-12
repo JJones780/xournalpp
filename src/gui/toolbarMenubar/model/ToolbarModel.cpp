@@ -35,7 +35,7 @@ void ToolbarModel::parseGroup(GKeyFile* config, const char* group, bool predefin
 {
 	XOJ_CHECK_TYPE(ToolbarModel);
 
-	ToolbarData* data = new ToolbarData(predefined);
+	auto* data = new ToolbarData(predefined);
 
 	data->name = (predefined ? "predef_" : "custom_");
 	data->id = group;

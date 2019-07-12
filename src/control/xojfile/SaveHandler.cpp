@@ -72,7 +72,7 @@ void SaveHandler::prepareSave(Document* doc)
 	cairo_surface_t* preview = doc->getPreview();
 	if (preview)
 	{
-		XmlImageNode* image = new XmlImageNode("preview");
+		auto* image = new XmlImageNode("preview");
 		image->setImage(preview);
 		this->root->addChild(image);
 	}
@@ -154,7 +154,7 @@ void SaveHandler::visitStroke(XmlPointNode* stroke, Stroke* s)
 
 	if (s->hasPressure())
 	{
-		double* values = new double[pointCount + 1];
+		auto* values = new double[pointCount + 1];
 		values[0] = s->getWidth();
 		for (int i = 0; i < pointCount; i++)
 		{
@@ -193,14 +193,14 @@ void SaveHandler::visitLayer(XmlNode* page, Layer* l)
 {
 	XOJ_CHECK_TYPE(SaveHandler);
 
-	XmlNode* layer = new XmlNode("layer");
+	auto* layer = new XmlNode("layer");
 	page->addChild(layer);
 	for(Element* e : *l->getElements())
 	{
 		if (e->getType() == ELEMENT_STROKE)
 		{
-			Stroke* s = (Stroke*) e;
-			XmlPointNode* stroke = new XmlPointNode("stroke");
+			auto* s = (Stroke*) e;
+			auto* stroke = new XmlPointNode("stroke");
 			layer->addChild(stroke);
 			visitStroke(stroke, s);
 		}
@@ -222,8 +222,8 @@ void SaveHandler::visitLayer(XmlNode* page, Layer* l)
 		}
 		else if (e->getType() == ELEMENT_IMAGE)
 		{
-			Image* i = (Image*) e;
-			XmlImageNode* image = new XmlImageNode("image");
+			auto* i = (Image*) e;
+			auto* image = new XmlImageNode("image");
 			layer->addChild(image);
 
 			image->setImage(i->getImage());
@@ -235,8 +235,8 @@ void SaveHandler::visitLayer(XmlNode* page, Layer* l)
 		}
 		else if (e->getType() == ELEMENT_TEXIMAGE)
 		{
-			TexImage* i = (TexImage*) e;
-			XmlTexNode* image = new XmlTexNode("teximage", i->getBinaryData());
+			auto* i = (TexImage*) e;
+			auto* image = new XmlTexNode("teximage", i->getBinaryData());
 			layer->addChild(image);
 
 			image->setAttrib("text", i->getText().c_str());
@@ -252,12 +252,12 @@ void SaveHandler::visitPage(XmlNode* root, PageRef p, Document* doc, int id)
 {
 	XOJ_CHECK_TYPE(SaveHandler);
 
-	XmlNode* page = new XmlNode("page");
+	auto* page = new XmlNode("page");
 	root->addChild(page);
 	page->setAttrib("width", p->getWidth());
 	page->setAttrib("height", p->getHeight());
 
-	XmlNode* background = new XmlNode("background");
+	auto* background = new XmlNode("background");
 	page->addChild(background);
 
 	if (p->getBackgroundType().isPdfPage())
@@ -319,7 +319,7 @@ void SaveHandler::visitPage(XmlNode* root, PageRef p, Document* doc, int id)
 			background->setAttrib("filename", filename);
 			p->getBackgroundImage().setFilename(filename);
 
-			BackgroundImage* img = new BackgroundImage();
+			auto* img = new BackgroundImage();
 			*img = p->getBackgroundImage();
 			this->backgroundImages = g_list_append(this->backgroundImages, img);
 
@@ -341,7 +341,7 @@ void SaveHandler::visitPage(XmlNode* root, PageRef p, Document* doc, int id)
 	// no layer, but we need to write one layer, else the old Xournal cannot read the file
 	if (p->getLayers()->empty())
 	{
-		XmlNode* layer = new XmlNode("layer");
+		auto* layer = new XmlNode("layer");
 		page->addChild(layer);
 	}
 
@@ -397,7 +397,7 @@ void SaveHandler::saveTo(OutputStream* out, Path filename, ProgressListener* lis
 
 	for (GList* l = this->backgroundImages; l != NULL; l = l->next)
 	{
-		BackgroundImage* img = (BackgroundImage*) l->data;
+		auto* img = (BackgroundImage*) l->data;
 
 		string tmpfn = filename.str() + "." + img->getFilename();
 		if (!gdk_pixbuf_save(img->getPixbuf(), tmpfn.c_str(), "png", NULL, NULL))

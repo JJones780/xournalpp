@@ -1009,7 +1009,7 @@ void LoadHandler::parseAudio()
 void LoadHandler::parserStartElement(GMarkupParseContext* context, const gchar* elementName, const gchar** attributeNames,
                                      const gchar** attributeValues, gpointer userdata, GError** error)
 {
-	LoadHandler* handler = (LoadHandler*) userdata;
+	auto* handler = (LoadHandler*) userdata;
 	// Return on error
 	if (*error)
 	{
@@ -1061,7 +1061,7 @@ void LoadHandler::parserEndElement(GMarkupParseContext* context, const gchar* el
 		return;
 	}
 
-	LoadHandler* handler = (LoadHandler*) userdata;
+	auto* handler = (LoadHandler*) userdata;
 	XOJ_CHECK_TYPE_OBJ(handler, LoadHandler);
 
 	if (handler->pos == PARSER_POS_STARTED && strcmp(elementName, handler->endRootTag) == 0)
@@ -1115,7 +1115,7 @@ void LoadHandler::parserText(GMarkupParseContext* context, const gchar* text,
 		return;
 	}
 
-	LoadHandler* handler = (LoadHandler*) userdata;
+	auto* handler = (LoadHandler*) userdata;
 
 	XOJ_CHECK_TYPE_OBJ(handler, LoadHandler);
 
@@ -1195,7 +1195,7 @@ string LoadHandler::parseBase64(const gchar* base64, gsize lenght)
 	XOJ_CHECK_TYPE(LoadHandler);
 
 	// We have to copy the string in order to null terminate it, sigh.
-	gchar* base64data = (gchar*) g_memdup(base64, lenght + 1);
+	auto* base64data = (gchar*) g_memdup(base64, lenght + 1);
 	base64data[lenght] = '\0';
 
 	gsize binaryBufferLen = 0;

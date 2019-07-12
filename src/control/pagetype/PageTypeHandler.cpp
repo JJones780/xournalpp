@@ -103,7 +103,7 @@ void PageTypeHandler::loadFormat(GKeyFile* config, const char* group)
 
 void PageTypeHandler::addPageTypeInfo(string name, string format, string config)
 {
-	PageTypeInfo* pt = new PageTypeInfo();
+	auto* pt = new PageTypeInfo();
 	pt->name = name;
 	pt->page.format = format;
 	pt->page.config = config;

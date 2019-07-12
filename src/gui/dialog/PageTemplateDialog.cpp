@@ -197,7 +197,7 @@ void PageTemplateDialog::showPageSizeDialog()
 {
 	XOJ_CHECK_TYPE(PageTemplateDialog);
 
-	FormatDialog* dlg = new FormatDialog(getGladeSearchPath(), settings, model.getPageWidth(), model.getPageHeight());
+	auto* dlg = new FormatDialog(getGladeSearchPath(), settings, model.getPageWidth(), model.getPageHeight());
 	dlg->show(GTK_WINDOW(this->window));
 
 	double width = dlg->getWidth();

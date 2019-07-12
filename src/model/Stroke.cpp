@@ -43,7 +43,7 @@ Stroke* Stroke::cloneStroke() const
 {
 	XOJ_CHECK_TYPE(Stroke);
 
-	Stroke* s = new Stroke();
+	auto* s = new Stroke();
 	s->applyStyleFrom(this);
 
 	s->allocPointSize(this->pointCount);

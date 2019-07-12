@@ -101,7 +101,7 @@ gint pageViewCmpSize(XojPageView* a, XojPageView* b)
 
 void XournalView::staticLayoutPages(GtkWidget* widget, GtkAllocation* allocation, void* data)
 {
-	XournalView* xv = (XournalView*) data;
+	auto* xv = (XournalView*) data;
 	XOJ_CHECK_TYPE_OBJ(xv, XournalView);
 	xv->layoutPages();
 }
@@ -134,7 +134,7 @@ gboolean XournalView::clearMemoryTimer(XournalView* widget)
 		}
 		else
 		{
-			XojPageView* v = (XojPageView*) l->data;
+			auto* v = (XojPageView*) l->data;
 
 			if (pixel <= 0)
 			{

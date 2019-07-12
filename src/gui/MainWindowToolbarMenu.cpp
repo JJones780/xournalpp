@@ -149,7 +149,7 @@ void MainWindowToolbarMenu::addToolbarMenuEntry(ToolbarData* d, GtkMenuShell* me
 
 	gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), d == selectedToolbar);
 
-	MenuSelectToolbarData* data = new MenuSelectToolbarData(this, item, d, toolbarMenuData.size());
+	auto* data = new MenuSelectToolbarData(this, item, d, toolbarMenuData.size());
 	toolbarMenuData.push_back(data);
 
 	g_signal_connect(item, "toggled", G_CALLBACK(tbSelectMenuitemActivated), data);

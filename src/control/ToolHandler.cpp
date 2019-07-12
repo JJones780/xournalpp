@@ -32,7 +32,7 @@ void ToolHandler::initTools()
 		tool = NULL;
 	}
 
-	double* thickness = new double[5];
+	auto* thickness = new double[5];
 	// pen thicknesses = 0.15, 0.3, 0.5, 0.8, 2 mm
 	thickness[TOOL_SIZE_VERY_FINE] = 0.42;
 	thickness[TOOL_SIZE_FINE] = 0.85;

@@ -37,7 +37,7 @@ SidebarIndexPage::SidebarIndexPage(Control* control, SidebarToolbar* toolbar)
 	gtk_tree_view_column_set_expand(GTK_TREE_VIEW_COLUMN(column), TRUE);
 	gtk_tree_view_append_column(GTK_TREE_VIEW(treeViewBookmarks), column);
 
-	GtkCellRenderer* renderer = (GtkCellRenderer*) g_object_new(GTK_TYPE_CELL_RENDERER_TEXT, "ellipsize",
+	auto* renderer = (GtkCellRenderer*) g_object_new(GTK_TYPE_CELL_RENDERER_TEXT, "ellipsize",
 																PANGO_ELLIPSIZE_END, NULL);
 	gtk_tree_view_column_pack_start(GTK_TREE_VIEW_COLUMN(column), renderer, TRUE);
 	gtk_tree_view_column_set_attributes(GTK_TREE_VIEW_COLUMN(column), renderer, "markup", DOCUMENT_LINKS_COLUMN_NAME, NULL);

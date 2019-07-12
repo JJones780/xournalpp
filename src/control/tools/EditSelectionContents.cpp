@@ -106,7 +106,7 @@ UndoAction* EditSelectionContents::setSize(ToolSize size,
 	{
 		if (e->getType() == ELEMENT_STROKE)
 		{
-			Stroke* s = (Stroke*) e;
+			auto* s = (Stroke*) e;
 			StrokeTool tool = s->getToolType();
 
 			double originalWidth = s->getWidth();
@@ -169,7 +169,7 @@ UndoAction* EditSelectionContents::setFill(int alphaPen, int alphaHighligther)
 	{
 		if (e->getType() == ELEMENT_STROKE)
 		{
-			Stroke* s = (Stroke*) e;
+			auto* s = (Stroke*) e;
 			StrokeTool tool = s->getToolType();
 			int newFill = 128;
 

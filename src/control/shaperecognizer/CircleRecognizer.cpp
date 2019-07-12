@@ -17,7 +17,7 @@ Stroke* CircleRecognizer::makeCircleShape(Stroke* originalStroke, Inertia& inert
 		npts = 12; // min. number of points
 	}
 
-	Stroke* s = new Stroke();
+	auto* s = new Stroke();
 	s->applyStyleFrom(originalStroke);
 
 	for (int i = 0; i <= npts; i++)

@@ -35,7 +35,7 @@ XojLinkDest* PopplerGlibAction::getDestination()
 	// every other action is not supported in Xournal
 	if (action->type == POPPLER_ACTION_GOTO_DEST)
 	{
-		PopplerActionGotoDest* actionDest = (PopplerActionGotoDest*)action;
+		auto* actionDest = (PopplerActionGotoDest*)action;
 		PopplerDest* pDest = actionDest->dest;
 
 		if (pDest == NULL)

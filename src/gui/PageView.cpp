@@ -769,7 +769,7 @@ void XojPageView::addRerenderRect(double x, double y, double width, double heigh
 		return;
 	}
 
-	Rectangle* rect = new Rectangle(x, y, width, height);
+	auto* rect = new Rectangle(x, y, width, height);
 
 	g_mutex_lock(&this->repaintRectMutex);
 

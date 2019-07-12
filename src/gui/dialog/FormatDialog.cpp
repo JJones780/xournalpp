@@ -52,7 +52,7 @@ FormatDialog::FormatDialog(GladeSearchpath* gladeSearchPath, Settings* settings,
 	int i = 0;
 	for (GList* l = list; l != NULL; l = l->next)
 	{
-		GtkPaperSize* s = (GtkPaperSize*) l->data;
+		auto* s = (GtkPaperSize*) l->data;
 
 		string displayName = gtk_paper_size_get_display_name(s);
 		if (StringUtils::startsWith(displayName, "custom_"))
@@ -97,7 +97,7 @@ FormatDialog::~FormatDialog()
 
 	for (GList* l = this->list; l != NULL; l = l->next)
 	{
-		GtkPaperSize* s = (GtkPaperSize*) l->data;
+		auto* s = (GtkPaperSize*) l->data;
 		gtk_paper_size_free(s);
 	}
 
@@ -120,7 +120,7 @@ void FormatDialog::loadPageFormats()
 	{
 		// Copy next here, because the entry may be deleted
 		next = l->next;
-		GtkPaperSize* s = (GtkPaperSize*) l->data;
+		auto* s = (GtkPaperSize*) l->data;
 
 		string name = gtk_paper_size_get_name(s);
 		if (name == GTK_PAPER_NAME_A3 ||
@@ -200,7 +200,7 @@ void FormatDialog::spinValueChangedCb(GtkSpinButton* spinbutton, FormatDialog* d
 	int i = 0;
 	for (GList* l = dlg->list; l != NULL; l = l->next)
 	{
-		GtkPaperSize* s = (GtkPaperSize*) l->data;
+		auto* s = (GtkPaperSize*) l->data;
 		double w = gtk_paper_size_get_width(s, GTK_UNIT_POINTS);
 		double h = gtk_paper_size_get_height(s, GTK_UNIT_POINTS);
 
@@ -256,7 +256,7 @@ void FormatDialog::cbFormatChangedCb(GtkComboBox* widget, FormatDialog* dlg)
 	{
 		return;
 	}
-	GtkPaperSize* s = (GtkPaperSize*) g_value_get_pointer(&value);
+	auto* s = (GtkPaperSize*) g_value_get_pointer(&value);
 
 	if (s == NULL)
 	{

@@ -112,7 +112,7 @@ protected:
 	{
 		if (e->getType() == ELEMENT_STROKE)
 		{
-			Stroke* s = (Stroke*) e;
+			auto* s = (Stroke*) e;
 			double tmpGap = 0;
 			if ((s->intersects(x, y, 5, &tmpGap)) && (gap > tmpGap))
 			{
@@ -162,7 +162,7 @@ protected:
 			return false;
 		}
 
-		AudioElement* s = (AudioElement*) e;
+		auto* s = (AudioElement*) e;
 		double tmpGap = 0;
 		if ((s->intersects(x, y, 15, &tmpGap)))
 		{

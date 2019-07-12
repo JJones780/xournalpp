@@ -166,7 +166,7 @@ void ToolMenuHandler::load(ToolbarData* d, GtkWidget* toolbar, const char* toolb
 					color = color.substr(2);
 					gint c = g_ascii_strtoll(color.c_str(), NULL, 16);
 
-					ColorToolItem* item = new ColorToolItem(listener, toolHandler, this->parent, c);
+					auto* item = new ColorToolItem(listener, toolHandler, this->parent, c);
 					this->toolbarColorItems.push_back(item);
 
 					GtkToolItem* it = item->createItem(horizontal);

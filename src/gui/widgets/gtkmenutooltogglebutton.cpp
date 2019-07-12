@@ -175,9 +175,9 @@ static void gtk_menu_tool_toggle_button_get_property(GObject* object,
 static void gtk_menu_tool_toggle_button_class_init(GtkMenuToolToggleButtonClass*
                                                    klass)
 {
-	GObjectClass* object_class = (GObjectClass*) klass;
-	GtkWidgetClass* widget_class = (GtkWidgetClass*) klass;
-	GtkToolItemClass* toolitem_class = (GtkToolItemClass*) klass;
+	auto* object_class = (GObjectClass*) klass;
+	auto* widget_class = (GtkWidgetClass*) klass;
+	auto* toolitem_class = (GtkToolItemClass*) klass;
 
 	object_class->set_property = gtk_menu_tool_toggle_button_set_property;
 	object_class->get_property = gtk_menu_tool_toggle_button_get_property;

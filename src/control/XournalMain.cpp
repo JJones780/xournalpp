@@ -358,7 +358,7 @@ int XournalMain::run(int argc, char* argv[])
 	// Init GTK Display
 	gtk_init(&argc, &argv);
 
-	GladeSearchpath* gladePath = new GladeSearchpath();
+	auto* gladePath = new GladeSearchpath();
 	initResourcePath(gladePath, "ui/about.glade");
 	initResourcePath(gladePath, "ui/xournalpp.css",  false); 	//will notify user if file not present. Path ui/ already added above.
 
@@ -366,7 +366,7 @@ int XournalMain::run(int argc, char* argv[])
 	string colorNameFile = Util::getConfigFile("colornames.ini").str();
 	ToolbarColorNames::getInstance().loadFile(colorNameFile);
 
-	Control* control = new Control(gladePath);
+	auto* control = new Control(gladePath);
 
 	if (control->getSettings()->isDarkTheme())
 	{
@@ -377,7 +377,7 @@ int XournalMain::run(int argc, char* argv[])
 	string icon = gladePath->getFirstSearchPath() + "/icons/";
 	gtk_icon_theme_prepend_search_path(gtk_icon_theme_get_default(), icon.c_str());
 
-	MainWindow* win = new MainWindow(gladePath, control);
+	auto* win = new MainWindow(gladePath, control);
 	control->initWindow(win);
 
 	win->show(NULL);

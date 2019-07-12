@@ -47,7 +47,7 @@ Element* TexImage::clone()
 {
 	XOJ_CHECK_TYPE(TexImage);
 
-	TexImage* img = new TexImage();
+	auto* img = new TexImage();
 
 	img->x = this->x;
 	img->y = this->y;

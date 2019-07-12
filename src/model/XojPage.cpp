@@ -46,7 +46,7 @@ void XojPage::unreference()
 
 XojPage* XojPage::clone()
 {
-	XojPage* page = new XojPage(this->width, this->height);
+	auto* page = new XojPage(this->width, this->height);
 
 	page->backgroundImage = this->backgroundImage;
 	for (Layer* l : this->layer)

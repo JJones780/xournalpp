@@ -24,7 +24,7 @@ Layer* Layer::clone()
 {
 	XOJ_CHECK_TYPE(Layer);
 
-	Layer* layer = new Layer();
+	auto* layer = new Layer();
 
 	for (Element* e : this->elements)
 	{

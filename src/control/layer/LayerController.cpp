@@ -202,7 +202,7 @@ void LayerController::addNewLayer()
 		return;
 	}
 
-	Layer* l = new Layer();
+	auto* l = new Layer();
 	int layerPos = p->getSelectedLayerId();
 	p->insertLayer(l, layerPos);
 

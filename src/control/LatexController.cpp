@@ -142,7 +142,7 @@ std::unique_ptr<GPid> LatexController::runCommandAsync(string texString)
 	char* argv[] = {cmd, texFlag, texFileEscaped, nullptr};
 
 	std::unique_ptr<GPid> pdflatexPid(new GPid);
-	GSpawnFlags flags =
+	auto flags =
 	        GSpawnFlags(G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL | G_SPAWN_DO_NOT_REAP_CHILD);
 
 	this->setUpdating(true);

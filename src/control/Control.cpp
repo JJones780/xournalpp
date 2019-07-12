@@ -403,7 +403,7 @@ bool Control::autosaveCallback(Control* control)
 		g_message("Info: autosave document...");
 	}
 
-	AutosaveJob* job = new AutosaveJob(control);
+	auto* job = new AutosaveJob(control);
 	control->scheduler->addJob(job, JOB_PRIORITY_NONE);
 	job->unref();
 
@@ -1044,7 +1044,7 @@ void Control::actionPerformed(ActionType type, ActionGroup group, GdkEvent* even
 
 	if (type >= ACTION_TOOL_PEN && type <= ACTION_TOOL_HAND)
 	{
-		ActionType at = (ActionType)(toolHandler->getToolType() - TOOL_PEN + ACTION_TOOL_PEN);
+		auto at = (ActionType)(toolHandler->getToolType() - TOOL_PEN + ACTION_TOOL_PEN);
 		if (type == at && !enabled)
 		{
 			fireActionSelected(GROUP_TOOL, at);
@@ -1189,7 +1189,7 @@ void Control::customizeToolbars()
 
 		if (res == -8)  // Yes
 		{
-			ToolbarData* data = new ToolbarData(*this->win->getSelectedToolbar());
+			auto* data = new ToolbarData(*this->win->getSelectedToolbar());
 
 			ToolbarModel* model = this->win->getToolbarModel();
 			model->initCopyNameId(data);
@@ -1882,7 +1882,7 @@ void Control::undoRedoPageChanged(PageRef page)
 		}
 	}
 
-	XojPage* p = (XojPage*) page;
+	auto* p = (XojPage*) page;
 	this->changedPages.push_back(p);
 	p->reference();
 }
@@ -1914,7 +1914,7 @@ void Control::toolChanged()
 	ToolType type = toolHandler->getToolType();
 
 	// Convert enum values, enums has to be in the same order!
-	ActionType at = (ActionType)(type - TOOL_PEN + ACTION_TOOL_PEN);
+	auto at = (ActionType)(type - TOOL_PEN + ACTION_TOOL_PEN);
 
 	fireActionSelected(GROUP_TOOL, at);
 

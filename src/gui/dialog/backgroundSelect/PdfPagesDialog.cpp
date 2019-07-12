@@ -81,7 +81,7 @@ void PdfPagesDialog::onlyNotUsedCallback(GtkToggleButton* tb, PdfPagesDialog* dl
 	{
 		for (BaseElementView* p : dlg->elements)
 		{
-			PdfElementView* pv = (PdfElementView*)p;
+			auto* pv = (PdfElementView*)p;
 			pv->setHideUnused();
 		}
 	}
@@ -122,7 +122,7 @@ void PdfPagesDialog::show(GtkWindow* parent)
 	int unused = 0;
 	for (BaseElementView* p : elements)
 	{
-		PdfElementView* pv = (PdfElementView*)p;
+		auto* pv = (PdfElementView*)p;
 		if (!pv->isUsed())
 		{
 			unused++;

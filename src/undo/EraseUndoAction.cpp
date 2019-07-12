@@ -23,7 +23,7 @@ EraseUndoAction::~EraseUndoAction()
 
 	for (GList* l = this->original; l != NULL; l = l->next)
 	{
-		PageLayerPosEntry<Stroke>* e = (PageLayerPosEntry<Stroke>*) l->data;
+		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 		if (!undone)
 		{
 			delete e->element;
@@ -35,7 +35,7 @@ EraseUndoAction::~EraseUndoAction()
 
 	for (GList* l = this->edited; l != NULL; l = l->next)
 	{
-		PageLayerPosEntry<Stroke>* e = (PageLayerPosEntry<Stroke>*) l->data;
+		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 		if (undone)
 		{
 			delete e->element;
@@ -70,7 +70,7 @@ void EraseUndoAction::removeEdited(Stroke* element)
 
 	for (GList* l = this->edited; l != NULL; l = l->next)
 	{
-		PageLayerPosEntry<Stroke>* p = (PageLayerPosEntry<Stroke>*) l->data;
+		auto* p = (PageLayerPosEntry<Stroke>*) l->data;
 		if (p->element == element)
 		{
 			this->edited = g_list_delete_link(this->edited, l);
@@ -87,7 +87,7 @@ void EraseUndoAction::finalize()
 
 	for (GList* l = this->original; l != NULL;)
 	{
-		PageLayerPosEntry<Stroke>* p = (PageLayerPosEntry<Stroke>*) l->data;
+		auto* p = (PageLayerPosEntry<Stroke>*) l->data;
 		GList* del = l;
 		l = l->next;
 
@@ -107,7 +107,7 @@ void EraseUndoAction::finalize()
 			GList* stroke = e->getStroke(p->element);
 			for (GList* ls = stroke; ls != NULL; ls = ls->next)
 			{
-				Stroke* copy = (Stroke*) ls->data;
+				auto* copy = (Stroke*) ls->data;
 				p->layer->insertElement(copy, pos);
 				this->addEdited(p->layer, copy, pos);
 				pos++;
@@ -135,7 +135,7 @@ bool EraseUndoAction::undo(Control* control)
 
 	for (GList* l = this->edited; l != NULL; l = l->next)
 	{
-		PageLayerPosEntry<Stroke>* e = (PageLayerPosEntry<Stroke>*) l->data;
+		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 
 		e->layer->removeElement(e->element, false);
 		this->page->fireElementChanged(e->element);
@@ -143,7 +143,7 @@ bool EraseUndoAction::undo(Control* control)
 
 	for (GList* l = this->original; l != NULL; l = l->next)
 	{
-		PageLayerPosEntry<Stroke>* e = (PageLayerPosEntry<Stroke>*) l->data;
+		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 
 		e->layer->insertElement(e->element, e->pos);
 		this->page->fireElementChanged(e->element);
@@ -159,7 +159,7 @@ bool EraseUndoAction::redo(Control* control)
 
 	for (GList* l = this->original; l != NULL; l = l->next)
 	{
-		PageLayerPosEntry<Stroke>* e = (PageLayerPosEntry<Stroke>*) l->data;
+		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 
 		e->layer->removeElement(e->element, false);
 		this->page->fireElementChanged(e->element);
@@ -167,7 +167,7 @@ bool EraseUndoAction::redo(Control* control)
 
 	for (GList* l = this->edited; l != NULL; l = l->next)
 	{
-		PageLayerPosEntry<Stroke>* e = (PageLayerPosEntry<Stroke>*) l->data;
+		auto* e = (PageLayerPosEntry<Stroke>*) l->data;
 
 		e->layer->insertElement(e->element, e->pos);
 		this->page->fireElementChanged(e->element);

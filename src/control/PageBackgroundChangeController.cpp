@@ -231,7 +231,7 @@ bool PageBackgroundChangeController::applyPdfBackground(PageRef page)
 	}
 
 	doc->lock();
-	PdfPagesDialog* dlg = new PdfPagesDialog(control->getGladeSearchPath(), doc, control->getSettings());
+	auto* dlg = new PdfPagesDialog(control->getGladeSearchPath(), doc, control->getSettings());
 	doc->unlock();
 
 	dlg->show(GTK_WINDOW(control->getGtkWindow()));

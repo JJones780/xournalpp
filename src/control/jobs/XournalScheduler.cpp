@@ -131,7 +131,7 @@ void XournalScheduler::addRepaintSidebar(SidebarPreviewBaseEntry* preview)
 		return;
 	}
 
-	PreviewJob* job = new PreviewJob(preview);
+	auto* job = new PreviewJob(preview);
 	addJob(job, JOB_PRIORITY_HIGH);
 	job->unref();
 }
@@ -145,7 +145,7 @@ void XournalScheduler::addRerenderPage(XojPageView* view)
 		return;
 	}
 
-	RenderJob* job = new RenderJob(view);
+	auto* job = new RenderJob(view);
 	addJob(job, JOB_PRIORITY_URGENT);
 	job->unref();
 }

@@ -349,7 +349,7 @@ static void gtk_xoj_int_txt_init(GtkXojIntTxt* invisible)
 GtkWidget*
 gtk_xoj_int_txt_new(TextEditor* te)
 {
-	GtkXojIntTxt* txt = (GtkXojIntTxt*) g_object_new(GTK_TYPE_XOJ_INT_TXT, NULL);
+	auto* txt = (GtkXojIntTxt*) g_object_new(GTK_TYPE_XOJ_INT_TXT, NULL);
 	txt->te = te;
 	return (GtkWidget*) txt;
 }

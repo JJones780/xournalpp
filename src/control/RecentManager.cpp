@@ -171,7 +171,7 @@ GList* RecentManager::filterRecent(GList* items, bool xoj)
 	// filter
 	for (GList* l = items; l != NULL; l = l->next)
 	{
-		GtkRecentInfo* info = (GtkRecentInfo*) l->data;
+		auto* info = (GtkRecentInfo*) l->data;
 		
 		const gchar * uri = gtk_recent_info_get_uri(info);
 		if( !uri )	// issue #1071
@@ -207,7 +207,7 @@ void RecentManager::recentsMenuActivateCallback(GtkAction* action, RecentManager
 {
 	XOJ_CHECK_TYPE_OBJ(recentManager, RecentManager);
 
-	GtkRecentInfo* info = (GtkRecentInfo*) g_object_get_data(G_OBJECT(action), "gtk-recent-info");
+	auto* info = (GtkRecentInfo*) g_object_get_data(G_OBJECT(action), "gtk-recent-info");
 	g_return_if_fail(info != NULL);
 
 	Path p = Path::fromUri(gtk_recent_info_get_uri(info));
@@ -278,7 +278,7 @@ void RecentManager::updateMenu()
 	int xojCount = 0;
 	for (GList* l = filteredItemsXoj; l != NULL; l = l->next)
 	{
-		GtkRecentInfo* info = (GtkRecentInfo*) l->data;
+		auto* info = (GtkRecentInfo*) l->data;
 
 		if (xojCount >= maxRecent)
 		{
@@ -299,7 +299,7 @@ void RecentManager::updateMenu()
 	int pdfCount = 0;
 	for (GList* l = filteredItemsPdf; l != NULL; l = l->next)
 	{
-		GtkRecentInfo* info = (GtkRecentInfo*) l->data;
+		auto* info = (GtkRecentInfo*) l->data;
 
 		if (pdfCount >= maxRecent)
 		{

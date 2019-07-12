@@ -13,7 +13,7 @@ PartList::~PartList()
 
 	for (GList* l = this->data; l != NULL; l = l->next)
 	{
-		EraseableStrokePart* p = (EraseableStrokePart*) l->data;
+		auto* p = (EraseableStrokePart*) l->data;
 		delete p;
 	}
 	g_list_free(this->data);
@@ -33,10 +33,10 @@ PartList* PartList::clone()
 {
 	XOJ_CHECK_TYPE(PartList);
 
-	PartList* list = new PartList();
+	auto* list = new PartList();
 	for (GList* l = this->data; l != NULL; l = l->next)
 	{
-		EraseableStrokePart* p = (EraseableStrokePart*) l->data;
+		auto* p = (EraseableStrokePart*) l->data;
 		list->data = g_list_append(list->data, p->clone());
 	}
 

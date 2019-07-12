@@ -46,7 +46,7 @@ void ImagesDialog::loadImagesFromPages()
 			continue;
 		}
 
-		ImageElementView* iv = new ImageElementView(this->elements.size(), this);
+		auto* iv = new ImageElementView(this->elements.size(), this);
 		iv->backgroundImage = p->getBackgroundImage();
 		this->elements.push_back(iv);
 	}
@@ -56,7 +56,7 @@ bool ImagesDialog::isImageAlreadyInTheList(BackgroundImage& image)
 {
 	for (BaseElementView* v : this->elements)
 	{
-		ImageElementView* iv = (ImageElementView*)v;
+		auto* iv = (ImageElementView*)v;
 		if (iv->backgroundImage == image)
 		{
 			return true;

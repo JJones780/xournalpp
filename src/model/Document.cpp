@@ -467,7 +467,7 @@ void Document::deletePage(size_t pNr)
 {
 	XOJ_CHECK_TYPE(Document);
 
-	vector<PageRef>::iterator it = this->pages.begin() + pNr;
+	auto it = this->pages.begin() + pNr;
 	this->pages.erase(it);
 
 	updateIndexPageNumbers();

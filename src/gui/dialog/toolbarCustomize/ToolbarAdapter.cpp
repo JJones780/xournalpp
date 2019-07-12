@@ -304,7 +304,7 @@ void ToolbarAdapter::toolbarDragDataReceivedCb(GtkToolbar* toolbar, GdkDragConte
 {
 	XOJ_CHECK_TYPE_OBJ(adapter, ToolbarAdapter);
 
-	ToolItemDragDropData* d = (ToolItemDragDropData*) gtk_selection_data_get_data( data);
+	auto* d = (ToolItemDragDropData*) gtk_selection_data_get_data( data);
 	g_return_if_fail(ToolitemDragDrop::checkToolItemDragDropData(d));
 
 	int pos = gtk_toolbar_get_drop_index(toolbar, x, y);
@@ -329,7 +329,7 @@ void ToolbarAdapter::toolbarDragDataReceivedCb(GtkToolbar* toolbar, GdkDragConte
 	}
 	else if (d->type == TOOL_ITEM_COLOR)
 	{
-		ColorToolItem* item = new ColorToolItem(adapter->window->getControl(),
+		auto* item = new ColorToolItem(adapter->window->getControl(),
 												adapter->window->getControl()->getToolHandler(),
 												GTK_WINDOW(adapter->window->getWindow()), d->color);
 

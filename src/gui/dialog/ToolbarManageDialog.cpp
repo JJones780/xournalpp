@@ -86,7 +86,7 @@ void ToolbarManageDialog::buttonNewCallback(GtkButton* button, ToolbarManageDial
 {
 	XOJ_CHECK_TYPE_OBJ(dlg, ToolbarManageDialog);
 
-	ToolbarData* data = new ToolbarData(false);
+	auto* data = new ToolbarData(false);
 	data->setName(_("New"));
 	data->setId("custom");
 	dlg->tbModel->initCopyNameId(data);
@@ -135,7 +135,7 @@ void ToolbarManageDialog::buttonCopyCallback(GtkButton* button, ToolbarManageDia
 		return;
 	}
 
-	ToolbarData* data = new ToolbarData(*selected);
+	auto* data = new ToolbarData(*selected);
 	dlg->tbModel->initCopyNameId(data);
 	dlg->addToolbarData(data);
 }
