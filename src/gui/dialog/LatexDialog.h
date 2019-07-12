@@ -24,13 +24,13 @@ class LatexDialog : public GladeGui
 	LatexDialog(const LatexDialog& other) = delete;
 	LatexDialog& operator=(const LatexDialog& other) = delete;
 	LatexDialog(GladeSearchpath* gladeSearchPath);
-	~LatexDialog() override override;
+	~LatexDialog() override ;
 
   public:
 	/**
 	 * Show the dialog.
 	 */
-	void show(GtkWindow* parent) override override;
+	void show(GtkWindow* parent) override ;
 
 	/**
 	 * Show the dialog, optionally selecting the text field contents by default.
